@@ -121,7 +121,7 @@
 
                                     </tbody>
                                 </table>
-                               <script src="js/jquery-3.6.0.js"></script>
+                                <script src="js/jquery-3.6.0.js"></script>
                                 <script src="datatables/jquery.dataTables.js"></script>
                                 <script src="datatables/dataTables.bootstrap4.js"></script>
                                 <script>

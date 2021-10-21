@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.Date;
 
 public class Barbeiro {
@@ -81,8 +80,4 @@ public class Barbeiro {
     public Barbeiro() {
 
     }
-//    public boolean gravar() throws SQLException {
-  //      BarbeiroDAO bdao = new BarbeiroDAO();
-    //    return bdao.gravar(this);
-    //}
 }

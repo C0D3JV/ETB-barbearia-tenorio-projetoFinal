@@ -1,4 +1,3 @@
-
 package model;
 
 import factory.ConexaoFactory;
@@ -195,7 +194,4 @@ public class UsuarioDAO {
         
         return u;
     }
-        
-    
-    
 }
