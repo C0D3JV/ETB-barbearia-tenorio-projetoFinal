@@ -56,6 +56,7 @@
             <div id="content">
                 <div class="bg-background">
                     <form action="gerenciarBarbeiro" method="POST">
+                        <h2 class="pt-3">Cadastro de Barbeiro</h2>
                         <input type="hidden" class="form-control" name="idBarbeiro"
                                id="idBarbeiro" value="${barbeiro.idBarbeiro}"/>
 
@@ -108,11 +109,11 @@
                                             <c:if test="${u.idUsuario == barbeiro.usuario.idUsuario}">
                                                 selected=""
                                             </c:if>
-
-                                            >${u.nome}</option>
+                                                >${u.nome}
+                                    </option>
                                 </c:forEach>
                             </select>
-                        </div
+                        </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>

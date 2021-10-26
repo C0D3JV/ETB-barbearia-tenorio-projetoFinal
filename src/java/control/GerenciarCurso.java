@@ -1,3 +1,5 @@
+//Arrumar o preco que não está retornando na hora de alterar
+
 package control;
 
 import java.io.IOException;
@@ -111,12 +113,8 @@ public class GerenciarCurso extends HttpServlet {
                 }
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | NumberFormatException e) {
             mensagem = "Erro: " + e.getMessage();
-            out.println(mensagem);
-
-        } catch (NumberFormatException nfe){
-              mensagem = "Erro: " + nfe.getMessage();
             out.println(mensagem);
         }
 

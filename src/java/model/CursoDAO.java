@@ -16,21 +16,22 @@ public class CursoDAO {
     ResultSet rs;
 
     public ArrayList<Curso> getLista() {
-        String sql = "SELECT idCurso, nome, cargaHoraria, preco, imagem, descricao FROM curso";
-        ArrayList<Curso> cursos = new ArrayList<>();
+        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, cs.imagem,"
+                + " cs.descricao FROM curso cs";
+        ArrayList<Curso> lista = new ArrayList<>();
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Curso cs = new Curso();
-                cs.setIdCurso(rs.getInt("idCurso"));
-                cs.setNome(rs.getString("nome"));
-                cs.setCargaHoraria(rs.getInt("cargaHoraria"));
-                cs.setPreco(rs.getDouble("preco"));
-                cs.setImagem(rs.getString("imagem"));
-                cs.setDescricao(rs.getString("descricao"));
-                cursos.add(cs);
+                cs.setIdCurso(rs.getInt("cs.idCurso"));
+                cs.setNome(rs.getString("cs.nome"));
+                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
+                cs.setPreco(rs.getDouble("cs.preco"));
+                cs.setImagem(rs.getString("cs.imagem"));
+                cs.setDescricao(rs.getString("cs.descricao"));
+                lista.add(cs);
             }
             ConexaoFactory.close(con);
 
@@ -39,7 +40,7 @@ public class CursoDAO {
                     "Falha ao listar os cursos da base de dados:"
                     + e.getMessage());
         }
-        return cursos;
+        return lista;
     }
 
     public boolean gravar(Curso cs) {
@@ -96,19 +97,20 @@ public class CursoDAO {
 
     public Curso getCarregarPorId(int idCurso) throws Exception {
         Curso curso = new Curso();
-        String sql = "SELECT idCurso, nome, cargaHoraria, preco, imagem, descricao FROM curso WHERE idCurso = ?";
+        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, "
+                + "cs.imagem, cs.descricao FROM curso cs WHERE cs.idCurso = ?";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
             ps.setInt(1, idCurso);
             rs = ps.executeQuery();
             if (rs.next()) {
-                curso.setIdCurso(rs.getInt("idCurso"));
-                curso.setNome(rs.getString("nome"));
-                curso.setCargaHoraria(rs.getInt("cargaHoraria"));
-                curso.setPreco(rs.getDouble("preco"));
-                curso.setImagem(rs.getString("imagem"));
-                curso.setDescricao(rs.getString("descricao"));
+                curso.setIdCurso(rs.getInt("cs.idCurso"));
+                curso.setNome(rs.getString("cs.nome"));
+                curso.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
+                curso.setPreco(rs.getDouble("cs.preco"));
+                curso.setImagem(rs.getString("cs.imagem"));
+                curso.setDescricao(rs.getString("cs.descricao"));
             }
             ConexaoFactory.close(con);
 

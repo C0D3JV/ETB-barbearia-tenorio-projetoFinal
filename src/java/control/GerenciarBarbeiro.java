@@ -114,8 +114,8 @@ public class GerenciarBarbeiro extends HttpServlet {
 
                 Usuario u = new Usuario();
                 u.setIdUsuario(Integer.parseInt(idUsuario));
-
                 b.setUsuario(u);
+                
                 try {
                     BarbeiroDAO bdao = new BarbeiroDAO();
                     if (bdao.gravar(b)) {
@@ -127,7 +127,6 @@ public class GerenciarBarbeiro extends HttpServlet {
                 } catch (Exception e) {
                     mensagem = "Erro: " + e.getMessage();
                     e.printStackTrace();
-
                 }
 
                 out.println(
@@ -136,9 +135,9 @@ public class GerenciarBarbeiro extends HttpServlet {
                         + "location.href='listarBarbeiro.jsp';"
                         + "</script>");
             }
-        } catch (ParseException e) {
-            mensagem = "Erro: " + e.getMessage();
+        } catch (ParseException pe) {
+            mensagem = "Erro: " + pe.getMessage();
+            pe.printStackTrace();
         }
     }
-
 }

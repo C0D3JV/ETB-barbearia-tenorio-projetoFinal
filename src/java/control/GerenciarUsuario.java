@@ -1,4 +1,3 @@
-
 package control;
 
 import java.io.IOException;
@@ -87,9 +86,7 @@ public class GerenciarUsuario extends HttpServlet {
                 + "alert('" + mensagem + "');"
                 + "location.href='listarUsuario.jsp';"
                 + "</script>");
-       
     }
-
    
     @Override
     protected void doPost(HttpServletRequest request, 
@@ -139,15 +136,10 @@ public class GerenciarUsuario extends HttpServlet {
                 "<script type='text/javascript'>"
                 + "alert('" + mensagem + "');"
                 + "location.href='listarUsuario.jsp';"
-                + "</script>");
-            
+                + "</script>");   
         }
-        
-        
-      
     }
 
-  
     @Override
     public String getServletInfo() {
         return "Short description";

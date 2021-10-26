@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cadastrarBarbeiro
-    Created on : 6 de out de 2021, 10:40:29
+    Document   : cadastrarTurma
+    Created on : 25 de out de 2021, 10:51:30
     Author     : Acer Aspire
 --%>
 
@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Barbeiros</title>
+        <title>Cadastro de Turmas</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
@@ -55,61 +55,72 @@
             </div><!-- fim da div menu -->
             <div id="content">
                 <div class="bg-background">
-                    <form action="gerenciarBarbeiro" method="POST">
-                        <h2 class="pt-3">Cadastro de Barbeiro</h2>
-                        <input type="hidden" class="form-control" name="idBarbeiro"
-                               id="idBarbeiro" value="${barbeiro.idBarbeiro}"/>
+                    <form action="gerenciarTurma" method="POST">
+                        <h2 class="pt-3">Cadastro de Turma</h2>
+                        <input type="hidden" class="form-control" name="idturma"
+                               id="idTurma" value="${turma.idTurma}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-primary">NOME DO BARBEIRO</label>
+                            <label for="nome" class="btn btn-primary">NOME DA TURMA</label>
                             <input type="text" class="form-control" 
-                                   name="nome" id="nome" value="${barbeiro.nome}" 
-                                   required="Informe o Barbeiro"/>
+                                   name="nome" id="nome" value="${turma.nome}" 
+                                   required="Informe a Turma"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataNasc" class="btn btn-primary">DATA DE NASCIMENTO</label>
-                            <input type="date" class="form-control" 
-                                   name="dataNasc" id="dataNasc" value="${barbeiro.dataNasc}"
+                            <label for="qtdAluno" class="btn btn-primary">QUANTIDADE DE ALUNOS</label>
+                            <input type="number" class="form-control" 
+                                   name="qtdAluno" id="qtdAluno" value="${turma.qtdAluno}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="cpf" class="btn btn-primary">CPF</label>
+                            <label for="ano" class="btn btn-primary">ANO</label>
                             <input type="text" class="form-control" 
-                                   name="cpf" id="cpf" value="${barbeiro.cpf}" 
+                                   name="ano" id="ano" value="${turma.ano}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="email" class="btn btn-primary">E-MAIL</label>
+                            <label for="semestre" class="btn btn-primary">SEMESTRE</label>
                             <input type="text" class="form-control" 
-                                   name="email" id="email" value="${barbeiro.email}" 
+                                   name="semestre" id="semestre" value="${turma.semestre}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="endereco" class="btn btn-primary">ENDEREÇO</label>
+                            <label for="turno" class="btn btn-primary">TURNO</label>
                             <input type="text" class="form-control" 
-                                   name="endereco" id="endereco" value="${barbeiro.endereco}" 
-                                   required="">
-                        </div>                        
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="telefone" class="btn btn-primary">TELEFONE</label>
-                            <input type="text" class="form-control" 
-                                   name="telefone" id="telefone" value="${barbeiro.telefone}" 
+                                   name="turno" id="turno" value="${turma.turno}" 
                                    required="">
                         </div>                                    
                         <br/>    
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="usuario" class="btn btn-primary">USUARIO</label>
+                            <label for="barbeiro" class="btn btn-primary">BARBEIRO</label>
                             <select class="form-select form-select-lg m-lg-3"
-                                    name="idUsuario" id="usuario" required>
-                                <option value="" selected>Selecione o Usuario</option>
-                                <jsp:useBean class="model.UsuarioDAO" id="usuario" />
-                                <c:forEach var="u" items="${usuario.lista}">
-                                    <option value="${u.idUsuario}"
-                                            <c:if test="${u.idUsuario == barbeiro.usuario.idUsuario}">
+                                    name="idBarbeiro" id="barbeiro" required>
+                                <option value="" selected>Selecione o Barbeiro</option>
+                                <jsp:useBean class="model.BarbeiroDAO" id="barbeiro" />
+                                <c:forEach var="b" items="${barbeiro.lista}">
+                                    <option value="${b.idBarbeiro}"
+                                            <c:if test="${b.idBarbeiro == turma.barbeiro.idBarbeiro}">
                                                 selected=""
                                             </c:if>
-                                                >${u.nome}
+                                            >${b.nome}
+                                    </option>
+                                </c:forEach>
+                            </select>
+                        </div>
+
+                        <div class="form-group col col-sm-4 offset-sm-4">
+                            <label for="curso" class="btn btn-primary">CURSO</label>
+                            <select class="form-select form-select-lg m-lg-3"
+                                    name="idCurso" id="curso" required>
+                                <option value="" selected>Selecione o Curso</option>
+                                <jsp:useBean class="model.CursoDAO" id="curso" />
+                                <c:forEach var="cs" items="${curso.lista}">
+                                    <option value="${cs.idCurso}"
+                                            <c:if test="${cs.idCurso == turma.curso.idCurso}">
+                                                selected=""
+                                            </c:if>
+                                                >${cs.nome}
                                     </option>
                                 </c:forEach>
                             </select>
@@ -117,8 +128,8 @@
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
-                            <a href="listarBarbeiro.jsp" class="btn btn-secondary btn-xs" role="button" >
-                                LISTAR BARBEIRO <i class="fas fa-arrow-circle-left"></i></a>
+                            <a href="listarTurma.jsp" class="btn btn-secondary btn-xs" role="button" >
+                                LISTAR TURMA <i class="fas fa-arrow-circle-left"></i></a>
                         </div>
                     </form>
                 </div>

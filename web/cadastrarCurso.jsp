@@ -55,7 +55,7 @@
             <div id="content" >
                 <div class="bg-background">
                     <form action="gerenciarCurso" method="POST">
-                        <h2>Cadastro de Curso</h2>
+                        <h2 class="pt-3">Cadastro de Curso</h2>
                         <input type="hidden" class="form-control" name="idCurso"
                                id="idCurso" value="${curso.idCurso}"/>
 
@@ -86,7 +86,7 @@
                                    value= "${curso.descricao}"/>
                         </div>
 
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-left">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
                             <a href="listarCurso.jsp" class="btn btn-secondary btn-xs" role="button" >
                                 LISTAR CURSOS <i class="fas fa-arrow-circle-left"></i>

@@ -66,7 +66,8 @@ public class BarbeiroDAO {
                 sql = "INSERT INTO barbeiro (nome, dataNasc, cpf, email, endereco, telefone, idUsuario) "
                         + "VALUES (?, ?, ?, ?, ?, ?, ?)";
             } else {
-                sql = "UPDATE barbeiro set nome = ?, dataNasc = ?, cpf = ?, email = ?, endereco = ?, telefone = ?, idUsuario = ?"
+                sql = "UPDATE barbeiro set nome = ?, dataNasc = ?, cpf = ?, email = ?,"
+                        + " endereco = ?, telefone = ?, idUsuario = ? "
                         + "WHERE idBarbeiro = ?";
             }
 
@@ -125,13 +126,13 @@ public class BarbeiroDAO {
             ps.setInt(1, idBarbeiro);
             rs = ps.executeQuery();
             if (rs.next()) {
-                b.setIdBarbeiro(rs.getInt("idBarbeiro"));
-                b.setNome(rs.getString("nome"));
-                b.setDataNasc(rs.getDate("dataNasc"));
-                b.setCpf(rs.getString("cpf"));
-                b.setEmail(rs.getString("email"));
-                b.setEndereco(rs.getString("endereco"));
-                b.setTelefone(rs.getString("telefone"));
+                b.setIdBarbeiro(rs.getInt("b.idBarbeiro"));
+                b.setNome(rs.getString("b.nome"));
+                b.setDataNasc(rs.getDate("b.dataNasc"));
+                b.setCpf(rs.getString("b.cpf"));
+                b.setEmail(rs.getString("b.email"));
+                b.setEndereco(rs.getString("b.endereco"));
+                b.setTelefone(rs.getString("b.telefone"));
                 
                 //Associação entre os Objetos Usuario e Barbeiro
                 Usuario u = new Usuario();
