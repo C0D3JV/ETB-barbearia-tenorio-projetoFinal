@@ -57,7 +57,7 @@
                 <div class="bg-background">
                     <form action="gerenciarTurma" method="POST">
                         <h2 class="pt-3">Cadastro de Turma</h2>
-                        <input type="hidden" class="form-control" name="idturma"
+                        <input type="hidden" class="form-control" name="idTurma"
                                id="idTurma" value="${turma.idTurma}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
@@ -95,7 +95,7 @@
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="barbeiro" class="btn btn-primary">BARBEIRO</label>
                             <select class="form-select form-select-lg m-lg-3"
-                                    name="idBarbeiro" id="barbeiro" required>
+                                    name="idBarbeiro" id="barbeiro" required="">
                                 <option value="" selected>Selecione o Barbeiro</option>
                                 <jsp:useBean class="model.BarbeiroDAO" id="barbeiro" />
                                 <c:forEach var="b" items="${barbeiro.lista}">
@@ -112,7 +112,7 @@
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="curso" class="btn btn-primary">CURSO</label>
                             <select class="form-select form-select-lg m-lg-3"
-                                    name="idCurso" id="curso" required>
+                                    name="idCurso" id="curso" required="">
                                 <option value="" selected>Selecione o Curso</option>
                                 <jsp:useBean class="model.CursoDAO" id="curso" />
                                 <c:forEach var="cs" items="${curso.lista}">
@@ -120,7 +120,7 @@
                                             <c:if test="${cs.idCurso == turma.curso.idCurso}">
                                                 selected=""
                                             </c:if>
-                                                >${cs.nome}
+                                            >${cs.nome}
                                     </option>
                                 </c:forEach>
                             </select>

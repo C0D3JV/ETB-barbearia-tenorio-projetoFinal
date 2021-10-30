@@ -9,117 +9,173 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClienteDAO {
-    // refazer tudo de aluno para cliente :( ¬¬
-    public ArrayList<Cliente> getLista(){
-        String sql = "SELECT idCliente, nome, dataNasc, cpf, email, endereco, telefone FROM aluno";
-        ArrayList<Aluno> alunos = new ArrayList<>();
+
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+
+    public ArrayList<Cliente> getLista() throws Exception {
+        ArrayList<Cliente> lista = new ArrayList<>();
+        String sql = "SELECT t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre, t.turno, t.idBarbeiro, "
+                + " t.idCurso, u.idUsuario, u.nome , u.login, u.senha, u.status, u.idPerfil, ct.idCliente, "
+                + " ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone, ct.idTurma, ct.idUsuario "
+                + "FROM cliente ct "
+                + "INNER JOIN turma t "
+                + "ON t.idTurma = ct.idTurma "
+                + "INNER JOIN usuario u "
+                + "ON u.idUsuario = ct.idUsuario ";
         try {
-           Connection con = ConexaoFactory.conectar();
-           PreparedStatement ps = con.prepareStatement(sql);
-           ResultSet rs = ps.executeQuery();
-           while(rs.next()){
-               Aluno a = new Aluno();
-               a.setIdAluno(rs.getInt("idAluno"));
-               a.setNome(rs.getString("nome"));
-               a.setDataNasc(rs.getDate("dataNasc"));
-               a.setCpf(rs.getString("cpf"));
-               a.setEmail(rs.getString("email"));
-               a.setEndereco(rs.getString("endereco"));
-               a.setTelefone(rs.getString("telefone"));
-               
-               alunos.add(a);
-           }
+            con = ConexaoFactory.conectar();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Cliente ct = new Cliente();
+                ct.setIdCliente(rs.getInt("ct.idCliente"));
+                ct.setNome(rs.getString("ct.nome"));
+                ct.setDataNasc(rs.getDate("ct.dataNasc"));
+                ct.setCpf(rs.getString("ct.cpf"));
+                ct.setEmail(rs.getString("ct.email"));
+                ct.setEndereco(rs.getString("ct.endereco"));
+                ct.setTelefone(rs.getString("ct.telefone"));
+                
+                Turma t = new Turma();
+                t.setIdTurma(rs.getInt("t.idTurma"));
+                t.setNome(rs.getString("t.nome"));
+                t.setQtdAluno(rs.getInt("t.qtdAluno"));
+                t.setAno(rs.getString("t.ano"));
+                t.setSemestre(rs.getString("t.semestre"));
+                t.setTurno(rs.getString("t.turno"));
+                ct.setTurma(t);
+
+                Usuario u = new Usuario();
+                u.setIdUsuario(rs.getInt("u.idUsuario"));
+                u.setNome(rs.getString("u.nome"));
+                u.setLogin(rs.getString("u.login"));
+                u.setSenha(rs.getString("u.senha"));
+                u.setStatus(rs.getInt("u.status"));
+                ct.setUsuario(u);
+                
+                lista.add(ct);
+
+            }
             ConexaoFactory.close(con);
-            
+
         } catch (SQLException e) {
             System.out.println(
-                    "Falha ao listar os alunos da base de dados:" +
-                    e.getMessage());
+                    "Falha ao listar os clientes da base de dados:"
+                    + e.getMessage());
         }
-        return alunos;
+        return lista;
     }
-    
-    public boolean gravar(Aluno a){
-        Connection con = null;
-        String sql;
-        PreparedStatement ps = null;
-        try {
-           con = ConexaoFactory.conectar();
-           if(a.getIdAluno() == 0){
-               sql = "INSERT INTO aluno (nome, dataNasc, cpf, email, endereco, telefone) VALUES (?, ?, ?, ?, ?, ?)";
-               ps = con.prepareStatement(sql);
-               ps.setString(1, a.getNome());
-               ps.setDate(2, new Date(a.getDataNasc().getTime()));
-               ps.setString(3, a.getCpf());
-               ps.setString(4, a.getEmail());
-               ps.setString(5, a.getEndereco());
-               ps.setString(6, a.getTelefone());
-                       
-           }else{
-               sql = "UPDATE aluno set nome = ?, dataNasc = ?, cpf = ?, email = ?, endereco = ?, telefone = ?" +
-                     "WHERE idAluno = ?";
-               ps = con.prepareStatement(sql);
-               ps.setString(1, a.getNome());
-               ps.setDate(2, new Date(a.getDataNasc().getTime()));
-               ps.setString(3, a.getCpf());
-               ps.setString(4, a.getEmail());
-               ps.setString(5, a.getEndereco());
-               ps.setString(6, a.getTelefone());
-               ps.setInt(7, a.getIdAluno());
 
-           }
-           ps.executeUpdate();
-           ConexaoFactory.close(con);
-           return true;
-         
+    public boolean gravar(Cliente ct) throws Exception {
+        String sql;
+        try {
+            con = ConexaoFactory.conectar();
+            if (ct.getIdCliente() == 0) {
+                sql = "INSERT INTO cliente (nome, dataNasc, cpf, email, endereco, telefone, idTurma, idUsuario) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            } else {
+                sql = "UPDATE cliente set nome = ?, dataNasc = ?, cpf = ?, email = ?,"
+                        + " endereco = ?, telefone = ?, idTurma = ?, idUsuario = ? "
+                        + "WHERE idCliente = ?";
+            }
+
+            ps = con.prepareStatement(sql);
+            ps.setString(1, ct.getNome());
+            ps.setDate(2, new Date(ct.getDataNasc().getTime()));
+            ps.setString(3, ct.getCpf());
+            ps.setString(4, ct.getEmail());
+            ps.setString(5, ct.getEndereco());
+            ps.setString(6, ct.getTelefone());
+            ps.setInt(7, ct.getTurma().getIdTurma());
+            ps.setInt(8, ct.getUsuario().getIdUsuario());
+
+            if (ct.getIdCliente() > 0) {
+                ps.setInt(9, ct.getIdCliente());
+            }
+
+            ps.executeUpdate();
+            ConexaoFactory.close(con);
+            return true;
+
         } catch (SQLException e) {
-            System.out.println("Falha ao gravar o aluno na base de dados:" 
+            System.out.println("Falha ao gravar o cliente na base de dados:"
                     + e.getMessage());
             return false;
         }
-        
+
     }
-    
-    public boolean deletar(int idAluno){
-        String sql= "DELETE FROM aluno WHERE idAluno = ?";
+
+    public boolean deletar(int idCliente) {
+        String sql = "DELETE FROM cliente WHERE idCliente = ?";
         try {
-            Connection con = ConexaoFactory.conectar();
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idAluno);
+            con = ConexaoFactory.conectar();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idCliente);
             ps.executeUpdate();
             ConexaoFactory.close(con);
         } catch (SQLException e) {
-            System.out.println("Falha ao excluir o aluno da base de dados" +
-                    e.getMessage());
+            System.out.println("Falha ao excluir o cliente da base de dados"
+                    + e.getMessage());
             return false;
         }
         return true;
     }
-    
-    public Aluno getCarregarPorId(int idAluno)throws SQLException{
-        Aluno aluno = new Aluno();
-        String sql = "SELECT idAluno, nome, dataNasc, cpf, email, endereco, telefone FROM aluno WHERE idAluno = ?";
+
+    public Cliente getCarregarPorId(int idCliente) throws Exception {
+        Cliente ct = new Cliente();
+        String sql = "SELECT t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre, t.turno, t.idBarbeiro, "
+                + " t.idCurso, u.idUsuario, u.nome , u.login, u.senha, u.status, u.idPerfil, ct.idCliente, "
+                + " ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone, ct.idTurma, "
+                + " ct.idUsuario "
+                + "FROM cliente ct "
+                + "INNER JOIN turma t "
+                + "ON t.idTurma = ct.idTurma "
+                + "INNER JOIN usuario u "
+                + "ON u.idUsuario = ct.idUsuario "
+                + "WHERE ct.idCliente = ? ";
         try {
-            Connection con = ConexaoFactory.conectar();
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, idAluno);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                aluno.setIdAluno(rs.getInt("idAluno"));
-                aluno.setNome(rs.getString("nome"));
-                aluno.setDataNasc(rs.getDate("dataNasc"));
-                aluno.setCpf(rs.getString("cpf"));
-                aluno.setEmail(rs.getString("email"));
-                aluno.setEndereco(rs.getString("endereco"));
-                aluno.setTelefone(rs.getString("telefone"));
+            con = ConexaoFactory.conectar();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idCliente);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                ct.setIdCliente(rs.getInt("ct.idCliente"));
+                ct.setNome(rs.getString("ct.nome"));
+                ct.setDataNasc(rs.getDate("ct.dataNasc"));
+                ct.setCpf(rs.getString("ct.cpf"));
+                ct.setEmail(rs.getString("ct.email"));
+                ct.setEndereco(rs.getString("ct.endereco"));
+                ct.setTelefone(rs.getString("ct.telefone"));
+                
+                Turma t = new Turma();
+                t.setIdTurma(rs.getInt("t.idTurma"));
+                t.setNome(rs.getString("t.nome"));
+                t.setQtdAluno(rs.getInt("t.qtdAluno"));
+                t.setAno(rs.getString("t.ano"));
+                t.setSemestre(rs.getString("t.semestre"));
+                t.setTurno(rs.getString("t.turno"));
+                
+                ct.setTurma(t);
+
+                //Associação entre os Objetos Usuario e Cliente 
+                Usuario u = new Usuario();
+                u.setIdUsuario(rs.getInt("u.idUsuario"));
+                u.setNome(rs.getString("u.nome"));
+                u.setLogin(rs.getString("u.login"));
+                u.setSenha(rs.getString("u.senha"));
+                u.setStatus(rs.getInt("u.status"));
+                
+                ct.setUsuario(u);
+
             }
             ConexaoFactory.close(con);
-           
+
         } catch (SQLException e) {
-            System.out.println("Falha ao listar o aluno: " +
-                    e.getMessage());
+            System.out.println("Falha ao listar o cliente: "
+                    + e.getMessage());
         }
-        return aluno;
+        return ct;
     }
-    
 }

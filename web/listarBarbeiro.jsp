@@ -46,13 +46,12 @@
         <div id="container">
             <div id="header">
                 <jsp:include page="template/banner.jsp"/>
-
             </div><!-- fim da div header -->
+            
             <div id="menu">
-
                 <jsp:include page="template/menu.jsp"/>
-
             </div><!-- fim da div menu -->
+            
             <div id="content">
                 <div class="bg-background">
                     <div class="h-100 justify-content-center align-items-center">
@@ -97,6 +96,7 @@
                                                 <td>${b.endereco}</td>
                                                 <td>${b.telefone}</td>
                                                 <td>${b.usuario.nome}</td>
+                                                
                                                 <td class='text-center'>
                                                     <a href="gerenciarBarbeiro?acao=alterar&idBarbeiro=${b.idBarbeiro}"
                                                        class="btn btn-primary btn-xs" role="button">
@@ -118,7 +118,6 @@
                                                 </td>      
                                             </tr>
                                         </c:forEach>
-
                                     </tbody>
                                 </table>
                                 <script src="js/jquery-3.6.0.js"></script>

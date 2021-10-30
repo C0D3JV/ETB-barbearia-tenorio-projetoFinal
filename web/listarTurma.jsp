@@ -46,13 +46,12 @@
         <div id="container">
             <div id="header">
                 <jsp:include page="template/banner.jsp"/>
-
             </div><!-- fim da div header -->
+            
             <div id="menu">
-
                 <jsp:include page="template/menu.jsp"/>
-
             </div><!-- fim da div menu -->
+            
             <div id="content">
                 <div class="bg-background">
                     <div class="h-100 justify-content-center align-items-center">
@@ -94,6 +93,7 @@
                                                 <td>${t.turno}</td>
                                                 <td>${t.barbeiro.nome}</td>
                                                 <td>${t.curso.nome}</td>
+                                                
                                                 <td class='text-center'>
                                                     <a href="gerenciarTurma?acao=alterar&idTurma=${t.idTurma}"
                                                        class="btn btn-primary btn-xs" role="button">
@@ -115,7 +115,6 @@
                                                 </td>      
                                             </tr>
                                         </c:forEach>
-
                                     </tbody>
                                 </table>
                                 <script src="js/jquery-3.6.0.js"></script>
@@ -150,7 +149,7 @@
                             </div>
                         </div>
                     </div>
-                </div>                  
+                </div>           
             </div><!-- fim da div content -->
         </div><!--fim da div container -->
     </body>

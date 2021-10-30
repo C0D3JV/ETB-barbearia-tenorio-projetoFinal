@@ -47,8 +47,7 @@ public class PerfilDAO {
                sql = "INSERT INTO perfil (nome, dataCadastro) VALUES (?, ?)";
                ps = con.prepareStatement(sql);
                ps.setString(1, p.getNome());
-               ps.setDate(2, new Date(p.getDataCadastro().getTime()));
-                       
+               ps.setDate(2, new Date(p.getDataCadastro().getTime()));       
            }else{
                sql = "UPDATE perfil set nome = ?, dataCadastro = ? WHERE idPerfil = ?";
                ps = con.prepareStatement(sql);

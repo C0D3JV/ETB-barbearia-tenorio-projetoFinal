@@ -69,7 +69,6 @@ public class GerenciarTurma extends HttpServlet {
                 + "alert('" + mensagem + "');"
                 + "location.href='listarTurma.jsp';"
                 + "</script>");
-
     }
 
     @Override
@@ -90,55 +89,50 @@ public class GerenciarTurma extends HttpServlet {
 
         Turma t = new Turma();
 
-        try {
-            if (!idTurma.isEmpty()) {
-                t.setIdTurma(Integer.parseInt(idTurma));
-            }
-            if (nome.equals("")
-                    || qtdAluno.equals("")
-                    || ano.equals("")
-                    || semestre.equals("")
-                    || turno.equals("")
-                    || idBarbeiro.equals("")
-                    || idCurso.equals("")) {
-                mensagem = "Os Campos obrigatórios devem ser preenchidos!";
-            } else {
-                t.setNome(nome);
-                t.setQtdAluno(Integer.parseInt(qtdAluno));
-                t.setAno(ano);
-                t.setSemestre(semestre);
-                t.setTurno(turno);
-                
-                Curso cs = new Curso();
-                cs.setIdCurso(Integer.parseInt(idCurso));
-                t.setCurso(cs);
+        if (!idTurma.isEmpty()) {
+            t.setIdTurma(Integer.parseInt(idTurma));
+        }
+        if (nome.equals("")
+                || qtdAluno.equals("")
+                || ano.equals("")
+                || semestre.equals("")
+                || turno.equals("")
+                || idBarbeiro.equals("")
+                || idCurso.equals("")) {
+            mensagem = "Os Campos obrigatórios devem ser preenchidos!";
+        } else {
+            t.setNome(nome);
+            t.setQtdAluno(Integer.parseInt(qtdAluno));
+            t.setAno(ano);
+            t.setSemestre(semestre);
+            t.setTurno(turno);
 
-                Barbeiro b = new Barbeiro();
-                b.setIdBarbeiro(Integer.parseInt(idBarbeiro));
-                t.setBarbeiro(b);
-                
-                try {
-                    TurmaDAO tdao = new TurmaDAO();
-                    if (tdao.gravar(t)) {
-                        mensagem = "Turma gravada com sucesso na base de dados!";
+            Barbeiro b = new Barbeiro();
+            b.setIdBarbeiro(Integer.parseInt(idBarbeiro));
+            t.setBarbeiro(b);
 
-                    } else {
-                        mensagem = "Falha ao gravar a turma na base de dados!";
-                    }
-                } catch (Exception e) {
-                    mensagem = "Erro: " + e.getMessage();
-                    out.println(mensagem);
+            Curso cs = new Curso();
+            cs.setIdCurso(Integer.parseInt(idCurso));
+            t.setCurso(cs);
+
+            try {
+                TurmaDAO tdao = new TurmaDAO();
+                if (tdao.gravar(t)) {
+                    mensagem = "Turma gravada com sucesso na base de dados!";
+
+                } else {
+                    mensagem = "Falha ao gravar a turma na base de dados!";
                 }
-
-                out.println(
-                        "<script type='text/javascript'>"
-                        + "alert('" + mensagem + "');"
-                        + "location.href='listarTurma.jsp';"
-                        + "</script>");
+            } catch (Exception e) {
+                mensagem = "Erro: " + e.getMessage();
+                out.println(mensagem);
             }
-        } catch (NullPointerException npe) {
-            mensagem = "Erro: " + npe.getMessage();
-            out.println(mensagem);
+
+            out.println(
+                    "<script type='text/javascript'>"
+                    + "alert('" + mensagem + "');"
+                    + "location.href='listarTurma.jsp';"
+                    + "</script>");
         }
     }
 }

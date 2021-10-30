@@ -109,8 +109,8 @@ public class TurmaDAO {
     public boolean deletar(int idTurma) {
         String sql = "DELETE FROM turma WHERE idTurma = ?";
         try {
-            Connection con = ConexaoFactory.conectar();
-            PreparedStatement ps = con.prepareStatement(sql);
+            con = ConexaoFactory.conectar();
+            ps = con.prepareStatement(sql);
             ps.setInt(1, idTurma);
             ps.executeUpdate();
             ConexaoFactory.close(con);

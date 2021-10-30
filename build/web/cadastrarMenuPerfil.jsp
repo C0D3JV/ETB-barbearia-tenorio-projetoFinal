@@ -1,8 +1,7 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,15 +27,15 @@
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
     </head>
     <body>
-         <%
-        //HTTP 1.1
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        //HTTP 1.0
-        response.setHeader("Pragma", "no-cache");
-        //Proxie
-        //response.setHeader("Expires", "0");
-        if(session.getAttribute("ulogado") == null)
-        response.sendRedirect("formLogin.jsp");
+        <%
+            //HTTP 1.1
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            //HTTP 1.0
+            response.setHeader("Pragma", "no-cache");
+            //Proxie
+            //response.setHeader("Expires", "0");
+            if (session.getAttribute("ulogado") == null)
+                response.sendRedirect("formLogin.jsp");
         %>
         <div id="container" class = "container-fluid">
             <div id="header">
@@ -51,13 +50,13 @@
             <div id="content" >
                 <div class="mb-3">
                     <form action="gerenciarMenuPerfil" method="POST">
-                         <h2>Cadastro de Menus e Perfis</h2>
+                        <h2>Cadastro de Menus e Perfis</h2>
                         <input type="hidden" class="form-control" name="idPerfil"
                                id="idPerfil" value="${perfilv.idPerfil}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="nome" class="btn btn-primary">
-                               PERFIL
+                                PERFIL
                             </label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" readonly value="${perfilv.nome}"/>
@@ -109,10 +108,10 @@
                                             <td>${m.icone}</td>
                                             <td>
                                                 <c:if test="${m.exibir == 1}">
-                                                   Sim 
+                                                    Sim 
                                                 </c:if>
                                                 <c:if test="${m.exibir == 2}">
-                                                   Não
+                                                    Não
                                                 </c:if>
                                             </td>
                                             <td>
@@ -123,7 +122,6 @@
                                                         }
                                                     }
                                                 </script>
-
                                                 <button class='btn btn-danger btn-xs'
                                                         onclick="confirmarExclusao('${m.idMenu}', '${m.nome}',
                                                         ${perfilv.idPerfil})">
@@ -133,10 +131,7 @@
                                             </td>
                                         </tr>
                                     </c:forEach>
-
-
                                 </tbody>
-
                             </table>
                             <script src="js/jquery-3.6.0.min.js"></script>
                             <script src="datatables/jquery.dataTables.js"></script>
@@ -166,17 +161,11 @@
                                                                     }
                                                                 });
                                                             });
-
-
                             </script>
-
-
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </body>
 </html>

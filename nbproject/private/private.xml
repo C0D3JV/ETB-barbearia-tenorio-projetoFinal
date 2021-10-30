@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/control/GerenciarCurso.java</file>
-            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/control/GerenciarTurma.java</file>
-            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/control/GerenciarBarbeiro.java</file>
-            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/Turma.java</file>
-            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/Curso.java</file>
-            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/TurmaDAO.java</file>
-            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/BarbeiroDAO.java</file>
+            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/ClienteDAO.java</file>
+            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/Venda.java</file>
+            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/VendaDAO.java</file>
+            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/CursoDAO.java</file>
+            <file>file:/C:/Users/Acer%20Aspire/Documents/ETB%204ºA/Desenv.%20de%20Projeto/Barbearia%20Tenório/ProjetoBarbeariaV2/src/java/model/PerfilDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -101,7 +101,7 @@
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="usuario" class="btn btn-primary">USUARIO</label>
                             <select class="form-select form-select-lg m-lg-3"
-                                    name="idUsuario" id="usuario" required>
+                                    name="idUsuario" id="usuario" required="">
                                 <option value="" selected>Selecione o Usuario</option>
                                 <jsp:useBean class="model.UsuarioDAO" id="usuario" />
                                 <c:forEach var="u" items="${usuario.lista}">
@@ -109,7 +109,7 @@
                                             <c:if test="${u.idUsuario == barbeiro.usuario.idUsuario}">
                                                 selected=""
                                             </c:if>
-                                                >${u.nome}
+                                            >${u.nome}
                                     </option>
                                 </c:forEach>
                             </select>

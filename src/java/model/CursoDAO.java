@@ -6,9 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-/**
- * @author Acer Aspire
- */
+
 public class CursoDAO {
 
     Connection con;
@@ -54,7 +52,7 @@ public class CursoDAO {
                 ps = con.prepareStatement(sql);
                 ps.setString(1, cs.getNome());
                 ps.setInt(2, cs.getCargaHoraria());
-                ps.setDouble(3,cs.getPreco());
+                ps.setDouble(3, cs.getPreco());
                 ps.setString(4, cs.getImagem());
                 ps.setString(5, cs.getDescricao());
             } else {

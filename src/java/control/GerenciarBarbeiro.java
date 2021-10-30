@@ -58,7 +58,6 @@ public class GerenciarBarbeiro extends HttpServlet {
                 } else {
                     mensagem = "Acesso Negado!";
                 }
-
             }// fim do if alterar
 
         } catch (Exception e) {
@@ -70,7 +69,6 @@ public class GerenciarBarbeiro extends HttpServlet {
                 + "alert('" + mensagem + "');"
                 + "location.href='listarBarbeiro.jsp';"
                 + "</script>");
-
     }
 
     @Override
@@ -115,7 +113,7 @@ public class GerenciarBarbeiro extends HttpServlet {
                 Usuario u = new Usuario();
                 u.setIdUsuario(Integer.parseInt(idUsuario));
                 b.setUsuario(u);
-                
+
                 try {
                     BarbeiroDAO bdao = new BarbeiroDAO();
                     if (bdao.gravar(b)) {
@@ -128,7 +126,6 @@ public class GerenciarBarbeiro extends HttpServlet {
                     mensagem = "Erro: " + e.getMessage();
                     e.printStackTrace();
                 }
-
                 out.println(
                         "<script type='text/javascript'>"
                         + "alert('" + mensagem + "');"

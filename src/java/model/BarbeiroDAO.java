@@ -57,9 +57,7 @@ public class BarbeiroDAO {
     }
 
     public boolean gravar(Barbeiro b) throws Exception {
-        // Connection con = null;
         String sql;
-        // PreparedStatement ps = null;
         try {
             con = ConexaoFactory.conectar();
             if (b.getIdBarbeiro() == 0) {
@@ -99,8 +97,8 @@ public class BarbeiroDAO {
     public boolean deletar(int idBarbeiro) {
         String sql = "DELETE FROM barbeiro WHERE idBarbeiro = ?";
         try {
-            Connection con = ConexaoFactory.conectar();
-            PreparedStatement ps = con.prepareStatement(sql);
+            con = ConexaoFactory.conectar();
+            ps = con.prepareStatement(sql);
             ps.setInt(1, idBarbeiro);
             ps.executeUpdate();
             ConexaoFactory.close(con);
