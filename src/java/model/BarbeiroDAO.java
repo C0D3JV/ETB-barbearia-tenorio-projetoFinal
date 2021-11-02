@@ -20,7 +20,7 @@ public class BarbeiroDAO {
                 + "b.idBarbeiro, b.nome, b.dataNasc, b.cpf, b.email, b.endereco, b.telefone, b.idUsuario "
                 + "FROM usuario u "
                 + "INNER JOIN barbeiro b "
-                + "ON u.idUsuario = b.idUsuario";
+                + "ON u.idUsuario = b.idUsuario ";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
@@ -131,7 +131,7 @@ public class BarbeiroDAO {
                 b.setEmail(rs.getString("b.email"));
                 b.setEndereco(rs.getString("b.endereco"));
                 b.setTelefone(rs.getString("b.telefone"));
-                
+
                 //Associação entre os Objetos Usuario e Barbeiro
                 Usuario u = new Usuario();
                 u.setIdUsuario(rs.getInt("u.idUsuario"));
@@ -141,7 +141,7 @@ public class BarbeiroDAO {
                 u.setStatus(rs.getInt("u.status"));
 
                 b.setUsuario(u);
-                
+
             }
             ConexaoFactory.close(con);
 
