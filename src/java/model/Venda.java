@@ -11,7 +11,7 @@ public class Venda {
     private Cliente cliente;
     private Usuario usuario;
     private ArrayList<Curso> cursos;
-    private ArrayList<Curso> naocursos;
+    private ArrayList<Curso> naoCursos;
 
     public int getIdVenda() {
         return idVenda;
@@ -61,12 +61,12 @@ public class Venda {
         this.cursos = cursos;
     }
 
-    public ArrayList<Curso> getNaocursos() {
-        return naocursos;
+    public ArrayList<Curso> getNaoCursos() {
+        return naoCursos;
     }
 
-    public void setNaocursos(ArrayList<Curso> naocursos) {
-        this.naocursos = naocursos;
+    public void setNaoCursos(ArrayList<Curso> naoCursos) {
+        this.naoCursos = naoCursos;
     }
 
     public Venda() {

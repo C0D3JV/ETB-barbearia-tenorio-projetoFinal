@@ -156,10 +156,10 @@ public class VendaDAO {
                 
                 //PAREI AQUI!
                 
-                //Associação entre objeto perfil e vários menus
-                perfil.setMenus(menusVinculadosPorPerfil(idPerfil));
-                //Associação entre objeto perfil e os vários objetos não menus
-                perfil.setNaoMenus(menusNaoVinculadosPorPerfil(idPerfil));
+                //Associação entre objeto venda e vários cursos
+                v.setCursos(cursosRelacionadosPorVenda(idVenda));
+                //Associação entre objeto venda e os vários objetos não cursos
+                v.setNaoCursos(cursosNaoRelacionadosPorVenda(idVenda));
             }
             ConexaoFactory.close(con);
 
@@ -167,36 +167,37 @@ public class VendaDAO {
             System.out.println("Falha ao listar o perfil: "
                     + e.getMessage());
         }
-        return perfil;
+        return v;
     }
 
     /*
-        Retorna os menus vinculados por perfil baseados no idPerfil
+        Retorna os cursos vinculados por venda baseados no idVenda
      */
 
-    public ArrayList<Menu> menusVinculadosPorPerfil(int idPerfil)
+    public ArrayList<Curso> cursosRelacionadosPorVenda(int idVenda)
             throws Exception {
 
-        ArrayList<Menu> lista = new ArrayList<>();
-        String sql = "SELECT m.idMenu, m.nome, m.link, "
-                + "m.icone, m.exibir "
-                + "FROM menu_perfil as mp, menu as m "
-                + "WHERE mp.idMenu = m.idMenu "
-                + "AND mp.idPerfil = ?";
+        ArrayList<Curso> lista = new ArrayList<>();
+        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, cs.imagem,"
+                + " cs.descricao "
+                + "FROM venda_curso as vdc, curso as cs "
+                + "WHERE vdc.idCurso = cs.idCurso "
+                + "AND vdc.idVenda = ?";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, idPerfil);
+            ps.setInt(1, idVenda);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Menu m = new Menu();
-                m.setIdMenu(rs.getInt("m.idMenu"));
-                m.setNome(rs.getString("m.nome"));
-                m.setLink(rs.getString("m.link"));
-                m.setIcone(rs.getString("m.icone"));
-                m.setExibir(rs.getInt("m.exibir"));
-                lista.add(m);
+                Curso cs = new Curso();
+                cs.setIdCurso(rs.getInt("cs.idCurso"));
+                cs.setNome(rs.getString("cs.nome"));
+                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
+                cs.setPreco(rs.getDouble("cs.preco"));
+                cs.setImagem(rs.getString("cs.imagem"));
+                cs.setDescricao(rs.getString("cs.descricao"));
+                lista.add(cs);
             }
             ConexaoFactory.close(con);
 
@@ -206,28 +207,30 @@ public class VendaDAO {
         return lista;
     }
 
-    public ArrayList<Menu> menusNaoVinculadosPorPerfil(int idPerfil)
+    public ArrayList<Curso> cursosNaoRelacionadosPorVenda(int idVenda)
             throws Exception {
 
-        ArrayList<Menu> lista = new ArrayList<>();
-        String sql = "SELECT m.idMenu, m.nome, m.link, m.icone, m.exibir "
-                + "FROM menu as m "
-                + "WHERE m.idMenu "
-                + "NOT IN(SELECT mp.idMenu FROM menu_perfil as mp WHERE mp.idPerfil = ?);";
+        ArrayList<Curso> lista = new ArrayList<>();
+        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, cs.imagem,"
+                + " cs.descricao "
+                + "FROM curso as cs "
+                + "WHERE cs.idCurso "
+                + "NOT IN(SELECT vdc.idCurso FROM venda_curso as vdc WHERE vdc.idVenda = ?); ";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, idPerfil);
+            ps.setInt(1, idVenda);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Menu m = new Menu();
-                m.setIdMenu(rs.getInt("m.idMenu"));
-                m.setNome(rs.getString("m.nome"));
-                m.setLink(rs.getString("m.link"));
-                m.setIcone(rs.getString("m.icone"));
-                m.setExibir(rs.getInt("m.exibir"));
-                lista.add(m);
+                Curso cs = new Curso();
+                cs.setIdCurso(rs.getInt("cs.idCurso"));
+                cs.setNome(rs.getString("cs.nome"));
+                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
+                cs.setPreco(rs.getDouble("cs.preco"));
+                cs.setImagem(rs.getString("cs.imagem"));
+                cs.setDescricao(rs.getString("cs.descricao"));
+                lista.add(cs);
             }
             ConexaoFactory.close(con);
 
@@ -237,21 +240,21 @@ public class VendaDAO {
         return lista;
     }
 
-    public boolean vincular(int idMenu, int idPerfil)
+    public boolean relacionar(int idCurso, int idVenda)
             throws Exception {
-        String sql = "INSERT INTO menu_perfil (idMenu, idPerfil) VALUES (?, ?)";
+        String sql = "INSERT INTO venda_curso (idCurso, idVenda) VALUES (?, ?)";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, idMenu);
-            ps.setInt(2, idPerfil);
+            ps.setInt(1, idCurso);
+            ps.setInt(2, idVenda);
             ps.executeUpdate();
             ConexaoFactory.close(con);
             return true;
 
         } catch (SQLException e) {
             System.out.println(
-                    "Erro ao vincular o menu ao perfil: "
+                    "Erro ao vincular o curso a venda: "
                     + e.getMessage());
             e.printStackTrace();
             return false;
@@ -259,21 +262,21 @@ public class VendaDAO {
 
     }
 
-    public boolean desvincular(int idMenu, int idPerfil)
+    public boolean desrelacionar(int idCurso, int idVenda)
             throws Exception {
-        String sql = "DELETE FROM menu_perfil "
-                + "WHERE idMenu = ? AND idPerfil = ?";
+        String sql = "DELETE FROM venda_curso "
+                + "WHERE idVenda = ? AND idCurso= ?";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
-            ps.setInt(1, idMenu);
-            ps.setInt(2, idPerfil);
+            ps.setInt(1, idCurso);
+            ps.setInt(2, idVenda);
             ps.executeUpdate();
             ConexaoFactory.close(con);
             return true;
 
         } catch (SQLException e) {
-            System.out.println("Erro ao desvincular o menu: "
+            System.out.println("Erro ao desrelacionar o curso: "
                     + e.getMessage());
             e.printStackTrace();
             return false;

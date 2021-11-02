@@ -8,11 +8,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <!DOCTYPE html>
 
-
-
 <html>
     <head>
-      <title>Index</title>
+        <title>Index</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
@@ -32,37 +30,31 @@
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
     </head>
     <body>
-         <%
-        //HTTP 1.1
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        //HTTP 1.0
-        response.setHeader("Pragma", "no-cache");
-        //Proxie
-        //response.setHeader("Expires", "0");
-        if(session.getAttribute("ulogado") == null)
-        response.sendRedirect("formLogin.jsp");
+        <%
+            //HTTP 1.1
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            //HTTP 1.0
+            response.setHeader("Pragma", "no-cache");
+            //Proxie
+            //response.setHeader("Expires", "0");
+            if (session.getAttribute("ulogado") == null)
+                response.sendRedirect("formLogin.jsp");
         %>
         <div id="container" class="container-fluid">
             <div id="header">
-               <jsp:include page="template/banner.jsp"/>
-            
+                <jsp:include page="template/banner.jsp"/>
+
             </div><!-- fim da div header -->
-             <div id="menu">
-                 
-               <jsp:include page="template/menu.jsp"/>
-                
+            <div id="menu">
+
+                <jsp:include page="template/menu.jsp"/>
+
             </div><!-- fim da div menu -->
             <div id="content">
                 <div class="bg-background">
-                    <h3>Página Inicial</h3>   
+                    <h3 class="mt-5">Página Inicial</h3>   
                 </div>
-                
-                 
             </div><!--fim da div content -->
-          
-               
         </div>
-          
-     
     </body>
 </html>
