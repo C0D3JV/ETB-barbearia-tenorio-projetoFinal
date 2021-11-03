@@ -52,7 +52,7 @@
             <div id="content">
                 <div class="bg-background">
                     <form action="gerenciarCliente" method="POST">
-                        <h2>Cadastro de Cliente</h2>
+                        <h2 class="mt-5">Cadastro de Cliente</h2>
                         <input type="hidden" class="form-control" name="idCliente"
                                id="idCliente" value="${cliente.idCliente}"/>
 

@@ -58,7 +58,7 @@
                 <div class="h-100 justify-content-center align-items-center">
                     <div clas="col-12">
                         <div>
-                           <h2>Listagem de Menus</h2> 
+                           <h2 class="mt-5">Listagem de Menus</h2> 
                         </div>
                        <div class="col-sm-2 col-12" style="padding-bottom: 10px">
                         <a class="btn btn-primary btn-lg" href="cadastrarMenu.jsp" 
@@ -122,7 +122,7 @@
                                 $(document).ready(function () {
                                     $("#listarMenu").dataTable({
                                         "bJQueryUI": true,
-                                        "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "All"]],
+                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
                                         "oLanguage": {
                                             "sProcessing": "Processando..",
                                             "sLengthMenu": "Mostrar _MENU_ registros",

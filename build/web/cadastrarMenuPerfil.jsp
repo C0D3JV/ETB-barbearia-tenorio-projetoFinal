@@ -50,7 +50,7 @@
             <div id="content" >
                 <div class="mb-3">
                     <form action="gerenciarMenuPerfil" method="POST">
-                        <h2>Cadastro de Menus e Perfis</h2>
+                        <h2 class="mt-5">Cadastro de Menus e Perfis</h2>
                         <input type="hidden" class="form-control" name="idPerfil"
                                id="idPerfil" value="${perfilv.idPerfil}"/>
 

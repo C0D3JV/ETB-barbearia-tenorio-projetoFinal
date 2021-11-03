@@ -63,9 +63,7 @@
 					      a.value += r + l.substr(u - 2, u)
 					   }
 					   return !1
-					}      
-			
-    			
+					}
     </script>
         <%
             //HTTP 1.1
@@ -90,7 +88,7 @@
             <div id="content" >
                 <div class="bg-background">
                     <form action="gerenciarVenda" method="POST">
-                        <h2>Cadastro de Venda</h2>
+                        <h2 class="mt-5">Cadastro de Venda</h2>
                         <input type="hidden" class="form-control" name="idVenda"
                                id="idVenda" value="${venda.idVenda}"/>
 
@@ -102,7 +100,7 @@
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="precoTotal" class="btn btn-primary">PREÇO TOTAL</label>
-                            <input class="money" name="precoTotal" type="text"
+                            <input class="form-control" name="precoTotal" type="text"
                                             step=".01" value ="<fmt:formatNumber pattern="#,##0.00"
                                                      value= "${venda.precoTotal}"/>" required ">
                         </div>

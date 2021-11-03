@@ -54,7 +54,7 @@
             <div id="content" >
                   <div class="bg-background">
                     <form action="gerenciarMenu" method="POST">
-                        <h2>Cadastro de Menus</h2>
+                        <h2 class="mt-5">Cadastro de Menus</h2>
                     
                         <input type="hidden" class="form-control" name="idMenu"
                                id="idMenu" value="${menu.idMenu}"/>

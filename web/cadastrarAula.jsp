@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cadastrarBarbeiro
-    Created on : 6 de out de 2021, 10:40:29
+    Document   : cadastrarAula
+    Created on : 3 de nov de 2021, 09:05:21
     Author     : Acer Aspire
 --%>
 
@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Barbeiros</title>
+        <title>Cadastro de Aulas</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
@@ -55,60 +55,54 @@
             </div><!-- fim da div menu -->
             <div id="content">
                 <div class="bg-background">
-                    <form action="gerenciarBarbeiro" method="POST">
-                        <h2 class="mt-5">Cadastro de Barbeiro</h2>
-                        <input type="hidden" class="form-control" name="idBarbeiro"
-                               id="idBarbeiro" value="${barbeiro.idBarbeiro}"/>
+                    <form action="gerenciarAula" method="POST">
+                        <h2 class="mt-5">Cadastro de Aula</h2>
+                        <input type="hidden" class="form-control" name="idAula"
+                               id="idAula" value="${aula.idAula}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-primary">NOME DO BARBEIRO</label>
+                            <label for="materia" class="btn btn-primary">MATÉRIA</label>
                             <input type="text" class="form-control" 
-                                   name="nome" id="nome" value="${barbeiro.nome}" 
-                                   required="Informe o Barbeiro"/>
+                                   name="materia" id="materia" value="${aula.materia}" 
+                                   required=""/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataNasc" class="btn btn-primary">DATA DE NASCIMENTO</label>
+                            <label for="dataInicio" class="btn btn-primary">DATA DE INÍCIO</label>
                             <input type="date" class="form-control" 
-                                   name="dataNasc" id="dataNasc" value="${barbeiro.dataNasc}"
+                                   name="dataInicio" id="dataInicio" value="${aula.dataInicio}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="cpf" class="btn btn-primary">CPF</label>
-                            <input type="text" class="form-control" 
-                                   name="cpf" id="cpf" value="${barbeiro.cpf}" 
+                            <label for="dataFim" class="btn btn-primary">DATA FINAL</label>
+                            <input type="date" class="form-control" 
+                                   name="dataFim" id="dataFim" value="${aula.dataFim}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="email" class="btn btn-primary">E-MAIL</label>
-                            <input type="text" class="form-control" 
-                                   name="email" id="email" value="${barbeiro.email}" 
+                            <label for="horario" class="btn btn-primary">HORÁRIO</label>
+                            <input type="time" class="form-control" 
+                                   name="horario" id="horario" value="${aula.horario}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="endereco" class="btn btn-primary">ENDEREÇO</label>
-                            <input type="text" class="form-control" 
-                                   name="endereco" id="endereco" value="${barbeiro.endereco}" 
+                            <label for="qtdAula" class="btn btn-primary">QUANTIDADE DE AULAS</label>
+                            <input type="number" class="form-control" 
+                                   name="qtdAula" id="qtdAula" value="${aula.qtdAula}" 
                                    required="">
-                        </div>                        
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="telefone" class="btn btn-primary">TELEFONE</label>
-                            <input type="text" class="form-control" 
-                                   name="telefone" id="telefone" value="${barbeiro.telefone}" 
-                                   required="">
-                        </div>    
+                        </div>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="usuario" class="btn btn-primary">USUARIO</label>
+                            <label for="curso" class="btn btn-primary">CURSO</label>
                             <select class="form-select form-select-lg m-lg-3"
-                                    name="idUsuario" id="usuario" required="">
-                                <option value="" selected>Selecione o Usuario</option>
-                                <jsp:useBean class="model.UsuarioDAO" id="usuario" />
-                                <c:forEach var="u" items="${usuario.lista}">
-                                    <option value="${u.idUsuario}"
-                                            <c:if test="${u.idUsuario == barbeiro.usuario.idUsuario}">
+                                    name="idCurso" id="curso" required="">
+                                <option value="" selected>Selecione o Curso</option>
+                                <jsp:useBean class="model.CursoDAO" id="curso" />
+                                <c:forEach var="cs" items="${curso.lista}">
+                                    <option value="${cs.idCurso}"
+                                            <c:if test="${cs.idCurso == aula.curso.idCurso}">
                                                 selected=""
                                             </c:if>
-                                            >${u.nome}
+                                            >${cs.nome}
                                     </option>
                                 </c:forEach>
                             </select>
@@ -116,8 +110,8 @@
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
-                            <a href="listarBarbeiro.jsp" class="btn btn-secondary btn-xs" role="button" >
-                                LISTAR BARBEIRO <i class="fas fa-arrow-circle-left"></i></a>
+                            <a href="listarAula.jsp" class="btn btn-secondary btn-xs" role="button" >
+                                LISTAR AULA <i class="fas fa-arrow-circle-left"></i></a>
                         </div>
                     </form>
                 </div>

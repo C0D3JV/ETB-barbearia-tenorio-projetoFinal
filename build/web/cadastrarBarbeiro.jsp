@@ -56,7 +56,7 @@
             <div id="content">
                 <div class="bg-background">
                     <form action="gerenciarBarbeiro" method="POST">
-                        <h2 class="pt-3">Cadastro de Barbeiro</h2>
+                        <h2 class="mt-5">Cadastro de Barbeiro</h2>
                         <input type="hidden" class="form-control" name="idBarbeiro"
                                id="idBarbeiro" value="${barbeiro.idBarbeiro}"/>
 
@@ -95,8 +95,7 @@
                             <input type="text" class="form-control" 
                                    name="telefone" id="telefone" value="${barbeiro.telefone}" 
                                    required="">
-                        </div>                                    
-                        <br/>    
+                        </div>    
 
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="usuario" class="btn btn-primary">USUARIO</label>

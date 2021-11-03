@@ -56,7 +56,7 @@
             <div id="content">
                 <div class="bg-background">
                     <form action="gerenciarTurma" method="POST">
-                        <h2 class="pt-3">Cadastro de Turma</h2>
+                        <h2 class="mt-5">Cadastro de Turma</h2>
                         <input type="hidden" class="form-control" name="idTurma"
                                id="idTurma" value="${turma.idTurma}"/>
 

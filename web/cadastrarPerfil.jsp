@@ -55,7 +55,7 @@
             <div id="content" >
                 <div class="bg-background">
                     <form action="gerenciarPerfil" method="POST">
-                        <h2>Cadastro de Perfil</h2>
+                        <h2 class="mt-5">Cadastro de Perfil</h2>
                         <input type="hidden" class="form-control" name="idPerfil"
                                id="idPerfil" value="${perfil.idPerfil}"/>
 

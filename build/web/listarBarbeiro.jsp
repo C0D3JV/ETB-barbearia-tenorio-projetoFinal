@@ -57,7 +57,7 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mb-3">Listagem de Barbeiros</h2> 
+                                <h2 class="mt-5">Listagem de Barbeiros</h2> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
                                 <a class="btn btn-primary btn-lg" href="cadastrarBarbeiro.jsp" 
