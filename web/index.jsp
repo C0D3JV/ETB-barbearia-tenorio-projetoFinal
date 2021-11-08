@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 17 de ago. de 2021, 16:26:47
-    Author     : laors
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
@@ -40,18 +35,15 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container" class="container-fluid">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
+        <div id="container" class="container-fluid mt-2">
 
-            </div><!-- fim da div header -->
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
 
             </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <h3 class="mt-5">Página Inicial</h3>   
                 </div>
             </div><!--fim da div content -->

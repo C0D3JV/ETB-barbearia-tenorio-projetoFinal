@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 17 de ago. de 2021, 16:26:47
-    Author     : laors
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -50,7 +45,7 @@
                 <jsp:include page="template/menu.jsp"/>
             </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <form action="gerenciarCliente" method="POST">
                         <h2 class="mt-5">Cadastro de Cliente</h2>
                         <input type="hidden" class="form-control" name="idCliente"

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 17 de ago. de 2021, 16:26:47
-    Author     : laors
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
@@ -53,7 +48,7 @@
 
             </div><!-- fim da div menu -->
             <div id="content" >
-                <div class="bg-background">
+                <div>
                     <form action="gerenciarPerfil" method="POST">
                         <h2 class="mt-5">Cadastro de Perfil</h2>
                         <input type="hidden" class="form-control" name="idPerfil"
@@ -70,7 +65,7 @@
                             <input type="date" class="form-control" id="dataCadastro" name="dataCadastro" 
                                    value= "${perfil.dataCadastro}"/>
                         </div>
-                        
+
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
                             <a href="listarPerfil.jsp" class="btn btn-secondary btn-xs" role="button" >

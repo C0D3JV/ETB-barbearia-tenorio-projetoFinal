@@ -1,13 +1,8 @@
-<%-- 
-    Document   : index
-    Created on : 17 de ago. de 2021, 16:26:47
-    Author     : laors
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"
-        %>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,15 +27,15 @@
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
     </head>
     <body>
-         <%
-        //HTTP 1.1
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        //HTTP 1.0
-        response.setHeader("Pragma", "no-cache");
-        //Proxie
-        //response.setHeader("Expires", "0");
-        if(session.getAttribute("ulogado") == null)
-        response.sendRedirect("formLogin.jsp");
+        <%
+            //HTTP 1.1
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            //HTTP 1.0
+            response.setHeader("Pragma", "no-cache");
+            //Proxie
+            //response.setHeader("Expires", "0");
+            if (session.getAttribute("ulogado") == null)
+                response.sendRedirect("formLogin.jsp");
         %>
         <div id="container" class = "container-fluid">
             <div id="header">
@@ -53,7 +48,7 @@
 
             </div><!-- fim da div menu -->
             <div id="content" >
-                <div class="bg-background">
+                <div>
                     <form action="gerenciarUsuario" method="POST">
                         <h2 class="mt-5">Cadastro de Usuário</h2>
                         <input type="hidden" class="form-control" name="idUsuario"
@@ -116,32 +111,26 @@
                                                 <c:if test="${p.idPerfil == usuario.perfil.idPerfil}">
                                                     selected=""
                                                 </c:if>
-                                                
-                                        >${p.nome}</option>
+
+                                                >${p.nome}</option>
                                     </c:forEach>
                                 </select>
                             </div>
-                            
                         </div>
 
-
-                                  
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button class="btn btn-primary btn-xs mr-4">GRAVAR
-                                    <i class="fas fa-save"></i>
-                                </button>
-                                <a href="listarUsuario.jsp" 
-                                   class="btn btn-secondary btn-xs" 
-                                   role="button" >LISTAR USUÁRIOS
-                                    <i class="fas fa-arrow-circle-left"></i>
-                                </a>
-                            </div>
-                       
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-primary btn-xs mr-4">GRAVAR
+                                <i class="fas fa-save"></i>
+                            </button>
+                            <a href="listarUsuario.jsp" 
+                               class="btn btn-secondary btn-xs" 
+                               role="button" >LISTAR USUÁRIOS
+                                <i class="fas fa-arrow-circle-left"></i>
+                            </a>
+                        </div>
                     </form>
                 </div>
-
             </div>
         </div>
-
     </body>
 </html>

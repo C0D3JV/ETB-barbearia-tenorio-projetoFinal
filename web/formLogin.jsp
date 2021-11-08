@@ -1,13 +1,8 @@
 
-<%-- 
-    Document   : index
-    Created on : 17 de ago. de 2021, 16:26:47
-    Author     : laors
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,13 +32,8 @@
                 <jsp:include page="template/banner.jsp"/>
 
             </div><!-- fim da div header -->
-            <div id="menu">
-                <div class="bg-background"></div>
-
-
-            </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <%
                         String mensagem
                                 = (String) request.getSession().
@@ -56,19 +46,17 @@
                         }
                     %>
                     <form action="gerenciarLogin" method="POST">
-                        <h2>Efetuar Login</h2>
+                        <h2 class="mt-2">Efetuar Login</h2>
                         <div class="mt-5"></div>
                         <div class="form-group col col-sm-4 offset-sm-4">
 
-                            <label for="login" class="btn btn-primary">USUÁRIO
-                            </label>
+                            <label for="login" class="btn btn-primary">USUÁRIO</label>
                             <input type="text" class="form-control" 
                                    name="login" id="login" value="" 
                                    required=""/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="senha" class="btn btn-primary">SENHA
-                            </label>
+                            <label for="senha" class="btn btn-primary">SENHA</label>
                             <input type="password" class="form-control" 
                                    name="senha" id="senha" value="" 
                                    required=""/>
@@ -78,11 +66,9 @@
                             <button class="btn btn-primary btn-xs mr-4">ACESSAR
                                 <i class="fa fa-sign-in-alt"></i>
                             </button>
-
                         </div>
                     </form>
                 </div>
-
             </div><!-- fim da div content -->
         </div>
     </body>

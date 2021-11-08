@@ -1,8 +1,3 @@
-<%-- 
-    Document   : listarAula
-    Created on : 3 de nov de 2021, 09:23:18
-    Author     : Acer Aspire
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
         import="java.util.ArrayList"
@@ -53,7 +48,7 @@
             </div><!-- fim da div menu -->
 
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
@@ -86,8 +81,8 @@
                                             <tr>
                                                 <td>${a.idAula}</td>
                                                 <td>${a.materia}</td>
-                                                <td>${a.dataInicio}</td>
-                                                <td>${a.dataFim}</td>
+                                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${a.dataInicio}"/></td>
+                                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${a.dataFim}"/></td>
                                                 <td>${a.horario}</td>
                                                 <td>${a.qtdAula}</td>
                                                 <td>${a.curso.nome}</td>
@@ -122,7 +117,7 @@
                                                                 $(document).ready(function () {
                                                                     $("#listarAula").dataTable({
                                                                         "bJQueryUI": true,
-                                                                        "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "All"]],
+                                                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
                                                                         "oLanguage": {
                                                                             "sProcessing": "Processando..",
                                                                             "sLengthMenu": "Mostrar _MENU_ registros",
@@ -139,7 +134,6 @@
                                                                                 "sNext": "Próximo",
                                                                                 "sLast": "Último"
                                                                             }
-
                                                                         }
                                                                     });
                                                                 });

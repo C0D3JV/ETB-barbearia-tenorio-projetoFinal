@@ -25,7 +25,6 @@ public class GerenciarLogin extends HttpServlet {
 
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     @Override
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
@@ -33,7 +32,6 @@ public class GerenciarLogin extends HttpServlet {
         HttpSession sessao = request.getSession();
         sessao.removeAttribute("ulogado");
         sessao.invalidate();
-
         response.sendRedirect("formLogin.jsp");
     }
 
@@ -76,9 +74,7 @@ public class GerenciarLogin extends HttpServlet {
                 System.out.println("Usuário ou perfil não encontrados: "
                         + e.getMessage());
             }
-
         }
-
     }
 
     private static void exibirMensagem(String mensagem) {
@@ -89,12 +85,10 @@ public class GerenciarLogin extends HttpServlet {
                     + "history.back();"
                     + "</script>"
             );
-
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
             e.printStackTrace();
         }
-
     }
 
     public static Usuario verificarAcesso(

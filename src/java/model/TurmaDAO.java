@@ -24,7 +24,7 @@ public class TurmaDAO {
                 + "ON b.idBarbeiro = t.idBarbeiro "
                 + "INNER JOIN curso cs "
                 + "ON cs.idCurso = t.idCurso ";
-        
+
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
@@ -47,14 +47,14 @@ public class TurmaDAO {
                 b.setEndereco(rs.getString("b.endereco"));
                 b.setTelefone(rs.getString("b.telefone"));
                 t.setBarbeiro(b);
-                
+
                 Curso cs = new Curso();
                 cs.setIdCurso(rs.getInt("cs.idCurso"));
                 cs.setNome(rs.getString("cs.nome"));
                 cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                cs.setPreco(rs.getDouble("cs.preco"));               
+                cs.setPreco(rs.getDouble("cs.preco"));
                 t.setCurso(cs);
-                
+
                 lista.add(t);
 
             }
@@ -134,7 +134,7 @@ public class TurmaDAO {
                 + "INNER JOIN curso cs "
                 + "ON cs.idCurso = t.idCurso "
                 + "WHERE t.idTurma = ? ";
-        
+
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
@@ -156,15 +156,15 @@ public class TurmaDAO {
                 b.setEmail(rs.getString("b.email"));
                 b.setEndereco(rs.getString("b.endereco"));
                 b.setTelefone(rs.getString("b.telefone"));
-                
+
                 t.setBarbeiro(b);
-                
+
                 Curso cs = new Curso();
                 cs.setIdCurso(rs.getInt("cs.idCurso"));
                 cs.setNome(rs.getString("cs.nome"));
                 cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                cs.setPreco(rs.getDouble("cs.preco"));                
-                
+                cs.setPreco(rs.getDouble("cs.preco"));
+
                 t.setCurso(cs);
 
             }

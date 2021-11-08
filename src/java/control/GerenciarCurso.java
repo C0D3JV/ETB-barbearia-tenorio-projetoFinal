@@ -1,10 +1,13 @@
-//Arrumar o preco que não está retornando na hora de alterar
-
 package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -88,22 +91,23 @@ public class GerenciarCurso extends HttpServlet {
         String descricao = request.getParameter("descricao");
         String mensagem = "";
 
+        NumberFormat nf = new DecimalFormat("###,###.##");
+
         Curso cs = new Curso();
 
         try {
+            Double valor = nf.parse(preco.toString()).doubleValue();
             if (!idCurso.isEmpty()) {
                 cs.setIdCurso(Integer.parseInt(idCurso));
             }
-            
             if (nome.equals("")
                     || cargaHoraria.equals("")
                     || preco.equals("")) {
                 mensagem = "Os Campos obrigatórios devem ser preenchidos!";
-            }
-             else {
+            } else {
                 cs.setNome(nome);
                 cs.setCargaHoraria(Integer.parseInt(cargaHoraria));
-                cs.setPreco(Double.parseDouble(preco));
+                cs.setPreco(valor);
                 cs.setImagem(imagem);
                 cs.setDescricao(descricao);
                 if (cs.gravar()) {
@@ -116,6 +120,8 @@ public class GerenciarCurso extends HttpServlet {
         } catch (SQLException | NumberFormatException e) {
             mensagem = "Erro: " + e.getMessage();
             out.println(mensagem);
+        } catch (ParseException ex) {
+            Logger.getLogger(GerenciarCurso.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         out.println(

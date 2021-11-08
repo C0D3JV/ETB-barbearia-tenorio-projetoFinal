@@ -1,17 +1,13 @@
 package model;
 
 public class Usuario {
-    
+
     private int idUsuario;
     private String nome;
     private String login;
     private String senha;
     private int status;
     private Perfil perfil;
-    
-    public Usuario(){
-        
-    }
 
     public int getIdUsuario() {
         return idUsuario;
@@ -60,5 +56,9 @@ public class Usuario {
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
-      
+
+    public Usuario() {
+
+    }
+
 }

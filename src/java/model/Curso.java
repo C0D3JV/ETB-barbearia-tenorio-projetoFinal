@@ -3,16 +3,13 @@ package model;
 import java.sql.SQLException;
 
 public class Curso {
+
     private int idCurso;
     private String nome;
     private int cargaHoraria;
     private double preco;
     private String imagem;
     private String descricao;
-    
-    public Curso (){
-        
-    }
 
     public int getIdCurso() {
         return idCurso;
@@ -61,7 +58,11 @@ public class Curso {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
+
+    public Curso() {
+
+    }
+
     public boolean gravar() throws SQLException {
         CursoDAO csdao = new CursoDAO();
         return csdao.gravar(this);

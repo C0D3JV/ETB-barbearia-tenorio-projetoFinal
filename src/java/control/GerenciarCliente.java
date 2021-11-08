@@ -117,7 +117,7 @@ public class GerenciarCliente extends HttpServlet {
                 Turma t = new Turma();
                 t.setIdTurma(Integer.parseInt(idTurma));
                 ct.setTurma(t);
-                
+
                 Usuario u = new Usuario();
                 u.setIdUsuario(Integer.parseInt(idUsuario));
                 ct.setUsuario(u);

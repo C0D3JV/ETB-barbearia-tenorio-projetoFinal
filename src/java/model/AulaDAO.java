@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.sql.Time;
 
 public class AulaDAO {
 
@@ -74,14 +75,13 @@ public class AulaDAO {
             ps.setString(1, a.getMateria());
             ps.setDate(2, new Date(a.getDataInicio().getTime()));
             ps.setDate(3, new Date(a.getDataFim().getTime()));
-            ps.setTime(4, a.getHorario());
+            ps.setTime(4, new Time(a.getHorario().getTime()));
             ps.setInt(5, a.getQtdAula());
             ps.setInt(6, a.getCurso().getIdCurso());
 
             if (a.getIdAula() > 0) {
                 ps.setInt(7, a.getIdAula());
             }
-
             ps.executeUpdate();
             ConexaoFactory.close(con);
             return true;
@@ -91,7 +91,6 @@ public class AulaDAO {
                     + e.getMessage());
             return false;
         }
-
     }
 
     public boolean deletar(int idAula) {
@@ -141,7 +140,6 @@ public class AulaDAO {
                 cs.setDescricao(rs.getString("cs.descricao"));
 
                 a.setCurso(cs);
-
             }
             ConexaoFactory.close(con);
 

@@ -5,8 +5,6 @@ import java.io.PrintWriter;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -94,6 +92,9 @@ public class GerenciarAula extends HttpServlet {
 
         try {
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
+            java.util.Date data2 = formatador.parse(horario);
+            Time time = new Time(data2.getTime());
             
             if (!idAula.isEmpty()) {
                 a.setIdAula(Integer.parseInt(idAula));
@@ -109,7 +110,7 @@ public class GerenciarAula extends HttpServlet {
                 a.setMateria(materia);
                 a.setDataInicio(df.parse(dataInicio));
                 a.setDataFim(df.parse(dataFim));
-                a.setHorario(horario);
+                a.setHorario(time);
                 a.setQtdAula(Integer.parseInt(qtdAula));
 
                 Curso cs = new Curso();
@@ -125,16 +126,16 @@ public class GerenciarAula extends HttpServlet {
                         mensagem = "Falha ao gravar a aula na base de dados!";
                     }
                 } catch (Exception e) {
-            mensagem = "Erro: " + e.getMessage();
-            out.println(mensagem);
-            }
+                    mensagem = "Erro: " + e.getMessage();
+                    out.println(mensagem);
+                }
 
-            out.println(
-                    "<script type='text/javascript'>"
-                    + "alert('" + mensagem + "');"
-                    + "location.href='listarTurma.jsp';"
-                    + "</script>");
-        } 
+                out.println(
+                        "<script type='text/javascript'>"
+                        + "alert('" + mensagem + "');"
+                        + "location.href='listarAula.jsp';"
+                        + "</script>");
+            }
         } catch (ParseException pe) {
             mensagem = "Erro: " + pe.getMessage();
             pe.printStackTrace();

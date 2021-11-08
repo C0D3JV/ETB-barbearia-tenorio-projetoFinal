@@ -56,7 +56,8 @@ public class CursoDAO {
                 ps.setString(4, cs.getImagem());
                 ps.setString(5, cs.getDescricao());
             } else {
-                sql = "UPDATE curso set nome = ?, cargaHoraria = ?, preco = ?, imagem = ?, descricao = ? WHERE idCurso = ?";
+                sql = "UPDATE curso set nome = ?, cargaHoraria = ?, preco = ?, imagem = ?, descricao = ? "
+                        + "WHERE idCurso = ?";
                 ps = con.prepareStatement(sql);
                 ps.setString(1, cs.getNome());
                 ps.setInt(2, cs.getCargaHoraria());
@@ -74,7 +75,6 @@ public class CursoDAO {
                     + e.getMessage());
             return false;
         }
-
     }
 
     public boolean deletar(int idCurso) {

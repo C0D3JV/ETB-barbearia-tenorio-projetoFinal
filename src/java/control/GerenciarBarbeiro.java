@@ -1,4 +1,3 @@
-//Arrumar o preço pra retornar na hora de alterar
 package control;
 
 import java.io.IOException;

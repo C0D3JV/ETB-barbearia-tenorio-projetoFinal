@@ -15,16 +15,15 @@ import model.UsuarioDAO;
 @WebServlet(name = "GerenciarUsuario", urlPatterns = {"/gerenciarUsuario"})
 public class GerenciarUsuario extends HttpServlet {
 
-   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GerenciarUsuario</title>");            
+            out.println("<title>Servlet GerenciarUsuario</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet GerenciarUsuario at " + request.getContextPath() + "</h1>");
@@ -34,7 +33,7 @@ public class GerenciarUsuario extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, 
+    protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -44,52 +43,52 @@ public class GerenciarUsuario extends HttpServlet {
         try {
             Usuario u = new Usuario();
             UsuarioDAO udao = new UsuarioDAO();
-            if(acao.equals("alterar")){
+            if (acao.equals("alterar")) {
                 u = udao.getCarregarPorId(
                         Integer.parseInt(idUsuario));
-                if(u.getIdUsuario() > 0){
-                    RequestDispatcher dispatcher =
-                            getServletContext().
+                if (u.getIdUsuario() > 0) {
+                    RequestDispatcher dispatcher
+                            = getServletContext().
                                     getRequestDispatcher("/cadastrarUsuario.jsp");
                     request.setAttribute("usuario", u);
                     dispatcher.forward(request, response);
-                    
-                }else{
+
+                } else {
                     mensagem = "Usuário não encontrado na base de dados!";
                 }
-                
+
             }
-            if(acao.equals("desativar")){
+            if (acao.equals("desativar")) {
                 u.setIdUsuario(Integer.parseInt(idUsuario));
-                if(udao.desativar(u)){
+                if (udao.desativar(u)) {
                     mensagem = "Usuário desativado com sucesso!";
-                }else{
+                } else {
                     mensagem = "Falha ao desativar o usuario";
                 }
             }
-              if(acao.equals("ativar")){
+            if (acao.equals("ativar")) {
                 u.setIdUsuario(Integer.parseInt(idUsuario));
-                if(udao.ativar(u)){
+                if (udao.ativar(u)) {
                     mensagem = "Usuário ativado com sucesso!";
-                }else{
+                } else {
                     mensagem = "Falha ao ativar o usuario";
                 }
             }
-            
+
         } catch (Exception e) {
-             mensagem = "Erro: " + e.getMessage();
-                e.printStackTrace();
+            mensagem = "Erro: " + e.getMessage();
+            e.printStackTrace();
         }
-        
+
         out.println(
                 "<script type='text/javascript'>"
                 + "alert('" + mensagem + "');"
                 + "location.href='listarUsuario.jsp';"
                 + "</script>");
     }
-   
+
     @Override
-    protected void doPost(HttpServletRequest request, 
+    protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
@@ -99,44 +98,44 @@ public class GerenciarUsuario extends HttpServlet {
         String senha = request.getParameter("senha");
         String status = request.getParameter("status");
         String idPerfil = request.getParameter("idPerfil");
-        
+
         String mensagem = "";
-        
+
         Usuario u = new Usuario();
-        
-        if(!(idUsuario.isEmpty())){
+
+        if (!(idUsuario.isEmpty())) {
             u.setIdUsuario(Integer.parseInt(idUsuario));
         }
-        
-        if(nome.equals("") || login.equals("") || senha.equals("") ||
-                status.equals("") || idPerfil.equals("")){
+
+        if (nome.equals("") || login.equals("") || senha.equals("")
+                || status.equals("") || idPerfil.equals("")) {
             mensagem = "Os campos obrigatórios devem ser preenchidos!";
-        }else{
+        } else {
             u.setNome(nome);
             u.setLogin(login);
             u.setSenha(senha);
             u.setStatus(Integer.parseInt(status));
-            
+
             Perfil p = new Perfil();
             p.setIdPerfil(Integer.parseInt(idPerfil));
-            
+
             u.setPerfil(p);
             try {
                 UsuarioDAO udao = new UsuarioDAO();
-                if(udao.gravar(u)){
+                if (udao.gravar(u)) {
                     mensagem = "Usuário gravado com sucesso na base de dados!";
-                }else{
+                } else {
                     mensagem = "Falha ao gravar o usuário na base de dados!";
                 }
             } catch (Exception e) {
                 mensagem = "Erro: " + e.getMessage();
                 e.printStackTrace();
             }
-             out.println(
-                "<script type='text/javascript'>"
-                + "alert('" + mensagem + "');"
-                + "location.href='listarUsuario.jsp';"
-                + "</script>");   
+            out.println(
+                    "<script type='text/javascript'>"
+                    + "alert('" + mensagem + "');"
+                    + "location.href='listarUsuario.jsp';"
+                    + "</script>");
         }
     }
 

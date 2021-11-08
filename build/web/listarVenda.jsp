@@ -1,8 +1,3 @@
-<%-- 
-    Document   : listarVenda
-    Created on : 1 de nov de 2021, 09:08:47
-    Author     : Acer Aspire
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
         import="java.util.ArrayList"
@@ -54,7 +49,7 @@
 
             </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
@@ -91,7 +86,7 @@
                                                 <td><fmt:formatNumber pattern="#,##0.00" value="${v.precoTotal}"/></td>
                                                 <td>${v.cliente.nome}</td>
                                                 <td>${v.usuario.nome}</td>
-                                                
+
                                                 <td class='text-center'>
                                                     <a href="gerenciarVenda?acao=alterar&idVenda=${v.idVenda}"
                                                        class="btn btn-primary btn-xs" role="button">
@@ -108,10 +103,6 @@
                                                             onclick="confirmarExclusao('${v.idVenda}', '${v.dataVenda}')">
                                                         Excluir&nbsp;<i class="fas fa-trash"></i>
                                                     </button>
-                                                    <a href="gerenciarVendaCurso?acao=gerenciar&idVenda=${v.idVenda}"
-                                                       class="btn btn-secondary btn-xs" style="color:white;" role="button">
-                                                        Relacionar Curso&nbsp;<i class="fas fa-user-tag"></i>
-                                                    </a>
                                                 </td>      
                                             </tr>
                                         </c:forEach>
@@ -124,7 +115,7 @@
                                                                 $(document).ready(function () {
                                                                     $("#listarVenda").dataTable({
                                                                         "bJQueryUI": true,
-                                                                        "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "All"]],
+                                                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
                                                                         "oLanguage": {
                                                                             "sProcessing": "Processando..",
                                                                             "sLengthMenu": "Mostrar _MENU_ registros",
@@ -141,7 +132,6 @@
                                                                                 "sNext": "Próximo",
                                                                                 "sLast": "Último"
                                                                             }
-
                                                                         }
                                                                     });
                                                                 });

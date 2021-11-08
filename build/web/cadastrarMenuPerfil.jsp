@@ -140,7 +140,7 @@
                                                             $(document).ready(function () {
                                                                 $("#listarMenus").dataTable({
                                                                     "bJQueryUI": true,
-                                                                    "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "All"]],
+                                                                    "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
                                                                     "oLanguage": {
                                                                         "sProcessing": "Processando..",
                                                                         "sLengthMenu": "Mostrar _MENU_ registros",

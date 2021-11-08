@@ -1,8 +1,3 @@
-<%-- 
-    Document   : cadastrarAula
-    Created on : 3 de nov de 2021, 09:05:21
-    Author     : Acer Aspire
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -54,7 +49,7 @@
 
             </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <form action="gerenciarAula" method="POST">
                         <h2 class="mt-5">Cadastro de Aula</h2>
                         <input type="hidden" class="form-control" name="idAula"

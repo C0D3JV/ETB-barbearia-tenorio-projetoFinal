@@ -3,6 +3,7 @@ package model;
 import java.sql.SQLException;
 
 public class Turma {
+
     private int idTurma;
     private String nome;
     private int qtdAluno;
@@ -77,10 +78,10 @@ public class Turma {
     }
 
     public Turma() {
-    
+
     }
-    
-    public boolean gravar()throws SQLException, Exception{
+
+    public boolean gravar() throws SQLException, Exception {
         TurmaDAO tdao = new TurmaDAO();
         return tdao.gravar(this);
     }

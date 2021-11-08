@@ -7,8 +7,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -92,7 +90,7 @@ public class GerenciarVenda extends HttpServlet {
         String idCliente = request.getParameter("idCliente");
         String idUsuario = request.getParameter("idUsuario");
         String mensagem = "";
-        
+
         NumberFormat nf = new DecimalFormat("###,###.##");
 
         Venda v = new Venda();
@@ -111,15 +109,15 @@ public class GerenciarVenda extends HttpServlet {
             } else {
                 v.setDataVenda(df.parse(dataVenda));
                 v.setPrecoTotal(preco);
-                
+
                 Cliente ct = new Cliente();
                 ct.setIdCliente(Integer.parseInt(idCliente));
                 v.setCliente(ct);
-                
+
                 Usuario u = new Usuario();
                 u.setIdUsuario(Integer.parseInt(idUsuario));
                 v.setUsuario(u);
-                
+
                 if (v.gravar()) {
                     mensagem = "Dados da Venda gravadas na base de dados!";
                 } else {
@@ -129,7 +127,6 @@ public class GerenciarVenda extends HttpServlet {
         } catch (SQLException e) {
             mensagem = "Erro: " + e.getMessage();
             out.println(mensagem);
-
         } catch (ParseException e) {
             mensagem = "Erro: " + e.getMessage();
             e.printStackTrace();

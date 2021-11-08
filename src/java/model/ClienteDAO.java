@@ -37,7 +37,7 @@ public class ClienteDAO {
                 ct.setEmail(rs.getString("ct.email"));
                 ct.setEndereco(rs.getString("ct.endereco"));
                 ct.setTelefone(rs.getString("ct.telefone"));
-                
+
                 Turma t = new Turma();
                 t.setIdTurma(rs.getInt("t.idTurma"));
                 t.setNome(rs.getString("t.nome"));
@@ -54,7 +54,7 @@ public class ClienteDAO {
                 u.setSenha(rs.getString("u.senha"));
                 u.setStatus(rs.getInt("u.status"));
                 ct.setUsuario(u);
-                
+
                 lista.add(ct);
 
             }
@@ -148,7 +148,7 @@ public class ClienteDAO {
                 ct.setEmail(rs.getString("ct.email"));
                 ct.setEndereco(rs.getString("ct.endereco"));
                 ct.setTelefone(rs.getString("ct.telefone"));
-                
+
                 Turma t = new Turma();
                 t.setIdTurma(rs.getInt("t.idTurma"));
                 t.setNome(rs.getString("t.nome"));
@@ -156,7 +156,7 @@ public class ClienteDAO {
                 t.setAno(rs.getString("t.ano"));
                 t.setSemestre(rs.getString("t.semestre"));
                 t.setTurno(rs.getString("t.turno"));
-                
+
                 ct.setTurma(t);
 
                 //Associação entre os Objetos Usuario e Cliente 
@@ -166,7 +166,7 @@ public class ClienteDAO {
                 u.setLogin(rs.getString("u.login"));
                 u.setSenha(rs.getString("u.senha"));
                 u.setStatus(rs.getInt("u.status"));
-                
+
                 ct.setUsuario(u);
 
             }

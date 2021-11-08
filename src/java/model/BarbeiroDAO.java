@@ -44,10 +44,8 @@ public class BarbeiroDAO {
 
                 b.setUsuario(u);
                 lista.add(b);
-
             }
             ConexaoFactory.close(con);
-
         } catch (SQLException e) {
             System.out.println(
                     "Falha ao listar os barbeiros da base de dados:"
@@ -91,7 +89,6 @@ public class BarbeiroDAO {
                     + e.getMessage());
             return false;
         }
-
     }
 
     public boolean deletar(int idBarbeiro) {
@@ -141,7 +138,6 @@ public class BarbeiroDAO {
                 u.setStatus(rs.getInt("u.status"));
 
                 b.setUsuario(u);
-
             }
             ConexaoFactory.close(con);
 

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : cadastrarTurma
-    Created on : 25 de out de 2021, 10:51:30
-    Author     : Acer Aspire
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -54,7 +49,7 @@
 
             </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <form action="gerenciarTurma" method="POST">
                         <h2 class="mt-5">Cadastro de Turma</h2>
                         <input type="hidden" class="form-control" name="idTurma"

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Venda {
+
     private int idVenda;
     private Date dataVenda;
     private double precoTotal;
@@ -52,7 +53,7 @@ public class Venda {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+
     public ArrayList<Curso> getCursos() {
         return cursos;
     }
@@ -71,7 +72,7 @@ public class Venda {
 
     public Venda() {
     }
-    
+
     public boolean gravar() throws SQLException {
         VendaDAO vdao = new VendaDAO();
         return vdao.gravar(this);

@@ -33,16 +33,16 @@
         <script src="js/bootstrap.js"></script>
     </head>
     <body>
-    <%
-        //HTTP 1.1
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        //HTTP 1.0
-        response.setHeader("Pragma", "no-cache");
-        //Proxie
-        //response.setHeader("Expires", "0");
-        if(session.getAttribute("ulogado") == null)
-        response.sendRedirect("formLogin.jsp");
-    %>
+        <%
+            //HTTP 1.1
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            //HTTP 1.0
+            response.setHeader("Pragma", "no-cache");
+            //Proxie
+            //response.setHeader("Expires", "0");
+            if (session.getAttribute("ulogado") == null)
+                response.sendRedirect("formLogin.jsp");
+        %>
         <div id="container">
             <div id="header">
                 <jsp:include page="template/banner.jsp"/>
@@ -54,105 +54,99 @@
 
             </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
-                <div class="h-100 justify-content-center align-items-center">
-                    <div clas="col-12">
-                        <div>
-                           <h2 class="mt-5">Listagem de Menus</h2> 
-                        </div>
-                       <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                        <a class="btn btn-primary btn-lg" href="cadastrarMenu.jsp" 
-                           role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
-                        </div>
-                      
-                        <div class="table-responsive">
-                            <table class="table table-hover table-striped 
-                                   table-bordered" id="listarMenu">
-                                <thead class="bg-primary">
-                                    <tr class="text-white">
-                                        <th>Código</th>
-                                        <th>Menu</th>
-                                        <th>Link</link>
-                                        <th>Ícone</th>
-                                        <th>Exibir</th>
-                                        <th>Ação</th>
-                                    </tr>
+                <div>
+                    <div class="h-100 justify-content-center align-items-center">
+                        <div clas="col-12">
+                            <div>
+                                <h2 class="mt-5">Listagem de Menus</h2> 
+                            </div>
+                            <div class="col-sm-2 col-12" style="padding-bottom: 10px">
+                                <a class="btn btn-primary btn-lg" href="cadastrarMenu.jsp" 
+                                   role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
+                            </div>
 
-                                </thead>
-                                <tbody>
-                                    <jsp:useBean class="model.MenuDAO" id="mdao" />
-                                    <c:forEach var="m" items="${mdao.lista}">
-                                        <tr>
-                                            <td>${m.idMenu}</td>
-                                            <td>${m.nome}</td>
-                                            <td>${m.link}</td>
-                                            <td>${m.icone}</td>
-                                            <td>
-                                                <c:if test="${m.exibir == 1}">Sim</c:if>
-                                                <c:if test="${m.exibir == 2}">Não</c:if>
-                                            </td>
-                                                
-                                            <td class='text-center'>
-                                                <a href="gerenciarMenu?acao=alterar&idMenu=${m.idMenu}"
-                                                   class="btn btn-primary btn-xs" role="button">
-                                                    Alterar&nbsp;<i class="fas fa-edit"></i>
-                                                </a>
-                                                   <script type="text/javascript">
-                                                       function confirmarExclusao(id,nome){
-                                                           if(confirm('Deseja realmente excluir o menu ' +nome+ ' ?')){
-                                                               location.href="gerenciarMenu?acao=deletar&idMenu=" +id;
-                                                           }
-                                                           
-                                                       }
-                                                    </script>
-                                                <button class='btn btn-danger btn-xs'
-                                                    onclick="confirmarExclusao('${m.idMenu}', '${m.nome}')">
-                                                    Excluir&nbsp;<i class="fas fa-trash"></i>
-                                                </button>
-                                            </td>      
+                            <div class="table-responsive">
+                                <table class="table table-hover table-striped 
+                                       table-bordered" id="listarMenu">
+                                    <thead class="bg-primary">
+                                        <tr class="text-white">
+                                            <th>Código</th>
+                                            <th>Menu</th>
+                                            <th>Link</link>
+                                            <th>Ícone</th>
+                                            <th>Exibir</th>
+                                            <th>Ação</th>
                                         </tr>
-                                    </c:forEach>
+                                    </thead>
+                                    <tbody>
+                                        <jsp:useBean class="model.MenuDAO" id="mdao" />
+                                        <c:forEach var="m" items="${mdao.lista}">
+                                            <tr>
+                                                <td>${m.idMenu}</td>
+                                                <td>${m.nome}</td>
+                                                <td>${m.link}</td>
+                                                <td>${m.icone}</td>
+                                                <td>
+                                                    <c:if test="${m.exibir == 1}">Sim</c:if>
+                                                    <c:if test="${m.exibir == 2}">Não</c:if>
+                                                    </td>
 
-                                </tbody>
-                            </table>
-                            <script src="js/jquery-3.6.0.js"></script>
-                            <script src="datatables/jquery.dataTables.js"></script>
-                            <script src="datatables/dataTables.bootstrap4.js"></script>
-                            <script>
-                                $(document).ready(function () {
-                                    $("#listarMenu").dataTable({
-                                        "bJQueryUI": true,
-                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
-                                        "oLanguage": {
-                                            "sProcessing": "Processando..",
-                                            "sLengthMenu": "Mostrar _MENU_ registros",
-                                            "sZeroRecords": "Não foram encontrados resultados",
-                                            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                                            "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
-                                            "sInfoFiltered": "",
-                                            "sInfoPostFix": "",
-                                            "sSearch": "Pesquisar",
-                                            "sUrl": "",
-                                            "oPaginate": {
-                                                "sFirst": "Primeiro",
-                                                "sPrevious": "Anterior",
-                                                "sNext": "Próximo",
-                                                "sLast": "Último"
-                                            }
+                                                    <td class='text-center'>
+                                                        <a href="gerenciarMenu?acao=alterar&idMenu=${m.idMenu}"
+                                                       class="btn btn-primary btn-xs" role="button">
+                                                        Alterar&nbsp;<i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <script type="text/javascript">
+                                                        function confirmarExclusao(id, nome) {
+                                                            if (confirm('Deseja realmente excluir o menu ' + nome + ' ?')) {
+                                                                location.href = "gerenciarMenu?acao=deletar&idMenu=" + id;
+                                                            }
 
-                                        }
-                                    });
-                                });
+                                                        }
+                                                    </script>
+                                                    <button class='btn btn-danger btn-xs'
+                                                            onclick="confirmarExclusao('${m.idMenu}', '${m.nome}')">
+                                                        Excluir&nbsp;<i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>      
+                                            </tr>
+                                        </c:forEach>
 
-
-                            </script>
+                                    </tbody>
+                                </table>
+                                <script src="js/jquery-3.6.0.js"></script>
+                                <script src="datatables/jquery.dataTables.js"></script>
+                                <script src="datatables/dataTables.bootstrap4.js"></script>
+                                <script>
+                                                                $(document).ready(function () {
+                                                                    $("#listarMenu").dataTable({
+                                                                        "bJQueryUI": true,
+                                                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
+                                                                        "oLanguage": {
+                                                                            "sProcessing": "Processando..",
+                                                                            "sLengthMenu": "Mostrar _MENU_ registros",
+                                                                            "sZeroRecords": "Não foram encontrados resultados",
+                                                                            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                                                                            "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                                                                            "sInfoFiltered": "",
+                                                                            "sInfoPostFix": "",
+                                                                            "sSearch": "Pesquisar",
+                                                                            "sUrl": "",
+                                                                            "oPaginate": {
+                                                                                "sFirst": "Primeiro",
+                                                                                "sPrevious": "Anterior",
+                                                                                "sNext": "Próximo",
+                                                                                "sLast": "Último"
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                });
+                                </script>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-
                 </div>                        
             </div><!--fim da div content -->
-
-
         </div>
+    </body> 
+</html>

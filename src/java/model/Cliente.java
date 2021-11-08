@@ -3,6 +3,7 @@ package model;
 import java.util.Date;
 
 public class Cliente {
+
     private int idCliente;
     private String nome;
     private Date dataNasc;
@@ -12,8 +13,7 @@ public class Cliente {
     private String telefone;
     private Turma turma;
     private Usuario usuario;
-    
-    
+
     public int getIdCliente() {
         return idCliente;
     }
@@ -21,7 +21,7 @@ public class Cliente {
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
     }
- 
+
     public String getNome() {
         return nome;
     }
@@ -29,7 +29,7 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public Date getDataNasc() {
         return dataNasc;
     }
@@ -37,7 +37,7 @@ public class Cliente {
     public void setDataNasc(Date dataNasc) {
         this.dataNasc = dataNasc;
     }
-    
+
     public String getCpf() {
         return cpf;
     }
@@ -77,7 +77,7 @@ public class Cliente {
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
-    
+
     public Usuario getUsuario() {
         return usuario;
     }
@@ -86,7 +86,7 @@ public class Cliente {
         this.usuario = usuario;
     }
 
-    public Cliente (){
-        
+    public Cliente() {
+
     }
 }

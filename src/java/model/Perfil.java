@@ -12,10 +12,6 @@ public class Perfil {
     private ArrayList<Menu> menus;
     private ArrayList<Menu> naoMenus;
 
-    public Perfil() {
-
-    }
-
     public int getIdPerfil() {
         return idPerfil;
     }
@@ -54,6 +50,10 @@ public class Perfil {
 
     public void setNaoMenus(ArrayList<Menu> naoMenus) {
         this.naoMenus = naoMenus;
+    }
+
+    public Perfil() {
+
     }
 
     public boolean gravar() throws SQLException {

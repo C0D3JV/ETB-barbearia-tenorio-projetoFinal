@@ -1,8 +1,3 @@
-<%-- 
-    Document   : listarBarbeiro
-    Created on : 6 de out de 2021, 10:55:04
-    Author     : Acer Aspire
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
         import="java.util.ArrayList"
@@ -53,7 +48,7 @@
             </div><!-- fim da div menu -->
             
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
@@ -127,7 +122,7 @@
                                                                 $(document).ready(function () {
                                                                     $("#listarBarbeiro").dataTable({
                                                                         "bJQueryUI": true,
-                                                                        "lengthMenu": [[5, 10, 20, 25, -1], [5, 10, 20, 25, "All"]],
+                                                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
                                                                         "oLanguage": {
                                                                             "sProcessing": "Processando..",
                                                                             "sLengthMenu": "Mostrar _MENU_ registros",
@@ -144,7 +139,6 @@
                                                                                 "sNext": "Próximo",
                                                                                 "sLast": "Último"
                                                                             }
-
                                                                         }
                                                                     });
                                                                 });

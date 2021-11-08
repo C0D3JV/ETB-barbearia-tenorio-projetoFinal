@@ -1,8 +1,3 @@
-<%-- 
-    Document   : cadastrarBarbeiro
-    Created on : 6 de out de 2021, 10:40:29
-    Author     : Acer Aspire
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -54,7 +49,7 @@
 
             </div><!-- fim da div menu -->
             <div id="content">
-                <div class="bg-background">
+                <div>
                     <form action="gerenciarBarbeiro" method="POST">
                         <h2 class="mt-5">Cadastro de Barbeiro</h2>
                         <input type="hidden" class="form-control" name="idBarbeiro"

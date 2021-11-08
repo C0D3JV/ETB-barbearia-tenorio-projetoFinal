@@ -1,16 +1,12 @@
 package model;
-//Java Bean : propriedades da classe, método construtor default ou padrão
-// Getter e setter
+
 public class Menu {
+
     private int idMenu;
     private String nome;
     private String link;
     private String icone;
     private int exibir;
-    
-    public Menu(){
-        
-    }
 
     public int getIdMenu() {
         return idMenu;
@@ -51,5 +47,8 @@ public class Menu {
     public void setExibir(int exibir) {
         this.exibir = exibir;
     }
-      
+
+    public Menu() {
+
+    }
 }

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 17 de ago. de 2021, 16:26:47
-    Author     : laors
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
         %>
@@ -31,15 +26,15 @@
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
     </head>
     <body>
-         <%
-        //HTTP 1.1
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        //HTTP 1.0
-        response.setHeader("Pragma", "no-cache");
-        //Proxie
-        //response.setHeader("Expires", "0");
-        if(session.getAttribute("ulogado") == null)
-        response.sendRedirect("formLogin.jsp");
+        <%
+            //HTTP 1.1
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+            //HTTP 1.0
+            response.setHeader("Pragma", "no-cache");
+            //Proxie
+            //response.setHeader("Expires", "0");
+            if (session.getAttribute("ulogado") == null)
+                response.sendRedirect("formLogin.jsp");
         %>
         <div id="container" class = "container-fluid">
             <div id="header">
@@ -52,10 +47,10 @@
 
             </div><!-- fim da div menu -->
             <div id="content" >
-                  <div class="bg-background">
+                <div>
                     <form action="gerenciarMenu" method="POST">
                         <h2 class="mt-5">Cadastro de Menus</h2>
-                    
+
                         <input type="hidden" class="form-control" name="idMenu"
                                id="idMenu" value="${menu.idMenu}"/>
 
@@ -103,24 +98,19 @@
                             </div>
                         </div>
 
-
-                                  
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button class="btn btn-primary btn-xs mr-4">GRAVAR&nbsp;
-                                    <i class="fas fa-save"></i>
-                                </button>
-                                <a href="listarMenu.jsp" 
-                                   class="btn btn-secondary btn-xs" 
-                                   role="button" >LISTAR MENUS&nbsp;
-                                    <i class="fas fa-arrow-circle-left"></i>
-                                </a>
-                            </div>
-                       
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-primary btn-xs mr-4">GRAVAR&nbsp;
+                                <i class="fas fa-save"></i>
+                            </button>
+                            <a href="listarMenu.jsp" 
+                               class="btn btn-secondary btn-xs" 
+                               role="button" >LISTAR MENUS&nbsp;
+                                <i class="fas fa-arrow-circle-left"></i>
+                            </a>
+                        </div>
                     </form>
                 </div>
-
             </div>
         </div>
-
     </body>
 </html>
