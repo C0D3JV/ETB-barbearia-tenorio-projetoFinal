@@ -12,7 +12,6 @@ public class Cliente {
     private String endereco;
     private String telefone;
     private Turma turma;
-    private Usuario usuario;
 
     public int getIdCliente() {
         return idCliente;
@@ -76,14 +75,6 @@ public class Cliente {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public Cliente() {

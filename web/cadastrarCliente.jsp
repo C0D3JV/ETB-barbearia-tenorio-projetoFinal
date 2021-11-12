@@ -1,7 +1,6 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> <%-- formata para usar o date e money --%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> <%-- formata para usar o date e money --%>
 
 <!DOCTYPE html>
 <html>
@@ -99,22 +98,6 @@
                                                 selected=""
                                             </c:if>
                                             >${t.nome}
-                                    </option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="usuario" class="btn btn-primary">USUARIO</label>
-                            <select class="form-select form-select-lg m-lg-3"
-                                    name="idUsuario" id="usuario" required="">
-                                <option value="" selected>Selecione o Usuario</option>
-                                <jsp:useBean class="model.UsuarioDAO" id="usuario" />
-                                <c:forEach var="u" items="${usuario.lista}">
-                                    <option value="${u.idUsuario}"
-                                            <c:if test="${u.idUsuario == cliente.usuario.idUsuario}">
-                                                selected=""
-                                            </c:if>
-                                            >${u.nome}
                                     </option>
                                 </c:forEach>
                             </select>

@@ -52,7 +52,7 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-5">Listagem de Clientes</h2> 
+                                <h2 class="mt-3">Listagem de Clientes</h2> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
                                 <a class="btn btn-primary btn-lg" href="cadastrarCliente.jsp" 
@@ -72,7 +72,6 @@
                                             <th>Endereço</th>
                                             <th>Telefone</th>
                                             <th>Turma</th>
-                                            <th>Usuário</th>
                                             <th>Ação</th>
                                         </tr>
 
@@ -89,7 +88,6 @@
                                                 <td>${ct.endereco}</td>
                                                 <td>${ct.telefone}</td>
                                                 <td>${ct.turma.nome}</td>
-                                                <td>${ct.usuario.nome}</td>
 
                                                 <td class='text-center'>
                                                     <a href="gerenciarCliente?acao=alterar&idCliente=${ct.idCliente}"
@@ -103,15 +101,18 @@
                                                                 location.href = "gerenciarCliente?acao=deletar&idCliente="
                                                                         + idCliente;
                                                             }
-
                                                         }
                                                     </script>
                                                     <button class='btn btn-danger btn-xs'
                                                             onclick="confirmExclusao('${ct.idCliente}', '${ct.nome}')">
                                                         Excluir&nbsp;<i class="fas fa-trash"></i>
                                                     </button>
-
-                                                </td>      
+                                                    <!-- ver o link -->
+                                                    <a href="formVenda.jsp?acao=novo&idCliente=${ct.idCliente}"
+                                                       class="btn btn-warning btn-xs" role="button">
+                                                        Venda&nbsp;<i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>

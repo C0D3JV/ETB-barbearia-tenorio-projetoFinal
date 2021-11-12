@@ -16,7 +16,7 @@ public class VendaDAO {
 
     public ArrayList<Venda> getLista() {
         String sql = "SELECT ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone,"
-                + "ct.idTurma, ct.idUsuario, u.idUsuario, u.nome, u.login, u.senha, u.status, u.idPerfil, "
+                + "ct.idTurma, u.idUsuario, u.nome, u.login, u.senha, u.status, u.idPerfil, "
                 + "v.idVenda, v.dataVenda, v.precoTotal, v.idCliente, v.idUsuario "
                 + "FROM venda v "
                 + "INNER JOIN cliente ct "
@@ -117,7 +117,7 @@ public class VendaDAO {
     public Venda getCarregarPorId(int idVenda) throws Exception {
         Venda v = new Venda();
         String sql = "SELECT ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone,"
-                + "ct.idTurma, ct.idUsuario, u.idUsuario, u.nome, u.login, u.senha, u.status, u.idPerfil, "
+                + "ct.idTurma, u.idUsuario, u.nome, u.login, u.senha, u.status, u.idPerfil, "
                 + "v.idVenda, v.dataVenda, v.precoTotal, v.idCliente, v.idUsuario "
                 + "FROM venda v "
                 + "INNER JOIN cliente ct "

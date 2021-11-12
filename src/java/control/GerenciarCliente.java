@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Turma;
-import model.Usuario;
 import model.Cliente;
 import model.ClienteDAO;
 
@@ -87,7 +86,6 @@ public class GerenciarCliente extends HttpServlet {
         String endereco = request.getParameter("endereco");
         String telefone = request.getParameter("telefone");
         String idTurma = request.getParameter("idTurma");
-        String idUsuario = request.getParameter("idUsuario");
         String mensagem = "";
 
         Cliente ct = new Cliente();
@@ -103,8 +101,7 @@ public class GerenciarCliente extends HttpServlet {
                     || email.equals("")
                     || endereco.equals("")
                     || telefone.equals("")
-                    || idTurma.equals("")
-                    || idUsuario.equals("")) {
+                    || idTurma.equals("")) {
                 mensagem = "Os Campos obrigatórios devem ser preenchidos!";
             } else {
                 ct.setNome(nome);
@@ -117,10 +114,6 @@ public class GerenciarCliente extends HttpServlet {
                 Turma t = new Turma();
                 t.setIdTurma(Integer.parseInt(idTurma));
                 ct.setTurma(t);
-
-                Usuario u = new Usuario();
-                u.setIdUsuario(Integer.parseInt(idUsuario));
-                ct.setUsuario(u);
 
                 try {
                     ClienteDAO ctdao = new ClienteDAO();

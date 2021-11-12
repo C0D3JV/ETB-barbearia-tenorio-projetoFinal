@@ -5,10 +5,8 @@
 
 
 <%
-    Usuario ulogado
-            = GerenciarLogin.verificarAcesso(request, response);
+    Usuario ulogado = GerenciarLogin.verificarAcesso(request, response);
     request.setAttribute("ulogado", ulogado);
-
 %>
 
 <div class="d-grid gap-2 d-sm-flex justify-content-sm-between">
@@ -23,7 +21,7 @@
     </c:if>
 
 </div>
-<div class="float-right">
+<div class="nav navbar-nav navbar-nav-first">
     <ul class="navUL">
         <c:if test="${ulogado != null && ulogado.perfil != null}">
             <c:forEach var="menu" items="${ulogado.perfil.menus}">
@@ -37,8 +35,4 @@
 
 <link rel="stylesheet" href="../css/menu.css" type="text/css" media="all" />
 <link rel="stylesheet" href="../css/styles.css" type="text/css" media="all" />
-
-
-
-
 

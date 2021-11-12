@@ -17,13 +17,11 @@ public class ClienteDAO {
     public ArrayList<Cliente> getLista() throws Exception {
         ArrayList<Cliente> lista = new ArrayList<>();
         String sql = "SELECT t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre, t.turno, t.idBarbeiro, "
-                + " t.idCurso, u.idUsuario, u.nome , u.login, u.senha, u.status, u.idPerfil, ct.idCliente, "
-                + " ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone, ct.idTurma, ct.idUsuario "
+                + " t.idCurso, ct.idCliente, "
+                + " ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone, ct.idTurma "
                 + "FROM cliente ct "
                 + "INNER JOIN turma t "
-                + "ON t.idTurma = ct.idTurma "
-                + "INNER JOIN usuario u "
-                + "ON u.idUsuario = ct.idUsuario ";
+                + "ON t.idTurma = ct.idTurma ";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
@@ -45,16 +43,8 @@ public class ClienteDAO {
                 t.setAno(rs.getString("t.ano"));
                 t.setSemestre(rs.getString("t.semestre"));
                 t.setTurno(rs.getString("t.turno"));
+                
                 ct.setTurma(t);
-
-                Usuario u = new Usuario();
-                u.setIdUsuario(rs.getInt("u.idUsuario"));
-                u.setNome(rs.getString("u.nome"));
-                u.setLogin(rs.getString("u.login"));
-                u.setSenha(rs.getString("u.senha"));
-                u.setStatus(rs.getInt("u.status"));
-                ct.setUsuario(u);
-
                 lista.add(ct);
 
             }
@@ -73,11 +63,11 @@ public class ClienteDAO {
         try {
             con = ConexaoFactory.conectar();
             if (ct.getIdCliente() == 0) {
-                sql = "INSERT INTO cliente (nome, dataNasc, cpf, email, endereco, telefone, idTurma, idUsuario) "
-                        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                sql = "INSERT INTO cliente (nome, dataNasc, cpf, email, endereco, telefone, idTurma) "
+                        + "VALUES (?, ?, ?, ?, ?, ?, ?)";
             } else {
                 sql = "UPDATE cliente set nome = ?, dataNasc = ?, cpf = ?, email = ?,"
-                        + " endereco = ?, telefone = ?, idTurma = ?, idUsuario = ? "
+                        + " endereco = ?, telefone = ?, idTurma = ? "
                         + "WHERE idCliente = ?";
             }
 
@@ -89,10 +79,9 @@ public class ClienteDAO {
             ps.setString(5, ct.getEndereco());
             ps.setString(6, ct.getTelefone());
             ps.setInt(7, ct.getTurma().getIdTurma());
-            ps.setInt(8, ct.getUsuario().getIdUsuario());
 
             if (ct.getIdCliente() > 0) {
-                ps.setInt(9, ct.getIdCliente());
+                ps.setInt(8, ct.getIdCliente());
             }
 
             ps.executeUpdate();
@@ -126,14 +115,11 @@ public class ClienteDAO {
     public Cliente getCarregarPorId(int idCliente) throws Exception {
         Cliente ct = new Cliente();
         String sql = "SELECT t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre, t.turno, t.idBarbeiro, "
-                + " t.idCurso, u.idUsuario, u.nome , u.login, u.senha, u.status, u.idPerfil, ct.idCliente, "
-                + " ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone, ct.idTurma, "
-                + " ct.idUsuario "
+                + " t.idCurso, ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone,"
+                + " ct.idTurma "
                 + "FROM cliente ct "
                 + "INNER JOIN turma t "
                 + "ON t.idTurma = ct.idTurma "
-                + "INNER JOIN usuario u "
-                + "ON u.idUsuario = ct.idUsuario "
                 + "WHERE ct.idCliente = ? ";
         try {
             con = ConexaoFactory.conectar();
@@ -149,6 +135,7 @@ public class ClienteDAO {
                 ct.setEndereco(rs.getString("ct.endereco"));
                 ct.setTelefone(rs.getString("ct.telefone"));
 
+                //Associação entre os Objetos Turma e Cliente 
                 Turma t = new Turma();
                 t.setIdTurma(rs.getInt("t.idTurma"));
                 t.setNome(rs.getString("t.nome"));
@@ -158,16 +145,6 @@ public class ClienteDAO {
                 t.setTurno(rs.getString("t.turno"));
 
                 ct.setTurma(t);
-
-                //Associação entre os Objetos Usuario e Cliente 
-                Usuario u = new Usuario();
-                u.setIdUsuario(rs.getInt("u.idUsuario"));
-                u.setNome(rs.getString("u.nome"));
-                u.setLogin(rs.getString("u.login"));
-                u.setSenha(rs.getString("u.senha"));
-                u.setStatus(rs.getInt("u.status"));
-
-                ct.setUsuario(u);
 
             }
             ConexaoFactory.close(con);

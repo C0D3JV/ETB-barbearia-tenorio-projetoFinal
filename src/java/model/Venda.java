@@ -11,8 +11,7 @@ public class Venda {
     private double precoTotal;
     private Cliente cliente;
     private Usuario usuario;
-    private ArrayList<Curso> cursos;
-    private ArrayList<Curso> naoCursos;
+    private ArrayList<VendaCurso> carrinho;
 
     public int getIdVenda() {
         return idVenda;
@@ -54,27 +53,30 @@ public class Venda {
         this.usuario = usuario;
     }
 
-    public ArrayList<Curso> getCursos() {
-        return cursos;
+    public ArrayList<VendaCurso> getCarrinho() {
+        return carrinho;
     }
 
-    public void setCursos(ArrayList<Curso> cursos) {
-        this.cursos = cursos;
-    }
-
-    public ArrayList<Curso> getNaoCursos() {
-        return naoCursos;
-    }
-
-    public void setNaoCursos(ArrayList<Curso> naoCursos) {
-        this.naoCursos = naoCursos;
+    public void setCarrinho(ArrayList<VendaCurso> carrinho) {
+        this.carrinho = carrinho;
     }
 
     public Venda() {
+    }
+
+    public Venda(int idVenda, Date dataVenda, double precoTotal,
+            Cliente cliente, Usuario usuario, ArrayList<VendaCurso> carrinho) {
+        this.idVenda = idVenda;
+        this.dataVenda = dataVenda;
+        this.precoTotal = precoTotal;
+        this.cliente = cliente;
+        this.usuario = usuario;
+        this.carrinho = carrinho;
     }
 
     public boolean gravar() throws SQLException {
         VendaDAO vdao = new VendaDAO();
         return vdao.gravar(this);
     }
+
 }
