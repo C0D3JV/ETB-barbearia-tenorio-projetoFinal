@@ -1,5 +1,4 @@
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -50,7 +49,7 @@
             <div id="content" >
                 <div>
                     <form action="gerenciarPerfil" method="POST">
-                        <h2 class="mt-5">Cadastro de Perfil</h2>
+                        <h2 class="mt-3">Cadastro de Perfil</h2>
                         <input type="hidden" class="form-control" name="idPerfil"
                                id="idPerfil" value="${perfil.idPerfil}"/>
 

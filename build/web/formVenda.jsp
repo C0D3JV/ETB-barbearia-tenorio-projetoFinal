@@ -88,7 +88,7 @@
                         <div class="col-sm-6">
                             <input type="text" class="form-control"
                                    name="usuario" id="usuario" readonly
-                                   value="<%= v.getUsuario().getNome() %>"/>
+                                   value="<%= v.getUsuario().getNome()%>"/>
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@
                         <div class="col-sm-6">
                             <input type="text" class="form-control"
                                    name="cliente" id="cliente" readonly
-                                   value="<%= v.getCliente().getNome() %>"/>
+                                   value="<%= v.getCliente().getNome()%>"/>
                         </div>
                     </div>
                     <h4 align="center">Catálogo: (<%= v.getCarrinho().size()%>)</h4>
@@ -115,9 +115,9 @@
                                 expressão usada para acessar os dados armazenados no JavaBean-->
                                 ${cs.nome}
                                 <input type="number" name="qtd" value="1"
-                                       style="width: 40px"/>
+                                       style="width: 40px" readonly/>
                                 <button class="btn btn-success">
-                                    Comprar&nbsp;<i class="fa-cart-plus"></i>
+                                    Comprar&nbsp;<i class="fas fa-cart-plus"></i>
                                 </button>
                             </form>
                         </div>

@@ -22,6 +22,8 @@ public class GerenciarAula extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String acao = request.getParameter("acao");
         String idAula = request.getParameter("idAula");
@@ -77,6 +79,7 @@ public class GerenciarAula extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String idAula = request.getParameter("idAula");

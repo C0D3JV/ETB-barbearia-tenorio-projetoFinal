@@ -1,5 +1,4 @@
-
-<%@page contentType="text/html" pageEncoding="UTF-8"
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
         %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -50,7 +49,7 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-5">Listagem de Usuários</h2> 
+                                <h2 class="mt-3">Listagem de Usuários</h2> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
                                 <a class="btn btn-primary btn-lg" href="cadastrarUsuario.jsp" 

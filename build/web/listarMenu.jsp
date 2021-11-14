@@ -1,10 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : 17 de ago. de 2021, 16:26:47
-    Author     : laors
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
         import="java.util.ArrayList"
         import="model.Menu"
         import="model.MenuDAO"%>

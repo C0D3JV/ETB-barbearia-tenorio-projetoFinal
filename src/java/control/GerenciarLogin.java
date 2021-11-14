@@ -29,6 +29,8 @@ public class GerenciarLogin extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession sessao = request.getSession();
         sessao.removeAttribute("ulogado");
         sessao.invalidate();
@@ -39,6 +41,8 @@ public class GerenciarLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         GerenciarLogin.response = response;
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
