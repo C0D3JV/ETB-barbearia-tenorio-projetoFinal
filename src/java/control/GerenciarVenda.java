@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Cliente;
 import model.Usuario;
 import model.Venda;
@@ -20,6 +21,34 @@ import model.VendaDAO;
 
 @WebServlet(name = "GerenciarVenda", urlPatterns = {"/gerenciarVenda"})
 public class GerenciarVenda extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        HttpSession session = request.getSession();
+        String mensagem = "";
+
+        try {
+            Venda v = (Venda) session.getAttribute("venda");
+            VendaDAO vdao = new VendaDAO();
+            if (vdao.registrar(v)) {
+                mensagem = "Venda realizada com sucesso!";
+            } else {
+                mensagem = "Falha ao registrar a venda!";
+            }
+
+        } catch (Exception e) {
+            out.println("Erro: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        out.println(
+                "<script type='text/javascript'>"
+                + "alert('" + mensagem + "');"
+                + "location.href='listarVenda.jsp';"
+                + "</script>");
+    }
 
     @Override
     protected void doGet(HttpServletRequest request,

@@ -71,7 +71,7 @@
                                             <th>Endereço</th>
                                             <th>Telefone</th>
                                             <th>Turma</th>
-                                            <th>Ação</th>
+                                            <th style="width: 175px">Ação</th>
                                         </tr>
 
                                     </thead>
@@ -88,7 +88,7 @@
                                                 <td>${ct.telefone}</td>
                                                 <td>${ct.turma.nome}</td>
 
-                                                <td class='text-center'>
+                                                <td class="text-center">
                                                     <a href="gerenciarCliente?acao=alterar&idCliente=${ct.idCliente}"
                                                        class="btn btn-primary btn-xs" role="button">
                                                         Alterar&nbsp;<i class="fas fa-edit"></i>
@@ -108,7 +108,7 @@
                                                     </button>
                                                     <!-- ver o link -->
                                                     <a href="formVenda.jsp?acao=novo&idCliente=${ct.idCliente}"
-                                                       class="btn btn-warning btn-xs" role="button">
+                                                       class="mt-2 btn btn-outline-success btn-lg" role="button">
                                                         Venda&nbsp;<i class="fas fa-shopping-cart"></i>
                                                     </a>
                                                 </td>

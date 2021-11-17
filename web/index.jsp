@@ -24,6 +24,14 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <style>
+            body {
+                background-image: url("imagens/fundo.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -45,7 +53,13 @@
             </div><!-- fim da div menu -->
             <div id="content">
                 <div>
-                    <h3 class="mt-3">Página Inicial</h3>   
+                    <h3 class="mt-3">Página Inicial</h3>  
+                    <div class="tenor-gif-embed" data-postid="17211527" data-share-method="host" data-aspect-ratio="1" data-width="40%">
+                        <a href="https://tenor.com/view/hackerman-emote-twitch-pepe-typing-gif-17211527">Hackerman Emote Sticker</a>
+                        from 
+                        <a href="https://tenor.com/search/hackerman-stickers">Hackerman Stickers</a>
+                    </div>
+                    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
                 </div>
             </div><!--fim da div content -->
         </div>

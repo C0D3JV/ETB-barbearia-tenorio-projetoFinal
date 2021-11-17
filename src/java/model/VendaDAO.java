@@ -163,4 +163,8 @@ public class VendaDAO {
         return v;
     }
 
+    public boolean registrar(Venda v) {
+        return false;
+    }
+
 }
