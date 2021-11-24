@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -72,11 +71,6 @@ public class Venda {
         this.cliente = cliente;
         this.usuario = usuario;
         this.carrinho = carrinho;
-    }
-
-    public boolean gravar() throws SQLException {
-        VendaDAO vdao = new VendaDAO();
-        return vdao.gravar(this);
     }
 
 }

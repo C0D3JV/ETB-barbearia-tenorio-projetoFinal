@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class VendaDAO {
@@ -14,44 +15,28 @@ public class VendaDAO {
     PreparedStatement ps;
     ResultSet rs;
 
-    public ArrayList<Venda> getLista() {
-        String sql = "SELECT ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone,"
-                + "ct.idTurma, u.idUsuario, u.nome, u.login, u.senha, u.status, u.idPerfil, "
-                + "v.idVenda, v.dataVenda, v.precoTotal, v.idCliente, v.idUsuario "
-                + "FROM venda v "
-                + "INNER JOIN cliente ct "
-                + "ON ct.idCliente = v.idCliente "
-                + "INNER JOIN usuario u "
-                + "ON u.idUsuario = v.idUsuario ";
-        ArrayList<Venda> lista = new ArrayList<>();
+    public ArrayList<Venda> getLista() throws Exception {
+        ArrayList<Venda> lista = new ArrayList<Venda>();
+        String sql = "SELECT idVenda, dataVenda, precoTotal, " +
+                "idCliente, idUsuario " + 
+                "FROM venda";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Venda v = new Venda();
-                v.setIdVenda(rs.getInt("v.idVenda"));
-                v.setDataVenda(rs.getDate("v.dataVenda"));
-                v.setPrecoTotal(rs.getDouble("v.precoTotal"));
+                v.setIdVenda(rs.getInt("idVenda"));
+                v.setDataVenda(rs.getDate("dataVenda"));
+                v.setPrecoTotal(rs.getDouble("precoTotal"));
 
-                Cliente ct = new Cliente();
-                ct.setIdCliente(rs.getInt("ct.idCliente"));
-                ct.setNome(rs.getString("ct.nome"));
-                ct.setDataNasc(rs.getDate("ct.dataNasc"));
-                ct.setCpf(rs.getString("ct.cpf"));
-                ct.setEmail(rs.getString("ct.email"));
-                ct.setEndereco(rs.getString("ct.endereco"));
-                ct.setTelefone(rs.getString("ct.telefone"));
-                v.setCliente(ct);
-
-                Usuario u = new Usuario();
-                u.setIdUsuario(rs.getInt("u.idUsuario"));
-                u.setNome(rs.getString("u.nome"));
-                u.setLogin(rs.getString("u.login"));
-                u.setSenha(rs.getString("u.senha"));
-                u.setStatus(rs.getInt("u.status"));
-                v.setUsuario(u);
-
+                ClienteDAO ctdao = new ClienteDAO();
+                v.setCliente(ctdao.getCarregarPorId(
+                        rs.getInt("idCliente")));
+                
+                UsuarioDAO udao = new UsuarioDAO();
+                v.setUsuario(udao.getCarregarPorId(
+                        rs.getInt("idUsuario")));
                 lista.add(v);
             }
             ConexaoFactory.close(con);
@@ -60,111 +45,51 @@ public class VendaDAO {
             System.out.println(
                     "Falha ao listar as vendas da base de dados:"
                     + e.getMessage());
-        }
+                    e.printStackTrace();
+        } 
         return lista;
     }
 
-    public boolean gravar(Venda v) {
-        con = null;
-        String sql;
-        ps = null;
-        try {
-            con = ConexaoFactory.conectar();
-            if (v.getIdVenda() == 0) {
-                sql = "INSERT INTO venda (dataVenda, precoTotal, idCliente, idUsuario) VALUES (?, ?, ?, ?)";
-                ps = con.prepareStatement(sql);
-                ps.setDate(1, new Date(v.getDataVenda().getTime()));
-                ps.setDouble(2, v.getPrecoTotal());
-                ps.setInt(3, v.getCliente().getIdCliente());
-                ps.setInt(4, v.getUsuario().getIdUsuario());
-            } else {
-                sql = "UPDATE venda set dataVenda = ?, precoTotal = ?, idCliente = ?, idUsuario = ? "
-                        + " WHERE idVenda = ?";
-                ps = con.prepareStatement(sql);
-                ps.setDate(1, new Date(v.getDataVenda().getTime()));
-                ps.setDouble(2, v.getPrecoTotal());
-                ps.setInt(3, v.getCliente().getIdCliente());
-                ps.setInt(4, v.getUsuario().getIdUsuario());
-                ps.setInt(5, v.getIdVenda());
-            }
-            ps.executeUpdate();
-            ConexaoFactory.close(con);
-            return true;
-
-        } catch (SQLException e) {
-            System.out.println("Falha ao gravar a venda na base de dados: "
-                    + e.getMessage());
-            return false;
-        }
-    }
-
-    public boolean deletar(int idVenda) {
-        String sql = "DELETE FROM venda WHERE idVenda = ?";
-        try {
-            con = ConexaoFactory.conectar();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, idVenda);
-            ps.executeUpdate();
-            ConexaoFactory.close(con);
-        } catch (SQLException e) {
-            System.out.println("Falha ao excluir a venda da base de dados"
-                    + e.getMessage());
-            return false;
-        }
-        return true;
-    }
-
-    public Venda getCarregarPorId(int idVenda) throws Exception {
-        Venda v = new Venda();
-        String sql = "SELECT ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone,"
-                + "ct.idTurma, u.idUsuario, u.nome, u.login, u.senha, u.status, u.idPerfil, "
-                + "v.idVenda, v.dataVenda, v.precoTotal, v.idCliente, v.idUsuario "
-                + "FROM venda v "
-                + "INNER JOIN cliente ct "
-                + "ON ct.idCliente = v.idCliente "
-                + "INNER JOIN usuario u "
-                + "ON u.idUsuario = v.idUsuario "
-                + "WHERE v.idVenda = ? ";
-        try {
-            con = ConexaoFactory.conectar();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, idVenda);
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                v.setIdVenda(rs.getInt("v.idVenda"));
-                v.setDataVenda(rs.getDate("v.dataVenda"));
-                v.setPrecoTotal(rs.getDouble("v.precoTotal"));
-
-                Cliente ct = new Cliente();
-                ct.setIdCliente(rs.getInt("ct.idCliente"));
-                ct.setNome(rs.getString("ct.nome"));
-                ct.setDataNasc(rs.getDate("ct.dataNasc"));
-                ct.setCpf(rs.getString("ct.cpf"));
-                ct.setEmail(rs.getString("ct.email"));
-                ct.setEndereco(rs.getString("ct.endereco"));
-                ct.setTelefone(rs.getString("ct.telefone"));
-                v.setCliente(ct);
-
-                Usuario u = new Usuario();
-                u.setIdUsuario(rs.getInt("u.idUsuario"));
-                u.setNome(rs.getString("u.nome"));
-                u.setLogin(rs.getString("u.login"));
-                u.setSenha(rs.getString("u.senha"));
-                u.setStatus(rs.getInt("u.status"));
-                v.setUsuario(u);
-
-            }
-            ConexaoFactory.close(con);
-
-        } catch (SQLException e) {
-            System.out.println("Falha ao listar o perfil: "
-                    + e.getMessage());
-        }
-        return v;
-    }
-
     public boolean registrar(Venda v) {
-        return false;
+        try{
+            con = ConexaoFactory.conectar();
+            String sql = "INSERT INTO venda " +
+                    "(dataVenda, precoTotal, idCliente, idUsuario) " +
+                    "VALUES (now(), ?, ?, ?) ";
+            ps = con.prepareStatement(
+                    sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setDouble(1, v.getPrecoTotal());
+            ps.setInt(2, v.getCliente().getIdCliente());
+            ps.setInt(3, v.getUsuario().getIdUsuario());
+            rs = ps.getGeneratedKeys();
+            if(rs.next()){
+                v.setIdVenda(rs.getInt(1));
+                for(VendaCurso vcs: v.getCarrinho()){
+                    String sql_vcs = 
+                       "INSERT INTO venda_curso " + 
+                       "(idVenda, idCurso, qtd, precoVendido) " +
+                       "VALUES (?, ?, ?, ?)";
+                    PreparedStatement ps_vcs = 
+                            con.prepareCall(sql_vcs);
+                    ps_vcs.setInt(1, v.getIdVenda());
+                    ps_vcs.setInt(2, vcs.getCurso().getIdCurso());
+                    ps_vcs.setInt(3, vcs.getQtd());
+                    ps_vcs.setDouble(4, vcs.getPrecoVendido());
+                    ps_vcs.execute();
+                }
+                ConexaoFactory.close(con);
+            }
+          
+            
+        }catch(SQLException e){
+            System.out.println(
+                    "Falha ao registrar a venda: "
+                    + e.getMessage()
+            );
+            e.printStackTrace();
+                return false;
+        }
+         return true;
     }
 
 }

@@ -66,10 +66,9 @@
                                         <tr class="text-white">
                                             <th>Código</th>
                                             <th>Nome</th>
+                                            <th>Descrição</th>
                                             <th>Carga Horária</th>
                                             <th>Preço</th>
-                                            <th>Imagem</th>
-                                            <th>Descrição</th>
                                             <th>Ação</th>
                                         </tr>
                                     </thead>
@@ -79,11 +78,13 @@
                                         <c:forEach var="cs" items="${csdao.lista}">
                                             <tr>
                                                 <td>${cs.idCurso}</td>
-                                                <td>${cs.nome}</td>
+                                                <td><img src="imagens/${cs.nomeArquivo}" width="64" 
+                                                     height="64">
+                                                    <p>${cs.nome}</p></td>
+                                                <td>${cs.descricao}</td>
                                                 <td>${cs.cargaHoraria}</td>
                                                 <td><fmt:formatNumber pattern="#,##0.00" value="${cs.preco}"/></td>
-                                                <td>${cs.imagem}</td>
-                                                <td>${cs.descricao}</td>
+                                                
                                                 <td class='text-center'>
                                                     <a href="gerenciarCurso?acao=alterar&idCurso=${cs.idCurso}"
                                                        class="btn btn-primary btn-xs" role="button">

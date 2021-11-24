@@ -103,8 +103,8 @@
                         </div>
                     </div>
                     <h4 align="center">Catálogo: (<%= v.getCarrinho().size()%>)</h4>
-                    <jsp:useBean class="model.CursoDAO" id="curso"/>
-                    <c:forEach var="cs" items="${curso.lista}">
+                            <jsp:useBean class="model.CursoDAO" id="curso"/>
+                            <c:forEach var="cs" items="${curso.lista}">
                         <div id="curs${cs.idCurso}" class="pb-3">
                             <form action="gerenciarCarrinho" method="GET"
                                   class="form-inline">
@@ -114,14 +114,14 @@
                                 <!--Expression Language
                                 expressão usada para acessar os dados armazenados no JavaBean-->
                                 <h5>${cs.nome}</h5>
-                                <input type="number" name="qtd" value="1" class="form-control ml-2"
+                                        <input type="number" name="qtd" value="1" class="form-control ml-2"
                                        style="width: 5%" /><!-- <-- colocar o readonly no input -->
                                 <button class="btn btn-success ml-2">
                                     Comprar&nbsp;<i class="fas fa-cart-plus"></i>
                                 </button>
                             </form>
                         </div>
-                    </c:forEach>
+                            </c:forEach>
                     <div class="d-sm-flex justify-content-sm-around m-md-3">
                         <a href="listarCliente.jsp"
                            class="btn btn-outline-danger btn-lg"

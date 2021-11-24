@@ -52,8 +52,8 @@ body{
 
 #content{
     background:#ffffff;
-    width:1349px;
-    height: 620px;
+    width: 100%;
+    height: auto;
     float: left;
    
 

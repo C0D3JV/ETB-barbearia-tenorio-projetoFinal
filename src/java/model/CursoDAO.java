@@ -14,8 +14,7 @@ public class CursoDAO {
     ResultSet rs;
 
     public ArrayList<Curso> getLista() {
-        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, cs.imagem,"
-                + " cs.descricao FROM curso cs";
+        String sql = "SELECT idCurso, nome, cargaHoraria, preco, nomeArquivo, caminho, descricao FROM curso";
         ArrayList<Curso> lista = new ArrayList<>();
         try {
             con = ConexaoFactory.conectar();
@@ -23,12 +22,15 @@ public class CursoDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 Curso cs = new Curso();
-                cs.setIdCurso(rs.getInt("cs.idCurso"));
-                cs.setNome(rs.getString("cs.nome"));
-                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                cs.setPreco(rs.getDouble("cs.preco"));
-                cs.setImagem(rs.getString("cs.imagem"));
-                cs.setDescricao(rs.getString("cs.descricao"));
+                
+                cs.setIdCurso(rs.getInt("idCurso"));
+                cs.setNome(rs.getString("nome"));
+                cs.setCargaHoraria(rs.getInt("cargaHoraria"));
+                cs.setPreco(rs.getDouble("preco"));
+                cs.setNomeArquivo(rs.getString("nomeArquivo"));
+                cs.setCaminho(rs.getString("caminho"));
+                cs.setDescricao(rs.getString("descricao"));
+                
                 lista.add(cs);
             }
             ConexaoFactory.close(con);
@@ -48,24 +50,33 @@ public class CursoDAO {
         try {
             con = ConexaoFactory.conectar();
             if (cs.getIdCurso() == 0) {
-                sql = "INSERT INTO curso (nome, cargaHoraria, preco, imagem, descricao) VALUES (?, ?, ?, ?, ?)";
-                ps = con.prepareStatement(sql);
-                ps.setString(1, cs.getNome());
-                ps.setInt(2, cs.getCargaHoraria());
-                ps.setDouble(3, cs.getPreco());
-                ps.setString(4, cs.getImagem());
-                ps.setString(5, cs.getDescricao());
+                sql = "INSERT INTO curso (nome, cargaHoraria, preco, nomeArquivo, caminho, descricao) "
+                        + "VALUES (?, ?, ?, ?, ?, ?)";
             } else {
-                sql = "UPDATE curso set nome = ?, cargaHoraria = ?, preco = ?, imagem = ?, descricao = ? "
-                        + "WHERE idCurso = ?";
-                ps = con.prepareStatement(sql);
+                sql = "UPDATE curso set nome = ?, cargaHoraria = ?, preco = ?, nomeArquivo = ?, caminho = ?, "
+                        + "descricao = ? WHERE idCurso = ?";
+            }
+            ps = con.prepareStatement(sql);
+            if (cs.getIdCurso() == 0) {
                 ps.setString(1, cs.getNome());
                 ps.setInt(2, cs.getCargaHoraria());
                 ps.setDouble(3, cs.getPreco());
-                ps.setString(4, cs.getImagem());
-                ps.setString(5, cs.getDescricao());
-                ps.setInt(6, cs.getIdCurso());
+                ps.setString(4, cs.getNomeArquivo());
+                ps.setString(5, cs.getCaminho());
+                ps.setString(6, cs.getDescricao());
+            } else {
+                ps.setString(1, cs.getNome());
+                ps.setInt(2, cs.getCargaHoraria());
+                ps.setDouble(3, cs.getPreco());
+                ps.setString(4, cs.getNomeArquivo());
+                ps.setString(5, cs.getCaminho());
+                ps.setString(6, cs.getDescricao());
+
             }
+            if (cs.getIdCurso() > 0) {
+                ps.setInt(7, cs.getIdCurso());
+            }
+
             ps.executeUpdate();
             ConexaoFactory.close(con);
             return true;
@@ -94,21 +105,23 @@ public class CursoDAO {
     }
 
     public Curso getCarregarPorId(int idCurso) throws Exception {
-        Curso curso = new Curso();
-        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, "
-                + "cs.imagem, cs.descricao FROM curso cs WHERE cs.idCurso = ?";
+        Curso cs = new Curso();
+        String sql = "SELECT idCurso, nome, cargaHoraria, preco, nomeArquivo, caminho, descricao "
+                + "FROM curso WHERE idCurso = ?";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
             ps.setInt(1, idCurso);
             rs = ps.executeQuery();
+            
             if (rs.next()) {
-                curso.setIdCurso(rs.getInt("cs.idCurso"));
-                curso.setNome(rs.getString("cs.nome"));
-                curso.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                curso.setPreco(rs.getDouble("cs.preco"));
-                curso.setImagem(rs.getString("cs.imagem"));
-                curso.setDescricao(rs.getString("cs.descricao"));
+                cs.setIdCurso(rs.getInt("idCurso"));
+                cs.setNome(rs.getString("nome"));
+                cs.setCargaHoraria(rs.getInt("cargaHoraria"));
+                cs.setPreco(rs.getDouble("preco"));
+                cs.setNomeArquivo(rs.getString("nomeArquivo"));
+                cs.setCaminho(rs.getString("caminho"));
+                cs.setDescricao(rs.getString("descricao"));
             }
             ConexaoFactory.close(con);
 
@@ -116,6 +129,6 @@ public class CursoDAO {
             System.out.println("Falha ao listar o curso: "
                     + e.getMessage());
         }
-        return curso;
+        return cs;
     }
 }

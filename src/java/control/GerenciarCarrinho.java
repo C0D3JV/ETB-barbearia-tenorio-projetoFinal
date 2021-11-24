@@ -34,8 +34,7 @@ public class GerenciarCarrinho extends HttpServlet {
             CursoDAO csdao = new CursoDAO();
             if(acao.equals("add")){
                 Curso cs = new Curso();
-                cs = csdao.getCarregarPorId(
-                        Integer.parseInt(idCurso));
+                cs = csdao.getCarregarPorId(Integer.parseInt(idCurso));
                 VendaCurso vcs = new VendaCurso();
                 vcs.setCurso(cs);
                 vcs.setQtd(Integer.parseInt(qtd));
@@ -63,16 +62,12 @@ public class GerenciarCarrinho extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
         processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html;charset=UTF-8");
         processRequest(request, response);
     }
 

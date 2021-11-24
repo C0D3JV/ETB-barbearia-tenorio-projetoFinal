@@ -23,6 +23,14 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <style>
+            body {
+                background-image: url("imagens/abstract-grey.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -35,11 +43,13 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container">
+        <div id="container" class="pt-3">
+            <%-- 
             <div id="header">
                 <jsp:include page="template/banner.jsp"/>
-
             </div><!-- fim da div header -->
+            --%>            
+
             <div id="menu">
                 <jsp:include page="template/menu.jsp"/>
             </div><!-- fim da div menu -->
@@ -50,7 +60,7 @@
                         <input type="hidden" class="form-control" name="idCliente"
                                id="idCliente" value="${cliente.idCliente}"/>
 
-                        <div class="form-group col col-sm-5 offset-sm-4">
+                        <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="nome" class="btn btn-primary">NOME DO CLIENTE</label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" value="${cliente.nome}" 
@@ -74,7 +84,7 @@
                                    name="email" id="email" value="${cliente.email}" 
                                    required="">
                         </div>
-                        <div class="form-group col col-sm-6 offset-sm-4">
+                        <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="endereco" class="btn btn-primary">ENDEREÇO</label>
                             <input type="text" class="form-control" 
                                    name="endereco" id="endereco" value="${cliente.endereco}" 
@@ -103,7 +113,7 @@
                             </select>
                         </div>
 
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center pb-4">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR&nbsp;<i class="fas fa-save"></i></button>
                             <a href="listarCliente.jsp" class="btn btn-secondary btn-xs" role="button" >
                                 LISTAR CLIENTES&nbsp;<i class="fas fa-arrow-circle-left"></i></a>

@@ -54,10 +54,6 @@
                             <div>
                                 <h2 class="mt-3">Listagem de Vendas</h2> 
                             </div>
-                            <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-primary btn-lg" href="cadastrarVenda.jsp" 
-                                   role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
-                            </div>
 
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
@@ -78,11 +74,8 @@
                                         <c:forEach var="v" items="${vdao.lista}">
                                             <tr>
                                                 <td>${v.idVenda}</td>
-                                                <td><fmt:formatDate 
-                                                        pattern="dd/MM/yyyy" 
-                                                        value="${v.dataVenda}"/>
-                                                </td>
-                                                <td><fmt:formatNumber pattern="#,##0.00" value="${v.precoTotal}"/></td>
+                                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${v.dataVenda}"/></td>
+                                                <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" value="${v.precoTotal}"/></td>
                                                 <td>${v.cliente.nome}</td>
                                                 <td>${v.usuario.nome}</td>
 
@@ -102,6 +95,12 @@
                                                             onclick="confirmarExclusao('${v.idVenda}', '${v.dataVenda}')">
                                                         Excluir&nbsp;<i class="fas fa-trash"></i>
                                                     </button>
+                                                    <a href="gerenciarMenuPerfil?acao=gerenciar&idPerfil=${p.idPerfil}"
+                                                       class="btn btn-secondary btn-xs" 
+                                                       style="color:white;" 
+                                                       role="button">
+                                                        Pagamento&nbsp;<i class="fas fa-money-check-alt"></i>
+                                                    </a>
                                                 </td>      
                                             </tr>
                                         </c:forEach>

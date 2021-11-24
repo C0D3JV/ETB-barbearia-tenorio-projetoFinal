@@ -24,6 +24,14 @@
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.css"/>
         <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
         <script src="js/bootstrap.js"></script>
+        <style>
+            body {
+                background-image: url("imagens/abstract-grey.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -37,11 +45,13 @@
                 response.sendRedirect("formLogin.jsp");
         %>
 
-        <div id="container">
+        <div id="container" class="pt-3">
+            <%--
             <div id="header">
                 <jsp:include page="template/banner.jsp"/>
             </div><!-- fim da div header -->
-
+            --%>
+            
             <div id="menu">
                 <jsp:include page="template/menu.jsp"/>
             </div><!-- fim da div menu -->

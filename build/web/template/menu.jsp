@@ -33,6 +33,5 @@
     </ul>
 </div>
 
-<link rel="stylesheet" href="../css/menu.css" type="text/css" media="all" />
-<link rel="stylesheet" href="../css/styles.css" type="text/css" media="all" />
-
+<link rel="stylesheet" href="../css/menu.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="../css/styles.css" type="text/css" media="all"/>

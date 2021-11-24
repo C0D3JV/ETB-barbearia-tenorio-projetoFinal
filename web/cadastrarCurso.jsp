@@ -56,7 +56,12 @@
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="nome" class="btn btn-primary">NOME</label>
                             <input type="text" class="form-control" name="nome" id="nome" value="${curso.nome}" 
-                                   required="Informe o Curso"/>
+                                   required="Informe o Nome do Curso"/>
+                        </div>
+                        <div class="form-group col col-sm-4 offset-sm-4">
+                            <label for="descricao" class="btn btn-primary">DESCRIÇÃO</label>
+                            <input type="text" class="form-control" id="descricao" name="descricao" 
+                                   value= "${curso.descricao}"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="cargaHoraria" class="btn btn-primary">CARGA HORÁRIA</label>
@@ -65,21 +70,17 @@
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="preco" class="btn btn-primary">PREÇO</label>
-                            <input class="form-control" name="preco" type="text"
-                                   step=".01" value ="<fmt:formatNumber pattern="#,##0.00"
-                                                     value= "${curso.preco}"/>" required ">
+                            <input class="form-control" name="preco" type="text" step=".01" 
+                                   value ="<fmt:formatNumber pattern="#,##0.00" value= "${curso.preco}"/>" required ">
                         </div>
+                        
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="imagem" class="btn btn-primary">IMAGEM</label>
-                            <input type="text" class="form-control" id="imagem" name="imagem" 
-                                   value= "${curso.imagem}"/>
+                                <input type="file" multiple="multiple" class="form-control" 
+                                       name="file" id="file" 
+                                       value="${curso.caminho}"/>
                         </div>
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="descricao" class="btn btn-primary">DESCRIÇÃO</label>
-                            <input type="text" class="form-control" id="descricao" name="descricao" 
-                                   value= "${curso.descricao}"/>
-                        </div>
-
+                                
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
                             <a href="listarCurso.jsp" class="btn btn-secondary btn-xs" role="button" >
