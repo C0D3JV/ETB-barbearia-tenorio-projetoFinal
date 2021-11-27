@@ -63,7 +63,6 @@
                                        table-bordered" id="listarAula">
                                     <thead class="bg-primary">
                                         <tr class="text-white">
-                                            <th>Código</th>
                                             <th>Matéria</th>
                                             <th>Data de Início</th>
                                             <th>Data Final</th>
@@ -78,7 +77,6 @@
                                         <jsp:useBean class="model.AulaDAO" id="adao" />
                                         <c:forEach var="a" items="${adao.lista}">
                                             <tr>
-                                                <td>${a.idAula}</td>
                                                 <td>${a.materia}</td>
                                                 <td><fmt:formatDate pattern="dd/MM/yyyy" value="${a.dataInicio}"/></td>
                                                 <td><fmt:formatDate pattern="dd/MM/yyyy" value="${a.dataFim}"/></td>

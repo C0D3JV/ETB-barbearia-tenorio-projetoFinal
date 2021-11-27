@@ -1,4 +1,4 @@
-<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+<%@page contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"
         import="java.util.ArrayList"
         import="model.Venda"
         import="model.VendaDAO"%>
@@ -82,7 +82,7 @@
                                                 <td class='text-center'>
                                                     <a href="gerenciarVenda?acao=alterar&idVenda=${v.idVenda}"
                                                        class="btn btn-primary btn-xs" role="button">
-                                                        Alterar&nbsp;<i class="fas fa-edit"></i>
+                                                        Listar Venda por Data&nbsp;<i class="fas fa-edit"></i>
                                                     </a>
                                                     <script type="text/javascript">
                                                         function confirmarExclusao(idVenda) {

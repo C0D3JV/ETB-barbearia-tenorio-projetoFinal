@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <%@page import="model.Venda"%>
 <%@page import="model.Cliente"%>
 <%@page import="model.ClienteDAO"%>
@@ -27,7 +27,6 @@
         <link rel="stylesheet" href="css/fontawesome.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css"/>
         <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
-        <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
     </head>
@@ -77,6 +76,7 @@
                         }
                     } catch (Exception e) {
                         out.print("Erro:" + e.getMessage());
+                        e.printStackTrace();
                     }
                 %>
                 <div>   
@@ -102,9 +102,11 @@
                                    value="<%= v.getCliente().getNome()%>"/>
                         </div>
                     </div>
+
                     <h4 align="center">Catálogo: (<%= v.getCarrinho().size()%>)</h4>
-                            <jsp:useBean class="model.CursoDAO" id="curso"/>
-                            <c:forEach var="cs" items="${curso.lista}">
+
+                    <jsp:useBean class="model.CursoDAO" id="curso"/>
+                    <c:forEach var="cs" items="${curso.lista}">
                         <div id="curs${cs.idCurso}" class="pb-3">
                             <form action="gerenciarCarrinho" method="GET"
                                   class="form-inline">
@@ -114,14 +116,15 @@
                                 <!--Expression Language
                                 expressão usada para acessar os dados armazenados no JavaBean-->
                                 <h5>${cs.nome}</h5>
-                                        <input type="number" name="qtd" value="1" class="form-control ml-2"
-                                       style="width: 5%" /><!-- <-- colocar o readonly no input -->
+                                <input type="number" name="qtd" value="1" class="form-control ml-2"
+                                       style="width: 5%" />                     <!-- <-- colocar o readonly no input -->
                                 <button class="btn btn-success ml-2">
                                     Comprar&nbsp;<i class="fas fa-cart-plus"></i>
                                 </button>
                             </form>
                         </div>
-                            </c:forEach>
+                    </c:forEach>
+
                     <div class="d-sm-flex justify-content-sm-around m-md-3">
                         <a href="listarCliente.jsp"
                            class="btn btn-outline-danger btn-lg"

@@ -26,7 +26,7 @@
         <script src="js/bootstrap.js"></script>
         <style>
             body {
-                background-image: url("imagens/abstract-grey.jpg");
+                background-image: url("imagens/11894.jpg");
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: 100% 100%;
@@ -73,7 +73,6 @@
                                        table-bordered" id="listarCliente">
                                     <thead class="bg-primary">
                                         <tr class="text-white">
-                                            <th>Código</th>
                                             <th>Nome</th>
                                             <th>Data de Nascimento</th>
                                             <th>CPF</link>
@@ -89,7 +88,6 @@
                                         <jsp:useBean class="model.ClienteDAO" id="ctdao" />
                                         <c:forEach var="ct" items="${ctdao.lista}">
                                             <tr>
-                                                <td>${ct.idCliente}</td>
                                                 <td>${ct.nome}</td>
                                                 <td><fmt:formatDate pattern="dd/MM/yyyy" value="${ct.dataNasc}"/></td>
                                                 <td>${ct.cpf}</td>

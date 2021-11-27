@@ -36,7 +36,7 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container" class = "container-fluid">
+        <div id="container" >
             <div id="header">
                 <jsp:include page="template/banner.jsp"/>
 
@@ -48,7 +48,8 @@
             </div><!-- fim da div menu -->
             <div id="content" >
                 <div>
-                    <form action="gerenciarCurso" method="POST">
+                    <form action="gerenciarCurso"  method="POST"
+                          enctype="multipart/form-data">
                         <h2 class="mt-3">Cadastro de Curso</h2>
                         <input type="hidden" class="form-control" name="idCurso"
                                id="idCurso" value="${curso.idCurso}"/>
@@ -70,17 +71,17 @@
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="preco" class="btn btn-primary">PREÇO</label>
-                            <input class="form-control" name="preco" type="text" step=".01" 
+                            <input class="form-control" name="preco" type="number" step=".01" 
                                    value ="<fmt:formatNumber pattern="#,##0.00" value= "${curso.preco}"/>" required ">
                         </div>
-                        
+
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="imagem" class="btn btn-primary">IMAGEM</label>
-                                <input type="file" multiple="multiple" class="form-control" 
-                                       name="file" id="file" 
-                                       value="${curso.caminho}"/>
+                            <input type="file" multiple="multiple" class="form-control" 
+                                   name="file" id="file" 
+                                   value="${curso.caminho}"/>
                         </div>
-                                
+
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
                             <a href="listarCurso.jsp" class="btn btn-secondary btn-xs" role="button" >

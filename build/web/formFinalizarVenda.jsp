@@ -1,4 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=ISO-8859-1"
+        pageEncoding="UTF-8"%>
 <%@page import="model.Venda"%>
 <%@page import="model.Cliente"%>
 <%@page import="model.ClienteDAO"%>
@@ -67,94 +68,116 @@
 
                 <!-- Scriptlet é um pedaço de código Java embutido em um código JSP 
                   semelhante a um código HTML. -->
-                <%                    Venda v = new Venda();
+                <%                    
+                    Venda v = new Venda();
                     Cliente ct = new Cliente();
                     try {
                         v = (Venda) session.getAttribute("venda");
+
                     } catch (Exception e) {
                         out.println("Erro: " + e.getMessage());
                     }
                 %>
                 <div>   
-                    <div class="form-group row offset-sm-4"
-                         style="padding-top: 10px">
-                        <label for="usuario"
-                               class="col-sm-2 text-left btn btn-lg
-                               btn-secondary">Vendedor(a)</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control"
-                                   name="usuario" id="usuario" readonly
-                                   value="<%= v.getUsuario().getNome()%>"/>
+                    <form action="gerenciarVenda?acao=alterarQtd" method="POST">
+                        <div class="form-group row offset-sm-4"
+                             style="padding-top: 10px">
+                            <label for="usuario"
+                                   class="col-sm-2 text-left btn btn-lg
+                                   btn-secondary">Vendedor(a)</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control"
+                                       name="usuario" id="usuario" readonly
+                                       value="<%= v.getUsuario().getNome()%>"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row offset-sm-4">
-                        <label for="cliente"
-                               class="col-sm-2 text-left btn btn-lg
-                               btn-secondary">Cliente</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control"
-                                   name="cliente" id="cliente" readonly
-                                   value="<%= v.getCliente().getNome()%>"/>
+                        <div class="form-group row offset-sm-4">
+                            <label for="cliente"
+                                   class="col-sm-2 text-left btn btn-lg
+                                   btn-secondary">Cliente</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control"
+                                       name="cliente" id="cliente" readonly
+                                       value="<%= v.getCliente().getNome()%>"/>
+                            </div>
                         </div>
-                    </div>
 
-                    <table class="table table-hover table-striped 
-                           table-bordered table-active" 
-                           id="finalizarVenda">
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Produto</th>
-                                <th>Quantidade</th>
-                                <th>Valor Unitário</th>
-                                <th>Subtotal</th>
-                                <th>Remover</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%--No "for" o objeto "vcs" vai percorrer o carrinho
-                            e exibir os itens listados no "th"--%>
-                            <%
-                                double total = 0;
-                                int cont = 0;
-                                for (VendaCurso vcs : v.getCarrinho()) {
-                            %>
-                            <tr>
-                                <td align="center"><%= cont + 1%></td>
-                                <td><%= vcs.getCurso().getNome()%></td>
-                                <td><%= vcs.getQtd()%></td>
-                                <td>R$ <fmt:formatNumber pattern="#,##0.00" value="<%= vcs.getPrecoVendido()%>"/></td> <%-- Valor unitário --%>
-                                <td>R$ <fmt:formatNumber pattern="#,##0.00" value="<%= vcs.getQtd() * vcs.getPrecoVendido()%>"/></td> <%-- Subtotal --%>
-                                <td align="center">
-                                    <a 
-                                        href="#"
-                                        onclick="excluir(<%= cont%>, <%= cont + 1%>)"
-                                        class="btn btn-danger btn-md"
-                                        role="button">
-                                        Excluir&nbsp;<i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <%
-                                    total = total + (vcs.getQtd() * vcs.getPrecoVendido());
-                                    cont++;
-                                    v.setPrecoTotal(total);
-                                }
-                            %>
-                        </tbody>
-                    </table>
+                        <table class="table table-hover table-striped 
+                               table-bordered table-active" 
+                               id="finalizarVenda">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Produto</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor Unitário</th>
+                                    <th>Subtotal</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%--No "for" o objeto "vcs" vai percorrer o carrinho
+                                e exibir os itens listados no "th"--%>
+                                <%
+                                    double total = 0;
+                                    int cont = 0;
+                                    for (VendaCurso vcs : v.getCarrinho()) {
+                                %>
+                                <tr>
+                                    <td align="center"><%= cont + 1%></td>
+                                    <td><%= vcs.getCurso().getNome()%></td>
+                                    <td><input type="number" name="qtd" value="<%= vcs.getQtd()%>"
+                                               class="form-control ml-2" style="width: 20%;" /></td>
+                                    
+                                    <td>R$ <fmt:formatNumber pattern="#,##0.00" 
+                                        value="<%= vcs.getPrecoVendido()%>"/></td> <%-- Valor unitário --%>
+                                    
+                                    <td>R$ <fmt:formatNumber pattern="#,##0.00" 
+                                        value="<%= vcs.getQtd() * vcs.getPrecoVendido()%>"/></td> <%-- Subtotal --%>
+                                    
+                                    <td align="center">
+                                        <button class="btn btn-primary btn-md">
+                                            Alterar Quantidade&nbsp;
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <a 
+                                            href="#"
+                                            onclick="excluir(<%= cont%>, <%= cont + 1%>)"
+                                            class="btn btn-danger btn-md"
+                                            role="button">
+                                            Excluir&nbsp;<i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <%
 
-                    <div class="form-group row offset-sm-4">
-                        <label for="precoTotal"
-                               class="col-sm-2 text-left btn btn-lg
-                               btn-secondary">Preço Total</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control"
-                                   name="precoTotal" id="precoTotal" readonly
-                                   value="R$ <fmt:formatNumber pattern="#,##0.00" value="<%= v.getPrecoTotal() %>"/>"/>
+                                        if (v.getCarrinho().size() > 0) {
+                                            total = total + (vcs.getQtd() * vcs.getPrecoVendido());
+                                            cont++;
+                                            v.setPrecoTotal(total);
+
+                                        } else {
+                                            total = total - (vcs.getQtd() * vcs.getPrecoVendido());
+                                            cont++;
+                                            v.setPrecoTotal(total);
+                                        }
+                                    }
+                                %>
+                            </tbody>
+                        </table>
+
+                        <div class="form-group row offset-sm-4">
+                            <label for="precoTotal"
+                                   class="col-sm-2 text-left btn btn-lg
+                                   btn-secondary">Preço Total</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control"
+                                       name="precoTotal" id="precoTotal" readonly
+                                       value="R$ <fmt:formatNumber pattern="#,##0.00" value="<%= total%>"/>"/>
+                            </div>
                         </div>
-                    </div>
+                    </form>
 
                     <div class="d-sm-flex justify-content-sm-around m-md-3 pb-4">
                         <a href="listarCliente.jsp"
@@ -177,29 +200,29 @@
                     <script src="datatables/jquery.dataTables.js"></script>
                     <script src="datatables/dataTables.bootstrap4.js"></script>
                     <script>
-                                            $(document).ready(function () {
-                                                $("#finalizarVenda").dataTable({
-                                                    "bJQueryUI": true,
-                                                    "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
-                                                    "oLanguage": {
-                                                        "sProcessing": "Processando..",
-                                                        "sLengthMenu": "Mostrar _MENU_ registros",
-                                                        "sZeroRecords": "Não foram encontrados resultados",
-                                                        "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                                                        "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
-                                                        "sInfoFiltered": "",
-                                                        "sInfoPostFix": "",
-                                                        "sSearch": "Pesquisar",
-                                                        "sUrl": "",
-                                                        "oPaginate": {
-                                                            "sFirst": "Primeiro",
-                                                            "sPrevious": "Anterior",
-                                                            "sNext": "Próximo",
-                                                            "sLast": "Último"
+                                                $(document).ready(function () {
+                                                    $("#finalizarVenda").dataTable({
+                                                        "bJQueryUI": true,
+                                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
+                                                        "oLanguage": {
+                                                            "sProcessing": "Processando..",
+                                                            "sLengthMenu": "Mostrar _MENU_ registros",
+                                                            "sZeroRecords": "Não foram encontrados resultados",
+                                                            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                                                            "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                                                            "sInfoFiltered": "",
+                                                            "sInfoPostFix": "",
+                                                            "sSearch": "Pesquisar",
+                                                            "sUrl": "",
+                                                            "oPaginate": {
+                                                                "sFirst": "Primeiro",
+                                                                "sPrevious": "Anterior",
+                                                                "sNext": "Próximo",
+                                                                "sLast": "Último"
+                                                            }
                                                         }
-                                                    }
+                                                    });
                                                 });
-                                            });
                     </script> 
                 </div>
             </div>

@@ -63,7 +63,6 @@
                                        table-bordered" id="listarBarbeiro">
                                     <thead class="bg-primary">
                                         <tr class="text-white">
-                                            <th>Código</th>
                                             <th>Nome</th>
                                             <th>Data de Nascimento</th>
                                             <th>CPF</th>
@@ -79,7 +78,6 @@
                                         <jsp:useBean class="model.BarbeiroDAO" id="bdao" />
                                         <c:forEach var="b" items="${bdao.lista}">
                                             <tr>
-                                                <td>${b.idBarbeiro}</td>
                                                 <td>${b.nome}</td>
                                                 <td><fmt:formatDate 
                                                         pattern="dd/MM/yyyy" 

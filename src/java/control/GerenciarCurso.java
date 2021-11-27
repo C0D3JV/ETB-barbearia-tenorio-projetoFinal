@@ -40,9 +40,8 @@ public class GerenciarCurso extends HttpServlet {
                 if (GerenciarLogin.verificarPermissao(request, response)) {
                     cs = csdao.getCarregarPorId(Integer.parseInt(idCurso));
                     if (cs.getIdCurso() > 0) {
-                        RequestDispatcher dispatcher
-                                = getServletContext().
-                                        getRequestDispatcher("/cadastrarCurso.jsp");
+                        RequestDispatcher dispatcher = getServletContext().
+                                getRequestDispatcher("/cadastrarCurso.jsp");
                         request.setAttribute("curso", cs);
                         dispatcher.forward(request, response);
                     } else {
@@ -67,9 +66,15 @@ public class GerenciarCurso extends HttpServlet {
                 }
             } // fim do if deletar
 
-        } catch (Exception e) {
+        } catch (NumberFormatException nfe) {
+            mensagem = "Erro: " + nfe.getMessage();
+            out.println(mensagem);
+            nfe.printStackTrace();
+        }
+        catch (Exception e) {
             mensagem = "Erro: " + e.getMessage();
             out.println(mensagem);
+            e.printStackTrace();
         }
 
         out.println(
@@ -97,7 +102,8 @@ public class GerenciarCurso extends HttpServlet {
         String fileName = extractFileName(part);
 
         String savePath
-                = "C:\\Users\\Acer Aspire\\Documents\\ETB 4ºA\\Desenv. de Projeto\\Barbearia Tenório\\"
+                = "C:\\Users\\Acer Aspire\\Documents\\ETB 4ºA\\"
+                + "Desenv. de Projeto\\Barbearia Tenório\\"
                 + "ProjetoBarbeariaV2\\web\\imagens\\" + fileName;
         File fileSaveDir = new File(savePath);
         part.write(savePath + File.separator);
@@ -118,7 +124,8 @@ public class GerenciarCurso extends HttpServlet {
             cs.setCargaHoraria(Integer.parseInt(cargaHoraria));
             double novoPreco = 0;
             if (!preco.isEmpty()) {
-                novoPreco = Double.parseDouble(preco.replace(".", "").replace(",", "."));
+                novoPreco = Double.parseDouble(preco.replace(".", "").
+                        replace(",", "."));
             }
             cs.setPreco(novoPreco);
             cs.setNomeArquivo(fileName);

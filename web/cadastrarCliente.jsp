@@ -80,7 +80,7 @@
                         </div>
                         <div class="form-group col-sm-4 offset-sm-4">
                             <label for="email" class="btn btn-primary">E-MAIL</label>
-                            <input type="text" class="form-control" 
+                            <input type="email" class="form-control" 
                                    name="email" id="email" value="${cliente.email}" 
                                    required="">
                         </div>

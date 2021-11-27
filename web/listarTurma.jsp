@@ -63,9 +63,8 @@
                                        table-bordered" id="listarTurma">
                                     <thead class="bg-primary">
                                         <tr class="text-white">
-                                            <th>Código</th>
                                             <th>Nome</th>
-                                            <th>Quantidade de Alunos</th>
+                                            <th>Quant. de Alunos</th>
                                             <th>Ano</th>
                                             <th>Semestre</th>
                                             <th>Turno</th>
@@ -79,7 +78,6 @@
                                         <jsp:useBean class="model.TurmaDAO" id="tdao" />
                                         <c:forEach var="t" items="${tdao.lista}">
                                             <tr>
-                                                <td>${t.idTurma}</td>
                                                 <td>${t.nome}</td>
                                                 <td>${t.qtdAluno}</td>
                                                 <td>${t.ano}</td>

@@ -14,7 +14,8 @@ public class CursoDAO {
     ResultSet rs;
 
     public ArrayList<Curso> getLista() {
-        String sql = "SELECT idCurso, nome, cargaHoraria, preco, nomeArquivo, caminho, descricao FROM curso";
+        String sql = "SELECT idCurso, nome, cargaHoraria, preco, nomeArquivo, "
+                + "caminho, descricao FROM curso";
         ArrayList<Curso> lista = new ArrayList<>();
         try {
             con = ConexaoFactory.conectar();
@@ -22,7 +23,7 @@ public class CursoDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 Curso cs = new Curso();
-                
+
                 cs.setIdCurso(rs.getInt("idCurso"));
                 cs.setNome(rs.getString("nome"));
                 cs.setCargaHoraria(rs.getInt("cargaHoraria"));
@@ -30,7 +31,7 @@ public class CursoDAO {
                 cs.setNomeArquivo(rs.getString("nomeArquivo"));
                 cs.setCaminho(rs.getString("caminho"));
                 cs.setDescricao(rs.getString("descricao"));
-                
+
                 lista.add(cs);
             }
             ConexaoFactory.close(con);
@@ -39,6 +40,7 @@ public class CursoDAO {
             System.out.println(
                     "Falha ao listar os cursos da base de dados:"
                     + e.getMessage());
+            e.printStackTrace();
         }
         return lista;
     }
@@ -50,10 +52,12 @@ public class CursoDAO {
         try {
             con = ConexaoFactory.conectar();
             if (cs.getIdCurso() == 0) {
-                sql = "INSERT INTO curso (nome, cargaHoraria, preco, nomeArquivo, caminho, descricao) "
+                sql = "INSERT INTO curso (nome, cargaHoraria, preco, "
+                        + "nomeArquivo, caminho, descricao) "
                         + "VALUES (?, ?, ?, ?, ?, ?)";
             } else {
-                sql = "UPDATE curso set nome = ?, cargaHoraria = ?, preco = ?, nomeArquivo = ?, caminho = ?, "
+                sql = "UPDATE curso set nome = ?, cargaHoraria = ?, "
+                        + "preco = ?, nomeArquivo = ?, caminho = ?, "
                         + "descricao = ? WHERE idCurso = ?";
             }
             ps = con.prepareStatement(sql);
@@ -84,6 +88,7 @@ public class CursoDAO {
         } catch (SQLException e) {
             System.out.println("Falha ao gravar o curso na base de dados:"
                     + e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
@@ -99,6 +104,7 @@ public class CursoDAO {
         } catch (SQLException e) {
             System.out.println("Falha ao excluir o curso da base de dados"
                     + e.getMessage());
+            e.printStackTrace();
             return false;
         }
         return true;
@@ -106,14 +112,15 @@ public class CursoDAO {
 
     public Curso getCarregarPorId(int idCurso) throws Exception {
         Curso cs = new Curso();
-        String sql = "SELECT idCurso, nome, cargaHoraria, preco, nomeArquivo, caminho, descricao "
+        String sql = "SELECT idCurso, nome, cargaHoraria, preco, "
+                + "nomeArquivo, caminho, descricao "
                 + "FROM curso WHERE idCurso = ?";
         try {
             con = ConexaoFactory.conectar();
             ps = con.prepareStatement(sql);
             ps.setInt(1, idCurso);
             rs = ps.executeQuery();
-            
+
             if (rs.next()) {
                 cs.setIdCurso(rs.getInt("idCurso"));
                 cs.setNome(rs.getString("nome"));
@@ -128,6 +135,7 @@ public class CursoDAO {
         } catch (SQLException e) {
             System.out.println("Falha ao listar o curso: "
                     + e.getMessage());
+            e.printStackTrace();
         }
         return cs;
     }

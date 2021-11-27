@@ -2,7 +2,6 @@ package model;
 
 import factory.ConexaoFactory;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -61,6 +60,7 @@ public class VendaDAO {
             ps.setDouble(1, v.getPrecoTotal());
             ps.setInt(2, v.getCliente().getIdCliente());
             ps.setInt(3, v.getUsuario().getIdUsuario());
+            ps.execute();
             rs = ps.getGeneratedKeys();
             if(rs.next()){
                 v.setIdVenda(rs.getInt(1));
