@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> <%-- formata para usar o date e money --%>
 
 <!DOCTYPE html>
-<html> 
+<html>
     <head>
         <title>Index</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
@@ -129,11 +129,10 @@
                         <div class="caption">
                             <div class="container">
                                 <div class="col-md-6 col-sm-12">
-                                    <h1>Distance Learning Education Center</h1>
+                                    <h1>Centro de Educação Presencial</h1>
                                     <h3>Our online courses are designed to fit in your industry supporting all-round
                                         with latest technologies.</h3>
-                                    <a href="#feature" class="section-btn btn btn-default smoothScroll">Discover
-                                        more</a>
+                                    <a href="#feature" class="section-btn btn btn-default smoothScroll">Descubra Mais</a>
                                 </div>
                             </div>
                         </div>
@@ -146,8 +145,7 @@
                                     <h1>Start your journey with our practical courses</h1>
                                     <h3>Our online courses are built in partnership with technology leaders and are
                                         designed to meet industry demands.</h3>
-                                    <a href="#courses" class="section-btn btn btn-default smoothScroll">Take a
-                                        course</a>
+                                    <a href="#courses" class="section-btn btn btn-default smoothScroll">Escolha um Curso</a>
                                 </div>
                             </div>
                         </div>
@@ -159,14 +157,12 @@
                                 <div class="col-md-6 col-sm-12">
                                     <h1>Efficient Learning Methods</h1>
                                     <h3>Nam eget sapien vel nibh euismod vulputate in vel nibh. Quisque eu ex eu
-                                        urna venenatis sollicitudin ut at libero. Visit <a rel="nofollow"
-                                                                                           href="https://www.facebook.com/templatemo">templatemo</a> page.</h3>
-                                    <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's chat</a>
+                                        urna venenatis sollicitudin ut at libero.</h3>
+                                    <a href="#contact" class="section-btn btn btn-default smoothScroll">Localização</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -180,7 +176,7 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="feature-thumb">
                             <span>01</span>
-                            <h3>Trending Courses</h3>
+                            <h3>Sobre</h3>
                             <p>Known is free education HTML Bootstrap Template. You can modify in any way and use this
                                 for your website.</p>
                         </div>
@@ -216,16 +212,7 @@
 
                     <div class="col-md-6 col-sm-12">
                         <div class="about-info">
-                            <h2>Start your journey to a better life with online practical courses</h2>
-
-                            <figure>
-                                <span><i class="fa fa-users"></i></span>
-                                <figcaption>
-                                    <h3>Professional Trainers</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa
-                                        voluptatibus.</p>
-                                </figcaption>
-                            </figure>
+                            <h2>Comece a sua jornada para uma vida melhor com cursos práticos presenciais</h2>
 
                             <figure>
                                 <span><i class="fa fa-certificate"></i></span>
@@ -244,23 +231,29 @@
                                         voluptatibus.</p>
                                 </figcaption>
                             </figure>
+                            
+                            <figure>
+                                <span><i class="fa fa-users"></i></span>
+                                <figcaption>
+                                    <h3>Instrutores Especializados</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa
+                                        voluptatibus.</p>
+                                </figcaption>
+                            </figure>
                         </div>
                     </div>
 
                     <div class="col-md-offset-1 col-md-4 col-sm-12">
                         <div class="entry-form">
                             <form action="#" method="post">
-                                <h2>Signup today</h2>
-                                <input type="text" name="full name" class="form-control" placeholder="Full name"
+                                <h2>Registre-se</h2>
+                                <input type="text" name="full name" class="form-control" placeholder="Nome"
                                        required="">
 
-                                <input type="email" name="email" class="form-control"
-                                       placeholder="Your email address" required="">
-
                                 <input type="password" name="password" class="form-control"
-                                       placeholder="Your password" required="">
+                                       placeholder="Senha" required="">
 
-                                <button class="submit-btn form-control" id="form-submit">Get started</button>
+                                <button class="submit-btn form-control" id="form-submit">Enviar</button>
                             </form>
                         </div>
                     </div>
@@ -277,7 +270,7 @@
 
                     <div class="col-md-12 col-sm-12">
                         <div class="section-title">
-                            <h2>Teachers <small>Meet Professional Trainers</small></h2>
+                            <h2>Nossa Equipe<small>Conheça um pouco mais sobre nosso time de barbeiros</small></h2>
                         </div>
                     </div>
 
@@ -287,8 +280,8 @@
                                 <img src="images/author-image1.jpg" class="img-responsive" alt="">
                             </div>
                             <div class="team-info">
-                                <h3>Mark Wilson</h3>
-                                <span>I love Teaching</span>
+                                <h3>Daniel Tenorio</h3>
+                                <span>Fundador e CEO da Barbearia</span>
                             </div>
                             <ul class="social-icon">
                                 <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
@@ -304,8 +297,8 @@
                                 <img src="images/author-image2.jpg" class="img-responsive" alt="">
                             </div>
                             <div class="team-info">
-                                <h3>Catherine</h3>
-                                <span>Education is the key!</span>
+                                <h3>Wesley Vitoriano</h3>
+                                <span>Barbeiro é a chave!</span>
                             </div>
                             <ul class="social-icon">
                                 <li><a href="#" class="fa fa-google"></a></li>
@@ -360,7 +353,7 @@
 
                     <div class="col-md-12 col-sm-12">
                         <div class="section-title">
-                            <h2>Popular Courses <small>Upgrade your skills with newest courses</small></h2>
+                            <h2>Novidades chegando em breve!!<small>Acrescente mais habilidades ao seu curriculo com nossos cursos</small></h2>
                         </div>
 
                         <div class="owl-carousel owl-theme owl-courses">
@@ -543,7 +536,7 @@
 
                     <div class="col-md-12 col-sm-12">
                         <div class="section-title">
-                            <h2>Student Reviews <small>from around the world</small></h2>
+                            <h2>Review dos estudantes<small>Veja um pouco do que estão falando sobre nós</small></h2>
                         </div>
 
                         <div class="owl-carousel owl-theme owl-client">

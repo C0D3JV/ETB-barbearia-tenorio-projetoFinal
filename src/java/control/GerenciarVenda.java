@@ -2,7 +2,10 @@ package control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -71,6 +74,30 @@ public class GerenciarVenda extends HttpServlet {
             }
             session.setAttribute("venda", v);
             response.sendRedirect("formFinalizarVenda.jsp");
+        }
+        if (acao.equals("listarData")) {
+            String dataInicial = request.getParameter("dataInicial");
+            String dataFinal = request.getParameter("dataFinal");
+
+            try {
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                VendaDAO vdao = new VendaDAO();
+                ArrayList<Venda> vendas = new ArrayList<>();
+
+                vendas = vdao.getVendaPorData(
+                        df.parse(dataInicial), df.parse(dataFinal));
+                RequestDispatcher dispatcher
+                        = getServletContext().
+                                getRequestDispatcher("/listarVendasPorData.jsp");
+                request.setAttribute("vendas", vendas);
+                dispatcher.forward(request, response);
+            } catch (ParseException ex) {
+                System.out.println("Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            } catch (Exception e) {
+                System.out.println("Erro: " + e.getMessage());
+                e.printStackTrace();
+            }
         }
 
     }

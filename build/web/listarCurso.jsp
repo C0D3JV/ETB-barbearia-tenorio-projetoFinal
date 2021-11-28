@@ -78,12 +78,13 @@
                                         <c:forEach var="cs" items="${csdao.lista}">
                                             <tr>
                                                 <td>${cs.idCurso}</td>
-                                                <td><img src="imagens/${cs.nomeArquivo}" width="64" 
-                                                     height="64">
+                                                <td><img src="imagens/${cs.nomeArquivo}" width="70px" 
+                                                     height="70px">
                                                     <p>${cs.nome}</p></td>
                                                 <td>${cs.descricao}</td>
                                                 <td>${cs.cargaHoraria}</td>
-                                                <td><fmt:formatNumber pattern="#,##0.00" value="${cs.preco}"/></td>
+                                                <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" 
+                                                                  value="${cs.preco}"/></td>
                                                 
                                                 <td class='text-center'>
                                                     <a href="gerenciarCurso?acao=alterar&idCurso=${cs.idCurso}"

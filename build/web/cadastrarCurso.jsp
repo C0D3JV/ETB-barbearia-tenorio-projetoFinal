@@ -71,8 +71,9 @@
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="preco" class="btn btn-primary">PREÇO</label>
-                            <input class="form-control" name="preco" type="number" step=".01" 
-                                   value ="<fmt:formatNumber pattern="#,##0.00" value= "${curso.preco}"/>" required ">
+                            <input class="form-control" name="preco" type="text"
+                                   step=".01" value ="<fmt:formatNumber pattern="#,##0.00"
+                                                     value= "${curso.preco}"/>" required ">
                         </div>
 
                         <div class="form-group col col-sm-4 offset-sm-4">

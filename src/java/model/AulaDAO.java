@@ -17,9 +17,8 @@ public class AulaDAO {
 
     public ArrayList<Aula> getLista() throws Exception {
         ArrayList<Aula> lista = new ArrayList<>();
-        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, cs.imagem, "
-                + "cs.descricao, a.idAula, a.materia, a.dataInicio, a.dataFim, a.horario, a.qtdAula, "
-                + "a.idCurso "
+        String sql = "SELECT cs.idCurso, cs.nome, a.idAula, a.materia, "
+                + "a.dataInicio, a.dataFim, a.horario, a.qtdAula, a.idCurso "
                 + "FROM curso cs "
                 + "INNER JOIN aula a "
                 + "ON cs.idCurso = a.idCurso ";
@@ -39,10 +38,7 @@ public class AulaDAO {
                 Curso cs = new Curso();
                 cs.setIdCurso(rs.getInt("cs.idCurso"));
                 cs.setNome(rs.getString("cs.nome"));
-                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                cs.setPreco(rs.getDouble("cs.preco"));
-                cs.setImagem(rs.getString("cs.imagem"));
-                cs.setDescricao(rs.getString("cs.descricao"));
+                
 
                 a.setCurso(cs);
                 lista.add(a);
@@ -111,9 +107,8 @@ public class AulaDAO {
 
     public Aula getCarregarPorId(int idAula) throws Exception {
         Aula a = new Aula();
-        String sql = "SELECT cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco, cs.imagem, "
-                + "cs.descricao, a.idAula, a.materia, a.dataInicio, a.dataFim, a.horario, a.qtdAula, "
-                + "a.idCurso "
+        String sql = "SELECT cs.idCurso, cs.nome, a.idAula, a.materia, "
+                + "a.dataInicio, a.dataFim, a.horario, a.qtdAula, a.idCurso "
                 + "FROM curso cs "
                 + "INNER JOIN aula a "
                 + "ON cs.idCurso = a.idCurso "
@@ -134,10 +129,6 @@ public class AulaDAO {
                 Curso cs = new Curso();
                 cs.setIdCurso(rs.getInt("cs.idCurso"));
                 cs.setNome(rs.getString("cs.nome"));
-                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                cs.setPreco(rs.getDouble("cs.preco"));
-                cs.setImagem(rs.getString("cs.imagem"));
-                cs.setDescricao(rs.getString("cs.descricao"));
 
                 a.setCurso(cs);
             }

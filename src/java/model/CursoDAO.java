@@ -46,9 +46,7 @@ public class CursoDAO {
     }
 
     public boolean gravar(Curso cs) {
-        con = null;
         String sql;
-        ps = null;
         try {
             con = ConexaoFactory.conectar();
             if (cs.getIdCurso() == 0) {
@@ -61,22 +59,13 @@ public class CursoDAO {
                         + "descricao = ? WHERE idCurso = ?";
             }
             ps = con.prepareStatement(sql);
-            if (cs.getIdCurso() == 0) {
-                ps.setString(1, cs.getNome());
-                ps.setInt(2, cs.getCargaHoraria());
-                ps.setDouble(3, cs.getPreco());
-                ps.setString(4, cs.getNomeArquivo());
-                ps.setString(5, cs.getCaminho());
-                ps.setString(6, cs.getDescricao());
-            } else {
-                ps.setString(1, cs.getNome());
-                ps.setInt(2, cs.getCargaHoraria());
-                ps.setDouble(3, cs.getPreco());
-                ps.setString(4, cs.getNomeArquivo());
-                ps.setString(5, cs.getCaminho());
-                ps.setString(6, cs.getDescricao());
+            ps.setString(1, cs.getNome());
+            ps.setInt(2, cs.getCargaHoraria());
+            ps.setDouble(3, cs.getPreco());
+            ps.setString(4, cs.getNomeArquivo());
+            ps.setString(5, cs.getCaminho());
+            ps.setString(6, cs.getDescricao());
 
-            }
             if (cs.getIdCurso() > 0) {
                 ps.setInt(7, cs.getIdCurso());
             }

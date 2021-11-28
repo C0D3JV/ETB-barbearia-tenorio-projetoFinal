@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.SQLException;
+
 public class Curso {
 
     private int idCurso;
@@ -70,4 +72,8 @@ public class Curso {
 
     }
 
+    public boolean gravar() throws SQLException {
+        CursoDAO csdao = new CursoDAO();
+        return csdao.gravar(this);
+    }
 }

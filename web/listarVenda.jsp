@@ -75,7 +75,8 @@
                                             <tr>
                                                 <td>${v.idVenda}</td>
                                                 <td><fmt:formatDate pattern="dd/MM/yyyy" value="${v.dataVenda}"/></td>
-                                                <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" value="${v.precoTotal}"/></td>
+                                                <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" 
+                                                                  value="${v.precoTotal}"/></td>
                                                 <td>${v.cliente.nome}</td>
                                                 <td>${v.usuario.nome}</td>
 
@@ -84,24 +85,7 @@
                                                        class="btn btn-primary btn-xs" role="button">
                                                         Listar Venda por Data&nbsp;<i class="fas fa-edit"></i>
                                                     </a>
-                                                    <script type="text/javascript">
-                                                        function confirmarExclusao(idVenda) {
-                                                            if (confirm('Deseja realmente excluir a venda ?')) {
-                                                                location.href = "gerenciarVenda?acao=deletar&idVenda=" + idVenda;
-                                                            }
-                                                        }
-                                                    </script>
-                                                    <button class='btn btn-danger btn-xs'
-                                                            onclick="confirmarExclusao('${v.idVenda}', '${v.dataVenda}')">
-                                                        Excluir&nbsp;<i class="fas fa-trash"></i>
-                                                    </button>
-                                                    <a href="gerenciarMenuPerfil?acao=gerenciar&idPerfil=${p.idPerfil}"
-                                                       class="btn btn-secondary btn-xs" 
-                                                       style="color:white;" 
-                                                       role="button">
-                                                        Pagamento&nbsp;<i class="fas fa-money-check-alt"></i>
-                                                    </a>
-                                                </td>      
+                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>

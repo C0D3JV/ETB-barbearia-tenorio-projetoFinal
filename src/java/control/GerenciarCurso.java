@@ -3,6 +3,12 @@ package control;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -70,8 +76,7 @@ public class GerenciarCurso extends HttpServlet {
             mensagem = "Erro: " + nfe.getMessage();
             out.println(mensagem);
             nfe.printStackTrace();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             mensagem = "Erro: " + e.getMessage();
             out.println(mensagem);
             e.printStackTrace();
@@ -110,40 +115,43 @@ public class GerenciarCurso extends HttpServlet {
         String filePath = savePath + File.separator + fileName;
 
         String mensagem = "";
+
+        NumberFormat nf = new DecimalFormat("###,###.##");
+
         Curso cs = new Curso();
-
-        if (!idCurso.isEmpty()) {
-            cs.setIdCurso(Integer.parseInt(idCurso));
-        }
-        if (nome.equals("")
-                || cargaHoraria.equals("")
-                || preco.equals("")) {
-            mensagem = "Os Campos obrigatórios devem ser preenchidos!";
-        } else {
-            cs.setNome(nome);
-            cs.setCargaHoraria(Integer.parseInt(cargaHoraria));
-            double novoPreco = 0;
-            if (!preco.isEmpty()) {
-                novoPreco = Double.parseDouble(preco.replace(".", "").
-                        replace(",", "."));
-            }
-            cs.setPreco(novoPreco);
-            cs.setNomeArquivo(fileName);
-            cs.setCaminho(savePath);
-            cs.setDescricao(descricao);
-        }
+        
         try {
-            CursoDAO csdao = new CursoDAO();
-            if (csdao.gravar(cs)) {
-                mensagem = "Dados do Curso gravados na base de dados!";
+            Double valor = nf.parse(preco).doubleValue();
+            if (!idCurso.isEmpty()) {
+                cs.setIdCurso(Integer.parseInt(idCurso));
+            }
+            if (nome.equals("")
+                    || cargaHoraria.equals("")
+                    || preco.equals("")) {
+                mensagem = "Os Campos obrigatórios devem ser preenchidos!";
             } else {
-                mensagem = "Erro ao gravar na base de dados!";
+                cs.setNome(nome);
+                cs.setCargaHoraria(Integer.parseInt(cargaHoraria));
+                cs.setPreco(valor);
+                cs.setNomeArquivo(fileName);
+                cs.setCaminho(savePath);
+                cs.setDescricao(descricao);
+                if (cs.gravar()) {
+                    mensagem = "Dados do Curso gravados na base de dados!";
+                } else {
+                    mensagem = "Erro ao gravar na base de dados!";
+                }
             }
 
-        } catch (Exception e) {
+        } catch (SQLException | NumberFormatException e) {
             mensagem = "Erro: " + e.getMessage();
             out.println(mensagem);
             e.printStackTrace();
+            out.println(mensagem);
+        } catch (ParseException ex) {
+            mensagem = "Erro: " + ex.getMessage();
+            out.println(mensagem);
+            ex.printStackTrace();
         }
 
         out.println(

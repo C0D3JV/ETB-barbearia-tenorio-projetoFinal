@@ -110,9 +110,11 @@ public class GerenciarPerfil extends HttpServlet {
         } catch (SQLException e) {
             mensagem = "Erro: " + e.getMessage();
             out.println(mensagem);
+            e.printStackTrace();
 
         } catch (ParseException e) {
             mensagem = "Erro: " + e.getMessage();
+            out.println(mensagem);
             e.printStackTrace();
         }
 

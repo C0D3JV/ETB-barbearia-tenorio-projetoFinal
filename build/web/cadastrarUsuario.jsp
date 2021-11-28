@@ -100,7 +100,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="perfil" class="btn btn-primary">Perfil</label>
+                                <label for="perfil" class="btn btn-primary">PERFIL</label>
                                 <select class="form-select form-select-lg m-lg-3"
                                         name="idPerfil" id="perfil" required>
                                     <option value="" selected>Selecione o Perfil</option>
