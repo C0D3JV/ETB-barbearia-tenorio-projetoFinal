@@ -12,7 +12,7 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
+        
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
@@ -23,6 +23,16 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -35,11 +45,7 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container" class = "container-fluid">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
+        <div id="container">
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -48,14 +54,14 @@
             <div id="content" >
                 <div>
                     <form action="gerenciarMenu" method="POST">
-                        <h2 class="mt-3">Cadastro de Menus</h2>
+                        <h2 class="mt-3" style="color: #000;">Cadastro de Menu</h2>
 
                         <input type="hidden" class="form-control" name="idMenu"
                                id="idMenu" value="${menu.idMenu}"/>
 
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="nome" class="btn btn-primary">NOME DO MENU</label>
+                                <label for="nome" class="btn btn-info">NOME DO MENU</label>
                                 <input type="text" class="form-control" 
                                        name="nome" id="nome" value="${menu.nome}" 
                                        required>
@@ -64,7 +70,7 @@
 
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="link" class="btn btn-primary">LINK</label>
+                                <label for="link" class="btn btn-info">LINK</label>
                                 <input type="text" class="form-control" 
                                        name="link" id="link" value="${menu.link}" 
                                        required>
@@ -73,14 +79,14 @@
 
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="icone" class="btn btn-primary">ÍCONE</label>
+                                <label for="icone" class="btn btn-info">ÍCONE</label>
                                 <input type="text" class="form-control" 
                                        name="icone" id="icone" value="${menu.icone}">
                             </div>
                         </div> 
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="exibir" class="btn btn-primary">EXIBIR</label>
+                                <label for="exibir" class="btn btn-info">EXIBIR</label>
                                 <select class="form-select form-select-lg m-lg-3 " name="exibir" id="exibir" required>
                                     <option selected>Escolha uma opção</option>
                                     <option value="1" 
@@ -98,7 +104,7 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-primary btn-xs mr-4">GRAVAR&nbsp;
+                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;
                                 <i class="fas fa-save"></i>
                             </button>
                             <a href="listarMenu.jsp" 

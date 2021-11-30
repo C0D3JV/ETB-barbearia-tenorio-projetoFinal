@@ -33,7 +33,6 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
-        <!-- olho nesse if -->
         <script type="text/javascript">
             function excluir(index, item) {
                 if (confirm("Tem certeza que deseja excluir o item " + item + " ?")) {
@@ -41,6 +40,16 @@
                 }
             }
         </script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -53,12 +62,7 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container" class = "container-fluid">
-            <div id="header">
-
-                <%@include file="template/banner.jsp" %>
-
-            </div><!-- fim da div header -->
+        <div id="container">
             <div id="menu">
 
                 <%@include file="template/menu.jsp" %>
@@ -80,8 +84,7 @@
                 %>
                 <div>   
                     <form action="gerenciarVenda?acao=alterarQtd" method="POST">
-                        <div class="form-group row offset-sm-4"
-                             style="padding-top: 10px">
+                        <div class="form-group row offset-sm-4 pt-4">
                             <label for="usuario"
                                    class="col-sm-2 text-left btn btn-lg
                                    btn-secondary">Vendedor(a)</label>
@@ -193,37 +196,9 @@
                         <a href="gerenciarVenda"
                            class="btn btn-outline-success btn-lg"
                            role="button">
-                            Confirmar Venda&nbsp;<i class="fas fa-money-check"></i>
+                            Confirmar Venda&nbsp;<i class="fas fa-money-bill"></i>
                         </a>
                     </div>
-                    <script src="js/jquery-3.6.0.js"></script>
-                    <script src="datatables/jquery.dataTables.js"></script>
-                    <script src="datatables/dataTables.bootstrap4.js"></script>
-                    <script>
-                                                $(document).ready(function () {
-                                                    $("#finalizarVenda").dataTable({
-                                                        "bJQueryUI": true,
-                                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
-                                                        "oLanguage": {
-                                                            "sProcessing": "Processando..",
-                                                            "sLengthMenu": "Mostrar _MENU_ registros",
-                                                            "sZeroRecords": "Não foram encontrados resultados",
-                                                            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                                                            "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
-                                                            "sInfoFiltered": "",
-                                                            "sInfoPostFix": "",
-                                                            "sSearch": "Pesquisar",
-                                                            "sUrl": "",
-                                                            "oPaginate": {
-                                                                "sFirst": "Primeiro",
-                                                                "sPrevious": "Anterior",
-                                                                "sNext": "Próximo",
-                                                                "sLast": "Último"
-                                                            }
-                                                        }
-                                                    });
-                                                });
-                    </script> 
                 </div>
             </div>
         </div>

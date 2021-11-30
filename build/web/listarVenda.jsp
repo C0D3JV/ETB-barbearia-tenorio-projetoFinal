@@ -15,7 +15,6 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
@@ -24,6 +23,16 @@
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.css"/>
         <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
         <script src="js/bootstrap.js"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -38,10 +47,6 @@
         %>
 
         <div id="container">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -52,20 +57,24 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3">Listagem de Vendas</h2> 
+                                <h2 class="mt-3" style="color: #000;">Listagem de Vendas</h2> 
                             </div>
-
+                            
+                            <div class="col-sm-2 col-12" style="padding-bottom: 10px">
+                                <a class="btn btn-info btn-lg" href="gerenciarVenda?acao=alterar&idVenda=${v.idVenda}" 
+                                   role="button">LISTAR VENDA POR DATA&nbsp;<i class="fas fa-edit"></i></a>
+                            </div>
+                            
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
                                        table-bordered" id="listarVenda">
-                                    <thead class="bg-primary">
-                                        <tr class="text-white">
+                                    <thead class="bg-dark">
+                                        <tr style="color: #dda968;">
                                             <th>Código</th>
                                             <th>Data da Venda</th>
                                             <th>Preço Total</th>
                                             <th>Cliente</th>
                                             <th>Usuário</th>
-                                            <th>Ação</th>
                                         </tr>
                                     </thead>
 
@@ -79,13 +88,6 @@
                                                                   value="${v.precoTotal}"/></td>
                                                 <td>${v.cliente.nome}</td>
                                                 <td>${v.usuario.nome}</td>
-
-                                                <td class='text-center'>
-                                                    <a href="gerenciarVenda?acao=alterar&idVenda=${v.idVenda}"
-                                                       class="btn btn-primary btn-xs" role="button">
-                                                        Listar Venda por Data&nbsp;<i class="fas fa-edit"></i>
-                                                    </a>
-                                                </td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>

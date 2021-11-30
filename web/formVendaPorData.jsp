@@ -36,11 +36,7 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container" class = "container-fluid">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
+        <div id="container">
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -49,7 +45,7 @@
             <div id="content" >
                 <div>
                     <form action="gerenciarVenda?acao=listarData" method="POST">
-                        <h2 class="mt-3">Venda por Data</h2>
+                        <h2 class="mt-3" style="color: #000;">Venda por Data</h2>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
                             <label for="dataInicial" class="btn btn-primary">Data Inicial</label>

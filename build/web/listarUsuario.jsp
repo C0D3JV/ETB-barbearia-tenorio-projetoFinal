@@ -1,5 +1,4 @@
-<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-        %>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -13,7 +12,6 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
@@ -22,6 +20,16 @@
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.css"/>
         <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
         <script src="js/bootstrap.js"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -35,10 +43,6 @@
                 response.sendRedirect("formLogin.jsp");
         %>
         <div id="container">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -49,18 +53,18 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3">Listagem de Usuários</h2> 
+                                <h2 class="mt-3" style="color: #000;">Listagem de Usuários</h2> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-primary btn-lg" href="cadastrarUsuario.jsp" 
+                                <a class="btn btn-info btn-lg" href="cadastrarUsuario.jsp" 
                                    role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
                             </div>
 
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
                                        table-bordered" id="listarUsuario">
-                                    <thead class="bg-primary">
-                                        <tr class="text-white">
+                                    <thead class="bg-dark">
+                                        <tr style="color: #dda968;">
                                             <th>Código</th>
                                             <th>Nome do Usuário</th>
                                             <th>Login</link>

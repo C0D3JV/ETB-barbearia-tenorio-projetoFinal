@@ -5,14 +5,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Usuários</title>
+        <title>Cadastro de Usuário</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/font-awesome.min.css"/>
@@ -24,6 +23,16 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -36,11 +45,7 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container" class = "container-fluid">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
+        <div id="container">
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -49,13 +54,13 @@
             <div id="content" >
                 <div>
                     <form action="gerenciarUsuario" method="POST">
-                        <h2 class="mt-3">Cadastro de Usuário</h2>
+                        <h2 class="mt-3" style="color: #000;">Cadastro de Usuário</h2>
                         <input type="hidden" class="form-control" name="idUsuario"
                                id="idUsuario" value="${usuario.idUsuario}"/>
 
                         <div class="row">
-                            <div class="form-group col col-sm-5 offset-sm-4">
-                                <label for="nome" class="btn btn-primary">NOME DO USUÁRIO</label>
+                            <div class="form-group col col-sm-4 offset-sm-4">
+                                <label for="nome" class="btn btn-info">NOME DO USUÁRIO</label>
                                 <input type="text" class="form-control" 
                                        name="nome" id="nome" value="${usuario.nome}" 
                                        required>
@@ -64,7 +69,7 @@
 
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="login" class="btn btn-primary">LOGIN</label>
+                                <label for="login" class="btn btn-info">LOGIN</label>
                                 <input type="text" class="form-control" 
                                        name="login" id="login" value="${usuario.login}" 
                                        required>
@@ -73,7 +78,7 @@
 
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="senha" class="btn btn-primary">SENHA</label>
+                                <label for="senha" class="btn btn-info">SENHA</label>
                                 <input type="password" class="form-control" 
                                        name="senha" id="senha" value="${usuario.senha}" 
                                        required>
@@ -81,7 +86,7 @@
                         </div> 
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="status" class="btn btn-primary">STATUS</label>
+                                <label for="status" class="btn btn-info">STATUS</label>
                                 <select class="form-select form-select-lg m-lg-3 " 
                                         name="status" id="status" required>
                                     <option selected>Escolha uma opção</option>
@@ -100,7 +105,7 @@
                         </div>
                         <div class="row">
                             <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="perfil" class="btn btn-primary">PERFIL</label>
+                                <label for="perfil" class="btn btn-info">PERFIL</label>
                                 <select class="form-select form-select-lg m-lg-3"
                                         name="idPerfil" id="perfil" required>
                                     <option value="" selected>Selecione o Perfil</option>
@@ -118,7 +123,7 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-primary btn-xs mr-4">GRAVAR
+                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;
                                 <i class="fas fa-save"></i>
                             </button>
                             <a href="listarUsuario.jsp" 

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Turmas</title>
+        <title>Cadastro de Turma</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
@@ -24,6 +24,16 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -37,11 +47,7 @@
                 response.sendRedirect("formLogin.jsp");
         %>
 
-        <div id="container" class = "container-fluid">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
+        <div id="container">
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -50,36 +56,36 @@
             <div id="content">
                 <div>
                     <form action="gerenciarTurma" method="POST">
-                        <h2 class="mt-3">Cadastro de Turma</h2>
+                        <h2 class="mt-3" style="color: #000;">Cadastro de Turma</h2>
                         <input type="hidden" class="form-control" name="idTurma"
                                id="idTurma" value="${turma.idTurma}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-primary">NOME DA TURMA</label>
+                            <label for="nome" class="btn btn-info">NOME DA TURMA</label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" value="${turma.nome}" 
                                    required="Informe a Turma"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="qtdAluno" class="btn btn-primary">QUANTIDADE DE ALUNOS</label>
+                            <label for="qtdAluno" class="btn btn-info">QUANTIDADE DE ALUNOS</label>
                             <input type="number" class="form-control" 
                                    name="qtdAluno" id="qtdAluno" value="${turma.qtdAluno}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="ano" class="btn btn-primary">ANO</label>
+                            <label for="ano" class="btn btn-info">ANO</label>
                             <input type="text" class="form-control" 
                                    name="ano" id="ano" value="${turma.ano}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="semestre" class="btn btn-primary">SEMESTRE</label>
+                            <label for="semestre" class="btn btn-info">SEMESTRE</label>
                             <input type="text" class="form-control" 
                                    name="semestre" id="semestre" value="${turma.semestre}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="turno" class="btn btn-primary">TURNO</label>
+                            <label for="turno" class="btn btn-info">TURNO</label>
                             <input type="text" class="form-control" 
                                    name="turno" id="turno" value="${turma.turno}" 
                                    required="">
@@ -87,7 +93,7 @@
                         <br/>    
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="barbeiro" class="btn btn-primary">BARBEIRO</label>
+                            <label for="barbeiro" class="btn btn-info">BARBEIRO</label>
                             <select class="form-select form-select-lg m-lg-3"
                                     name="idBarbeiro" id="barbeiro" required="">
                                 <option value="" selected>Selecione o Barbeiro</option>
@@ -104,7 +110,7 @@
                         </div>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="curso" class="btn btn-primary">CURSO</label>
+                            <label for="curso" class="btn btn-info">CURSO</label>
                             <select class="form-select form-select-lg m-lg-3"
                                     name="idCurso" id="curso" required="">
                                 <option value="" selected>Selecione o Curso</option>
@@ -121,9 +127,9 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
+                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;<i class="fas fa-save"></i></button>
                             <a href="listarTurma.jsp" class="btn btn-secondary btn-xs" role="button" >
-                                LISTAR TURMA <i class="fas fa-arrow-circle-left"></i></a>
+                                LISTAR TURMAS <i class="fas fa-arrow-circle-left"></i></a>
                         </div>
                     </form>
                 </div>

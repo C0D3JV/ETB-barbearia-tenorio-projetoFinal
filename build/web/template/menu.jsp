@@ -9,12 +9,12 @@
     request.setAttribute("ulogado", ulogado);
 %>
 
-<div class="d-grid gap-2 d-sm-flex justify-content-sm-between">
+<div class="d-grid gap-2 d-sm-flex justify-content-sm-between" <%--style="background-color: white;--%> ">
 
     <c:if test="${ulogado != null}">
-        <h4>Bem vindo,  ${ulogado.nome}</h4>
+        <h4 style="color: #000;">Bem vindo(a):&nbsp;${ulogado.nome}</h4>
         <a href="gerenciarLogin?" 
-           class="btn btn-info btn-xs" 
+           class="btn btn-outline-dark btn-xs mb-1" 
            role="button">Sair
             <i class="fas fa-sign-out-alt"></i>
         </a>

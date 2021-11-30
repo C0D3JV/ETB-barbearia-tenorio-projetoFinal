@@ -12,7 +12,6 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/font-awesome.min.css"/>
@@ -24,6 +23,16 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -37,10 +46,6 @@
                 response.sendRedirect("formLogin.jsp");
         %>
         <div id="container" >
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -50,41 +55,41 @@
                 <div>
                     <form action="gerenciarCurso"  method="POST"
                           enctype="multipart/form-data">
-                        <h2 class="mt-3">Cadastro de Curso</h2>
+                        <h2 class="mt-3" style="color: #000;">Cadastro de Curso</h2>
                         <input type="hidden" class="form-control" name="idCurso"
                                id="idCurso" value="${curso.idCurso}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-primary">NOME</label>
+                            <label for="nome" class="btn btn-info">NOME</label>
                             <input type="text" class="form-control" name="nome" id="nome" value="${curso.nome}" 
                                    required="Informe o Nome do Curso"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="descricao" class="btn btn-primary">DESCRIÇÃO</label>
+                            <label for="descricao" class="btn btn-info">DESCRIÇÃO</label>
                             <input type="text" class="form-control" id="descricao" name="descricao" 
                                    value= "${curso.descricao}"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="cargaHoraria" class="btn btn-primary">CARGA HORÁRIA</label>
+                            <label for="cargaHoraria" class="btn btn-info">CARGA HORÁRIA</label>
                             <input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria" 
                                    value= "${curso.cargaHoraria}" required=""/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="preco" class="btn btn-primary">PREÇO</label>
+                            <label for="preco" class="btn btn-info">PREÇO</label>
                             <input class="form-control" name="preco" type="text"
                                    step=".01" value ="<fmt:formatNumber pattern="#,##0.00"
                                                      value= "${curso.preco}"/>" required ">
                         </div>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="imagem" class="btn btn-primary">IMAGEM</label>
+                            <label for="imagem" class="btn btn-info">IMAGEM</label>
                             <input type="file" multiple="multiple" class="form-control" 
                                    name="file" id="file" 
                                    value="${curso.caminho}"/>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
+                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;<i class="fas fa-save"></i></button>
                             <a href="listarCurso.jsp" class="btn btn-secondary btn-xs" role="button" >
                                 LISTAR CURSOS <i class="fas fa-arrow-circle-left"></i>
                             </a>

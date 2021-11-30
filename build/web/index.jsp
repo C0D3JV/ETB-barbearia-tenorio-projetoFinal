@@ -10,19 +10,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
               maximum-scale=1, user-scalable=no" />
-        <!-- <meta http-equiv="pragma" content="no-cache">
-        <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <meta http-equiv="expires" content="0">
-        <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
-        <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/all.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/fontawesome.css"/>
-        <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
-        <script src="js/jquery-3.6.0.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/sweetalert2.all.min.js"type="text/javascript"></script> -->
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -43,13 +30,6 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <!-- PRE LOADER -->
-        <section class="preloader">
-            <div class="spinner">
-
-                <span class="spinner-rotate"></span> 
-            </div>  
-        </section>
 
         <!-- MENU -->
         <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
@@ -87,8 +67,7 @@
                                 <a href="listarCurso.jsp">Curso</a>
                                 <a href="listarTurma.jsp">Turma</a>
                                 <a href="listarVenda.jsp">Venda</a>
-                                <a href="listarAula.jsp">Aula</a>
-                                
+                                <a href="listarAula.jsp">Aula</a>   
                             </div>  
                         </div>
                         <ul class="nav navbar-nav navbar-right">
@@ -205,7 +184,7 @@
         </section>
 
 
-        <!-- Sobre -->
+        <!-- SOBRE -->
         <section id="about">
             <div class="container">
                 <div class="row">
@@ -263,7 +242,7 @@
         </section>
 
 
-        <!-- Equipe -->
+        <!-- EQUIPE -->
         <section id="team">
             <div class="container">
                 <div class="row">
@@ -307,7 +286,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
+                    <%-- <div class="col-md-3 col-sm-6">
                         <div class="team-thumb">
                             <div class="team-image">
                                 <img src="images/author-image3.jpg" class="img-responsive" alt="">
@@ -339,14 +318,14 @@
                                 <li><a href="#" class="fa fa-behance"></a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --%>
 
-                </div>
-            </div>
+                </div> 
+            </div> 
         </section>
+ 
 
-
-        <!-- Cursos -->
+        <!-- CURSOS -->
         <section id="courses">
             <div class="container">
                 <div class="row">
@@ -372,7 +351,7 @@
                                         </div>
 
                                         <div class="courses-detail">
-                                            <h3><a href="#">Social Media Management</a></h3>
+                                            <h3><a href="#">Curso Avançado Barber Trying</a></h3>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                         </div>
 
@@ -380,10 +359,10 @@
                                             <div class="courses-author">
                                                 <img src="images/author-image1.jpg" class="img-responsive"
                                                      alt="">
-                                                <span>Mark Wilson</span>
+                                                <span>Daniel Tenorio</span>
                                             </div>
                                             <div class="courses-price">
-                                                <a href="#"><span>USD 25</span></a>
+                                                <a href="#"><span>R$ 250</span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -399,123 +378,24 @@
                                                      alt="">
                                             </div>
                                             <div class="courses-date">
-                                                <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
-                                                <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
+                                                <span><i class="fa fa-calendar"></i> --/--/----</span>
+                                                <span><i class="fa fa-clock-o"></i> --:--</span>
                                             </div>
                                         </div>
 
                                         <div class="courses-detail">
-                                            <h3><a href="#">Graphic & Web Design</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            <h3><a href="#">Em Breve Mais Novidades</a></h3>
+                                            <p>Fique de olho que logo poderam abrir mais cursos e tumas.</p>
                                         </div>
 
                                         <div class="courses-info">
                                             <div class="courses-author">
                                                 <img src="images/author-image2.jpg" class="img-responsive"
                                                      alt="">
-                                                <span>Jessica</span>
-                                            </div>
-                                            <div class="courses-price">
-                                                <a href="#"><span>USD 80</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-sm-4">
-                                <div class="item">
-                                    <div class="courses-thumb">
-                                        <div class="courses-top">
-                                            <div class="courses-image">
-                                                <img src="images/courses-image3.jpg" class="img-responsive"
-                                                     alt="">
-                                            </div>
-                                            <div class="courses-date">
-                                                <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
-                                                <span><i class="fa fa-clock-o"></i> 6 Hours</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="courses-detail">
-                                            <h3><a href="#">Marketing Communication</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-
-                                        <div class="courses-info">
-                                            <div class="courses-author">
-                                                <img src="images/author-image3.jpg" class="img-responsive"
-                                                     alt="">
-                                                <span>Catherine</span>
+                                                <span>Wesley Vitoriano</span>
                                             </div>
                                             <div class="courses-price free">
-                                                <a href="#"><span>Free</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-sm-4">
-                                <div class="item">
-                                    <div class="courses-thumb">
-                                        <div class="courses-top">
-                                            <div class="courses-image">
-                                                <img src="images/courses-image4.jpg" class="img-responsive"
-                                                     alt="">
-                                            </div>
-                                            <div class="courses-date">
-                                                <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
-                                                <span><i class="fa fa-clock-o"></i> 8 Hours</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="courses-detail">
-                                            <h3><a href="#">Summer Kids</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-
-                                        <div class="courses-info">
-                                            <div class="courses-author">
-                                                <img src="images/author-image1.jpg" class="img-responsive"
-                                                     alt="">
-                                                <span>Mark Wilson</span>
-                                            </div>
-                                            <div class="courses-price">
-                                                <a href="#"><span>USD 45</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-sm-4">
-                                <div class="item">
-                                    <div class="courses-thumb">
-                                        <div class="courses-top">
-                                            <div class="courses-image">
-                                                <img src="images/courses-image5.jpg" class="img-responsive"
-                                                     alt="">
-                                            </div>
-                                            <div class="courses-date">
-                                                <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
-                                                <span><i class="fa fa-clock-o"></i> 10 Hours</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="courses-detail">
-                                            <h3><a href="#">Business &amp; Management</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-
-                                        <div class="courses-info">
-                                            <div class="courses-author">
-                                                <img src="images/author-image2.jpg" class="img-responsive"
-                                                     alt="">
-                                                <span>Jessica</span>
-                                            </div>
-                                            <div class="courses-price free">
-                                                <a href="#"><span>Free</span></a>
+                                                <a href="#"><span>breve</span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -529,7 +409,7 @@
         </section>
 
 
-        <!-- TESTIMONIAL -->
+        <!-- DEPOIMENTOS -->
         <section id="testimonial">
             <div class="container">
                 <div class="row">
@@ -627,7 +507,7 @@
         </section>
 
 
-        <!-- CONTACT -->
+        <!-- LOCALIZAÇÃO -->
         <section id="contact">
             <div class="container">
                 <div class="row">

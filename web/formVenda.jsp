@@ -11,14 +11,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Formulário de Vendas</title>
+        <title>Formulário de Venda</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/font-awesome.min.css"/>
@@ -29,6 +28,16 @@
         <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -41,12 +50,7 @@
             if (session.getAttribute("ulogado") == null)
                 response.sendRedirect("formLogin.jsp");
         %>
-        <div id="container" class = "container-fluid">
-            <div id="header">
-
-                <%@include file="template/banner.jsp" %>
-
-            </div><!-- fim da div header -->
+        <div id="container">
             <div id="menu">
 
                 <%@include file="template/menu.jsp" %>
@@ -80,8 +84,7 @@
                     }
                 %>
                 <div>   
-                    <div class="form-group row offset-sm-4"
-                         style="padding-top: 10px">
+                    <div class="form-group row offset-sm-4 pt-4">
                         <label for="usuario"
                                class="col-sm-2 text-left btn btn-lg
                                btn-secondary">Vendedor(a)</label>
@@ -103,7 +106,7 @@
                         </div>
                     </div>
 
-                    <h4 align="center">Catálogo: (<%= v.getCarrinho().size()%>)</h4>
+                    <h2 align="center" style="color: #000;">Itens no Carrinho: (<%= v.getCarrinho().size()%>)</h2>
 
                     <jsp:useBean class="model.CursoDAO" id="curso"/>
                     <c:forEach var="cs" items="${curso.lista}">
@@ -115,7 +118,7 @@
                                        value="${cs.idCurso}"/>
                                 <!--Expression Language
                                 expressão usada para acessar os dados armazenados no JavaBean-->
-                                <h5>${cs.nome}</h5>
+                                <h4 style="color: #000;">${cs.nome}</h4>
                                 <input type="number" name="qtd" value="1" class="form-control ml-2"
                                        style="width: 5%" />                     <!-- <-- colocar o readonly no input -->
                                 <button class="btn btn-success ml-2">
@@ -131,7 +134,7 @@
                            role="button">Cancelar&nbsp;<i class="fas fa-stop-circle"></i>
                         </a>
                         <a href="formFinalizarVenda.jsp"
-                           class="btn btn-outline-info btn-lg"
+                           class="btn btn-outline-success btn-lg"
                            role="button">Finalizar Venda&nbsp;<i class="fas fa-cash-register"></i>
                         </a>
                     </div>

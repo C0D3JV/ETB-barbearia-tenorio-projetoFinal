@@ -12,16 +12,25 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        
         <link rel="stylesheet" href="css/all.css" type="text/css" media="all" />
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css"/>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <div class="container-fluid pl-0">
             <div class="row">
                 <!-- Vídeo -->
                 <div class="col">
-                    <video autoplay loop>
+                    <video autoplay muted loop>
                         <source src="video/video-studio.mp4" type="video/mp4">
                     </video>
                 </div>

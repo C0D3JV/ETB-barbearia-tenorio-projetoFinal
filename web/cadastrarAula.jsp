@@ -5,14 +5,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Cadastro de Aulas</title>
+        <title>Cadastro de Aula</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/font-awesome.min.css"/>
@@ -24,6 +23,16 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -37,11 +46,7 @@
                 response.sendRedirect("formLogin.jsp");
         %>
 
-        <div id="container" class = "container-fluid">
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-
-            </div><!-- fim da div header -->
+        <div id="container">
             <div id="menu">
 
                 <jsp:include page="template/menu.jsp"/>
@@ -50,43 +55,43 @@
             <div id="content">
                 <div>
                     <form action="gerenciarAula" method="POST">
-                        <h2 class="mt-3">Cadastro de Aula</h2>
+                        <h2 class="mt-3" style="color: #000;">Cadastro de Aula</h2>
                         <input type="hidden" class="form-control" name="idAula"
                                id="idAula" value="${aula.idAula}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="materia" class="btn btn-primary">MATÉRIA</label>
+                            <label for="materia" class="btn btn-info">MATÉRIA</label>
                             <input type="text" class="form-control" 
                                    name="materia" id="materia" value="${aula.materia}" 
                                    required=""/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataInicio" class="btn btn-primary">DATA DE INÍCIO</label>
+                            <label for="dataInicio" class="btn btn-info">DATA DE INÍCIO</label>
                             <input type="date" class="form-control" 
                                    name="dataInicio" id="dataInicio" value="${aula.dataInicio}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataFim" class="btn btn-primary">DATA FINAL</label>
+                            <label for="dataFim" class="btn btn-info">DATA FINAL</label>
                             <input type="date" class="form-control" 
                                    name="dataFim" id="dataFim" value="${aula.dataFim}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="horario" class="btn btn-primary">HORÁRIO</label>
+                            <label for="horario" class="btn btn-info">HORÁRIO</label>
                             <input type="time" class="form-control" 
                                    name="horario" id="horario" value="${aula.horario}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="qtdAula" class="btn btn-primary">QUANTIDADE DE AULAS</label>
+                            <label for="qtdAula" class="btn btn-info">QUANTIDADE DE AULAS</label>
                             <input type="number" class="form-control" 
                                    name="qtdAula" id="qtdAula" value="${aula.qtdAula}" 
                                    required="">
                         </div>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="curso" class="btn btn-primary">CURSO</label>
+                            <label for="curso" class="btn btn-info">CURSO</label>
                             <select class="form-select form-select-lg m-lg-3"
                                     name="idCurso" id="curso" required="">
                                 <option value="" selected>Selecione o Curso</option>
@@ -103,9 +108,9 @@
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-primary btn-xs mr-4">GRAVAR <i class="fas fa-save"></i></button>
+                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;<i class="fas fa-save"></i></button>
                             <a href="listarAula.jsp" class="btn btn-secondary btn-xs" role="button" >
-                                LISTAR AULA <i class="fas fa-arrow-circle-left"></i></a>
+                                LISTAR AULAS <i class="fas fa-arrow-circle-left"></i></a>
                         </div>
                     </form>
                 </div>

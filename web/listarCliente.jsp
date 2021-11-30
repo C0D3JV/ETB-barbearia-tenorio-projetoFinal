@@ -24,12 +24,14 @@
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.css"/>
         <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
         <script src="js/bootstrap.js"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/11894.jpg");
+                background-image: url("imagens/fundo-barbearia.png");
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: 100% 100%;
+                background-color: #F0F8FF;
             }
         </style>
     </head>
@@ -45,13 +47,7 @@
                 response.sendRedirect("formLogin.jsp");
         %>
 
-        <div id="container" class="pt-3">
-            <%--
-            <div id="header">
-                <jsp:include page="template/banner.jsp"/>
-            </div><!-- fim da div header -->
-            --%>
-            
+        <div id="container">
             <div id="menu">
                 <jsp:include page="template/menu.jsp"/>
             </div><!-- fim da div menu -->
@@ -61,18 +57,18 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3">Listagem de Clientes</h2> 
+                                <h2 class="mt-3" style="color: #000;">Listagem de Clientes</h2> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-primary btn-lg" href="cadastrarCliente.jsp" 
+                                <a class="btn btn-info btn-lg" href="cadastrarCliente.jsp" 
                                    role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
                             </div>
 
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
                                        table-bordered" id="listarCliente">
-                                    <thead class="bg-primary">
-                                        <tr class="text-white">
+                                    <thead class="bg-dark">
+                                        <tr style="color: #dda968;">
                                             <th>Nome</th>
                                             <th>Data de Nascimento</th>
                                             <th>CPF</link>
