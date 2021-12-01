@@ -87,7 +87,7 @@
                                                      height="70px">
                                                     <p>${cs.nome}</p></td>
                                                 <td>${cs.descricao}</td>
-                                                <td>${cs.cargaHoraria}</td>
+                                                <td>${cs.cargaHoraria}&nbsp;horas</td>
                                                 <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" 
                                                                   value="${cs.preco}"/></td>
                                                 

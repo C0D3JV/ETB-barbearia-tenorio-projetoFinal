@@ -22,7 +22,7 @@ body{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    width:1349px;
+    width:1240px;
     height:620px;
 }
 
@@ -33,17 +33,17 @@ video{
 
 #container{
     margin: 0 auto;
-    width: 1349px;
+    width: 1240px;
     height: 760px;
 }
 
 #header {
-    width: 1349px;
+    width: 1240px;
     height: 100px;
 }
 
 #menu{
-    width: 1349px;
+    width: 1240px;
     height: 80px;
     margin-bottom: 0px;
     float: left;
@@ -63,7 +63,7 @@ video{
 
 #footer{
     background-color: darkgrey;
-    width:1349px;
+    width:1240px;
     height: 40px;
     float: left;
     padding: 40px 20px;

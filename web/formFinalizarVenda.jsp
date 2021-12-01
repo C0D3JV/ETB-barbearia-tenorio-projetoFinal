@@ -21,7 +21,6 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/font-awesome.min.css"/>

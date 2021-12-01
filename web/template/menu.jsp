@@ -15,8 +15,7 @@
         <h4 style="color: #000;">Bem vindo(a):&nbsp;${ulogado.nome}</h4>
         <a href="gerenciarLogin?" 
            class="btn btn-outline-dark btn-xs mb-1" 
-           role="button">Sair
-            <i class="fas fa-sign-out-alt"></i>
+           role="button">Sair&nbsp;<i class="fas fa-sign-out-alt"></i>
         </a>
     </c:if>
 

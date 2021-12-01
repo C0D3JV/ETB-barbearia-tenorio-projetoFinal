@@ -10,6 +10,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
               maximum-scale=1, user-scalable=no" />
+        <!-- <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="expires" content="0">
+        <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="css/all.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css"/>
+        <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
+        <script src="js/jquery-3.6.0.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/sweetalert2.all.min.js"type="text/javascript"></script> -->
+        <link rel="stylesheet" href="css/all.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/fontawesome.css" type="text/css" media="all"/>
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -54,7 +68,7 @@
                         <li><a href="#team" class="smoothScroll">Equipe</a></li>
                         <li><a href="#courses" class="smoothScroll">Cursos</a></li>
                         <li><a href="#testimonial" class="smoothScroll">Depoimentos</a></li>
-                        <li><a href="#contact" class="smoothScroll">Como Chegar</a></li>
+                        <li><a href="#contact" class="smoothScroll">Localização</a></li>
                         <div class="dropdown">
                             <button onclick="myFunction()" class="dropbtn">
                                 Mais <i class="fa fa-caret-down"></i></button>
@@ -71,7 +85,13 @@
                             </div>  
                         </div>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><i class="fa fa-whatsapp"></i>+55 61 99259-5360</a></li>
+                            <li>
+                                <c:if test="${ulogado != null}">
+                                    <a href="gerenciarLogin?">Sair&nbsp;<i class="fas fa-sign-out-alt"></i>
+                                    </a>
+                                </c:if>
+
+                            </li>
                         </ul>
                     </ul>
                 </div>
@@ -108,9 +128,9 @@
                         <div class="caption">
                             <div class="container">
                                 <div class="col-md-6 col-sm-12">
-                                    <h1>Centro de Educação Presencial</h1>
-                                    <h3>Our online courses are designed to fit in your industry supporting all-round
-                                        with latest technologies.</h3>
+                                    <h1>Centro de Formação de Barbeiros</h1>
+                                    <h3>Nossos cursos presenciais são projetados para te dar mais habilidades, 
+                                        oferecendo o que há de mais novo no mercado de barbearia. </h3>
                                     <a href="#feature" class="section-btn btn btn-default smoothScroll">Descubra Mais</a>
                                 </div>
                             </div>
@@ -121,9 +141,9 @@
                         <div class="caption">
                             <div class="container">
                                 <div class="col-md-6 col-sm-12">
-                                    <h1>Start your journey with our practical courses</h1>
-                                    <h3>Our online courses are built in partnership with technology leaders and are
-                                        designed to meet industry demands.</h3>
+                                    <h1>Inicie sua jornada com cursos práticos</h1>
+                                    <h3>Nossos cursos presenciais são desenvolvidos por profissionais qualificados 
+                                        e projetados para atender às demandas do setor.</h3>
                                     <a href="#courses" class="section-btn btn btn-default smoothScroll">Escolha um Curso</a>
                                 </div>
                             </div>
@@ -134,9 +154,9 @@
                         <div class="caption">
                             <div class="container">
                                 <div class="col-md-6 col-sm-12">
-                                    <h1>Efficient Learning Methods</h1>
-                                    <h3>Nam eget sapien vel nibh euismod vulputate in vel nibh. Quisque eu ex eu
-                                        urna venenatis sollicitudin ut at libero.</h3>
+                                    <h1>Métodos de Aprendizagem Eficientes</h1>
+                                    <h3> Se você quer ser um barbeiro melhor e viver dessa profissão,você veio ao lugar certo, 
+                                        no curso vou te mostrar o que você precisa para isso acontecer.</h3>
                                     <a href="#contact" class="section-btn btn btn-default smoothScroll">Localização</a>
                                 </div>
                             </div>
@@ -152,33 +172,15 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-4 col-4">
                         <div class="feature-thumb">
-                            <span>01</span>
-                            <h3>Sobre</h3>
-                            <p>Known is free education HTML Bootstrap Template. You can modify in any way and use this
-                                for your website.</p>
+                            <h2>Sobre nós</h2>
+                            <p style="text-align: justify">&emsp;&emsp;A Barberia Tenorio foi fundada em julho de 2020 pelo barbeiro fundador que leva seu sobrenome Daniel Tenorio, mesmo em meio a uma pandemia mundial nosso modelo de negocio buscou se adaptar com a realidade do momento vivido e inaugurou com todos os procedimentos de segurança com a utilização de mascaras, álcool em gel e distanciamento seguro entre os clientes.<br>  
+                                &emsp;&emsp;Além dos serviços de barbearia estamos com um diferencial no mercado que á a formação de novos profissionais com o curso “Barber Trying” aonde compartilhamos nossos conhecimentos a fim de somar positividade com a comunidade e arredores.<br>
+                                &emsp;&emsp;No momento somos 3 Barbeiros Profissionais (Daniel, Marcos e Wesley) prontos para atende-los com qualidade e profissionalismo. Agende seu horário no AppBarber e venha nos conhecer!
+                            <p>
                         </div>
                     </div>
-
-                    <div class="col-md-4 col-sm-4">
-                        <div class="feature-thumb">
-                            <span>02</span>
-                            <h3>Books & Library</h3>
-                            <p>You are allowed to use Known HTML Template for your commercial or non-commercial
-                                websites.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                        <div class="feature-thumb">
-                            <span>03</span>
-                            <h3>Certified Teachers</h3>
-                            <p>Please spread a word about us. Template redistribution is NOT allowed on any download
-                                website.</p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -191,52 +193,29 @@
 
                     <div class="col-md-6 col-sm-12">
                         <div class="about-info">
-                            <h2>Comece a sua jornada para uma vida melhor com cursos práticos presenciais</h2>
+                            <h2>Faça um agendamento e conheça nossos serviços:</h2>
 
                             <figure>
-                                <span><i class="fa fa-certificate"></i></span>
+                                <span><a href="https://play.google.com/store/apps/details?id=com.startapp.appbarber"><i class="fab fa-google-play"></i></a></span>
                                 <figcaption>
-                                    <h3>International Certifications</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa
-                                        voluptatibus.</p>
+                                    <h3>O nosso app de agendamento pro sistema Android</h3>
+                                    <p>Baixe o AppBarber na Google Play Store</p>
                                 </figcaption>
                             </figure>
 
                             <figure>
-                                <span><i class="fa fa-bar-chart-o"></i></span>
+                                <span><a href="https://apps.apple.com/br/app/appbarber/id1079972583"><i class="fab fa-app-store"></i></a></span>
                                 <figcaption>
-                                    <h3>Free for 3 months</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa
-                                        voluptatibus.</p>
-                                </figcaption>
-                            </figure>
-                            
-                            <figure>
-                                <span><i class="fa fa-users"></i></span>
-                                <figcaption>
-                                    <h3>Instrutores Especializados</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa
-                                        voluptatibus.</p>
+                                    <h3>O nosso app de agendamento pro sistema IOS</h3>
+                                    <p>Baixe o AppBarber  na App Store</p>
                                 </figcaption>
                             </figure>
                         </div>
                     </div>
 
                     <div class="col-md-offset-1 col-md-4 col-sm-12">
-                        <div class="entry-form">
-                            <form action="#" method="post">
-                                <h2>Registre-se</h2>
-                                <input type="text" name="full name" class="form-control" placeholder="Nome"
-                                       required="">
-
-                                <input type="password" name="password" class="form-control"
-                                       placeholder="Senha" required="">
-
-                                <button class="submit-btn form-control" id="form-submit">Enviar</button>
-                            </form>
-                        </div>
+                        <img style="border-radius: 5%" src="images/tabela-servico.jpg" width="490" height="460">
                     </div>
-
                 </div>
             </div>
         </section>
@@ -247,7 +226,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-md-12 col-sm-12">
+                    <div class="col-md-12 col-sm-9">
                         <div class="section-title">
                             <h2>Nossa Equipe<small>Conheça um pouco mais sobre nosso time de barbeiros</small></h2>
                         </div>
@@ -263,9 +242,8 @@
                                 <span>Fundador e CEO da Barbearia</span>
                             </div>
                             <ul class="social-icon">
-                                <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-instagram"></a></li>
+                                <li><a href="https://www.facebook.com/daniel.dersohngottes" target="_blank" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                <li><a href="https://www.instagram.com/danieltenoriods/" target="_blank" class="fa fa-instagram"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -280,13 +258,12 @@
                                 <span>Barbeiro é a chave!</span>
                             </div>
                             <ul class="social-icon">
-                                <li><a href="#" class="fa fa-google"></a></li>
-                                <li><a href="#" class="fa fa-instagram"></a></li>
+                                <li><a href="https://www.instagram.com/barbeiro_vitoriano/" target="_blank" class="fa fa-instagram"></a></li>
                             </ul>
                         </div>
                     </div>
 
-                    <%-- <div class="col-md-3 col-sm-6">
+                    <!-- <div class="col-md-3 col-sm-6">
                         <div class="team-thumb">
                             <div class="team-image">
                                 <img src="images/author-image3.jpg" class="img-responsive" alt="">
@@ -301,29 +278,11 @@
                                 <li><a href="#" class="fa fa-linkedin"></a></li>
                             </ul>
                         </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-thumb">
-                            <div class="team-image">
-                                <img src="images/author-image4.jpg" class="img-responsive" alt="">
-                            </div>
-                            <div class="team-info">
-                                <h3>Andrew Berti</h3>
-                                <span>Learning is fun</span>
-                            </div>
-                            <ul class="social-icon">
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-google"></a></li>
-                                <li><a href="#" class="fa fa-behance"></a></li>
-                            </ul>
-                        </div>
-                    </div> --%>
-
-                </div> 
-            </div> 
+                    </div> -->
+                </div>
+            </div>
         </section>
- 
+
 
         <!-- CURSOS -->
         <section id="courses">
@@ -345,8 +304,8 @@
                                                      alt="">
                                             </div>
                                             <div class="courses-date">
-                                                <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
-                                                <span><i class="fa fa-clock-o"></i> 7 Hours</span>
+                                                <span><i class="fa fa-calendar"></i> 22 / 07 / 2021</span>
+                                                <span><i class="fa fa-clock-o"></i> 72 Horas</span>
                                             </div>
                                         </div>
 
@@ -401,11 +360,10 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
+            </div>   
         </section>
 
 
@@ -416,7 +374,7 @@
 
                     <div class="col-md-12 col-sm-12">
                         <div class="section-title">
-                            <h2>Review dos estudantes<small>Veja um pouco do que estão falando sobre nós</small></h2>
+                            <h2>Review dos Clientes<small>Vejam o que estão falando sobre nós</small></h2>
                         </div>
 
                         <div class="owl-carousel owl-theme owl-client">
@@ -426,11 +384,11 @@
                                         <img src="images/tst-image1.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="tst-author">
-                                        <h4>Jackson</h4>
-                                        <span>Shopify Developer</span>
+                                        <h4>Marcos</h4>
+                                        <span>Desenvolvedor de Compras</span>
                                     </div>
-                                    <p>You really do help young creative minds to get quality education and
-                                        professional job search assistance. I’d recommend it to everyone!</p>
+                                    <p>Você realmente ajuda jovens mentes criativas a obter qualidade 
+                                        e assistência profissional na procura de emprego. Eu recomendo a todos!</p>
                                     <div class="tst-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -447,12 +405,13 @@
                                         <img src="images/tst-image2.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="tst-author">
-                                        <h4>Camila</h4>
-                                        <span>Marketing Manager</span>
+                                        <h4>Júlia</h4>
+                                        <span>Gerente de Marketing</span>
                                     </div>
-                                    <p>Trying something new is exciting! Thanks for the amazing law course and the
-                                        great teacher who was able to make it interesting.</p>
+                                    <p>Tentar algo novo é emocionante! Obrigado pelo incrível curso e 
+                                        pelo excelente professor que conseguiu torná-lo interessante.</p>
                                     <div class="tst-rating">
+                                        <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -466,16 +425,15 @@
                                         <img src="images/tst-image3.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="tst-author">
-                                        <h4>Barbie</h4>
-                                        <span>Art Director</span>
+                                        <h4>Beatriz</h4>
+                                        <span>Diretora de Arte</span>
                                     </div>
-                                    <p>Donec erat libero, blandit vitae arcu eu, lacinia placerat justo. Sed
-                                        sollicitudin quis felis vitae hendrerit.</p>
+                                    <p>Você precisa partir de algum lugar, e a Barberia Tenorio te da essa base, 
+                                        para você conseguir se aprofundar na carreira de Barbeiro.</p>
                                     <div class="tst-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>                                     
                                     </div>
                                 </div>
                             </div>
@@ -486,11 +444,10 @@
                                         <img src="images/tst-image4.jpg" class="img-responsive" alt="">
                                     </div>
                                     <div class="tst-author">
-                                        <h4>Andrio</h4>
-                                        <span>Web Developer</span>
+                                        <h4>André</h4>
+                                        <span>Desenvolvedor Web</span>
                                     </div>
-                                    <p>Nam eget mi eu ante faucibus viverra nec sed magna. Vivamus viverra sapien
-                                        ex, elementum varius ex sagittis vel.</p>
+                                    <p>Invistir em novas habilidades é sempre bom, porque o conhecimento é algo que ninguém pode tirar de nós.</p>
                                     <div class="tst-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -499,9 +456,7 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
         </section>
@@ -520,7 +475,7 @@
                                 allowfullscreen="" loading="lazy"></iframe>   
                     </div>
                 </div>
-            </div>    
+            </div>
         </section>
 
         <jsp:include page="template/rodape.jsp"/> <!-- fim do rodapé -->

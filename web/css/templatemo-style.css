@@ -39,7 +39,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin-bottom: 0;
 }
 
@@ -372,16 +372,16 @@ section {
 .caption h3 a:hover { color: #FF3; }
 
 .home-slider .item-first {
-    background-image: url('../images/slide1.jpg');
+    background-image: url(../images/slide1.jpg);
     background-position: center;
 }
 
 .home-slider .item-second {
-    background-image: url('../images/slide2.jpg');
+    background-image: url(../images/slide2.jpg);
 }
 
 .home-slider .item-third {
-    background-image: url('../images/slide3.jpg');
+    background-image: url(../images/slide3.jpg);
 }
 
 
@@ -434,9 +434,9 @@ section {
 }
 
 #about figure span i {
-    background: #BFBFBF;
+    background: #b8985f;
     border-radius: 50px;
-    color: #ffffff;
+    color: #000;
     font-size: 25px;
     width: 50px;
     height: 50px;
@@ -677,7 +677,7 @@ section {
 }
 
 #contact h2 {
-    color: #fff;
+    color: #3d3d3d;
 }
 
 #contact .section-title {
