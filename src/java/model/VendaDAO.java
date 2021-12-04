@@ -95,8 +95,8 @@ public class VendaDAO {
             Date dataInicial, Date dataFinal) throws Exception {
         ArrayList<Venda> lista = new ArrayList<>();
 
-        String sql = "SELECT * from venda WHERE dataInicial = ? "
-                + "AND dataFinal = ?";
+        String sql = "SELECT * from venda WHERE dataVenda >= ? "
+                + "AND dataVenda <= ?";
 
         try {
             con = ConexaoFactory.conectar();
@@ -109,9 +109,11 @@ public class VendaDAO {
             while (rs.next()) {
                 Venda v = new Venda();
                 v.setIdVenda(rs.getInt("idVenda"));
+                
                 ClienteDAO ctdao = new ClienteDAO();
                 v.setCliente(ctdao.getCarregarPorId(
                         rs.getInt("idCliente")));
+                
                 UsuarioDAO udao = new UsuarioDAO();
                 v.setUsuario(udao.getCarregarPorId(
                         rs.getInt("idUsuario")));
@@ -122,7 +124,7 @@ public class VendaDAO {
             }
         } catch (SQLException e) {
             System.out.println(
-                    "Falha ao lista a venda por data: "
+                    "Falha ao lista as vendas por data: "
                     + e.getMessage());
             e.printStackTrace();
         }

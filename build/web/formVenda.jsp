@@ -86,7 +86,7 @@
                 <div>   
                     <div class="form-group row offset-sm-4 pt-4">
                         <label for="usuario"
-                               class="col-sm-2 text-left btn btn-lg
+                               class="col-sm-2 text-left btn btn-md
                                btn-secondary">Vendedor(a)</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control"
@@ -97,7 +97,7 @@
 
                     <div class="form-group row offset-sm-4">
                         <label for="cliente"
-                               class="col-sm-2 text-left btn btn-lg
+                               class="col-sm-2 text-left btn btn-md
                                btn-secondary">Cliente</label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control"
@@ -106,7 +106,7 @@
                         </div>
                     </div>
 
-                    <h2 align="center" style="color: #000;">Itens no Carrinho: (<%= v.getCarrinho().size()%>)</h2>
+                    <h3 align="center" style="color: #000;">Itens no Carrinho: (<%= v.getCarrinho().size()%>)</h3>
 
                     <jsp:useBean class="model.CursoDAO" id="curso"/>
                     <c:forEach var="cs" items="${curso.lista}">
@@ -128,13 +128,13 @@
                         </div>
                     </c:forEach>
 
-                    <div class="d-sm-flex justify-content-sm-around m-md-3">
+                    <div class="d-sm-flex justify-content-md-end m-md-3">
                         <a href="listarCliente.jsp"
-                           class="btn btn-outline-danger btn-lg"
+                           class="btn btn-outline-danger mr-2"
                            role="button">Cancelar&nbsp;<i class="fas fa-stop-circle"></i>
                         </a>
                         <a href="formFinalizarVenda.jsp"
-                           class="btn btn-outline-success btn-lg"
+                           class="btn btn-outline-success mr-2"
                            role="button">Finalizar Venda&nbsp;<i class="fas fa-cash-register"></i>
                         </a>
                     </div>

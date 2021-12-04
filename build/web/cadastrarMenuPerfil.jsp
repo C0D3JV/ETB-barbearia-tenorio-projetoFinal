@@ -54,21 +54,22 @@
 
             </div><!-- fim da div menu -->
             <div id="content" >
-                <div class="mb-3">
+                <div class="mb-2">
                     <form action="gerenciarMenuPerfil" method="POST">
-                        <h2 class="mt-3" style="color: #000;">Cadastro de Menus e Perfis</h2>
+                        <h2 class="mt-3" style="color: #000; text-align: center;">Cadastro de Menus e Perfis</h2>
                         <input type="hidden" class="form-control" name="idPerfil"
                                id="idPerfil" value="${perfilv.idPerfil}"/>
 
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-info">
+                        <div class="form-group col col-sm-3 mr-auto ml-auto">
+                            <label for="nome" class="btn btn-outline-dark dark-label">
                                 PERFIL
                             </label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" readonly value="${perfilv.nome}"/>
                         </div>
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="idMenu"class="btn btn-info">Menus</label>
+                        <div class="form-group col col-sm-3 mr-auto ml-auto">
+                            <label for="idMenu"class="btn btn-outline-dark dark-label">
+                                MENUS</label>
                             <select name="idMenu" required id="idMenu" 
                                     class="form-select form-select-lg m-lg-3">
                                 <option value="#" selected>Selecione o Menu</option>
@@ -78,12 +79,12 @@
 
                             </select>
                         </div>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-info btn-xs mr-4">Vincular
+                        <div class="d-grid d-md-flex justify-content-md-end">
+                            <button class="btn btn-info btn-xs mr-2">VINCULAR
                                 <i class="fas fa-save"></i>
                             </button>
                             <a href="listarPerfil.jsp" 
-                               class="btn btn-secondary btn-xs" role="button" >
+                               class="btn btn-secondary btn-xs mr-2" role="button" >
                                 LISTAR PERFIS&nbsp;
                                 <i class="fas fa-arrow-circle-left"></i>
                             </a>

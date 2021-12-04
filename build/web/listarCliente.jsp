@@ -65,7 +65,8 @@
 
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
-                                       table-bordered" id="listarCliente">
+                                       table-bordered table-active"
+                                       id="listarCliente">
                                     <thead class="bg-dark">
                                         <tr style="color: #dda968;">
                                             <th>Nome</th>

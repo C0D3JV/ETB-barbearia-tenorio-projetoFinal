@@ -66,7 +66,8 @@
 
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
-                                       table-bordered" id="listarPerfil">
+                                       table-bordered table-active"
+                                       id="listarPerfil">
                                     <thead class="bg-dark">
                                         <tr style="color: #dda968;">
                                             <th>Código</th>

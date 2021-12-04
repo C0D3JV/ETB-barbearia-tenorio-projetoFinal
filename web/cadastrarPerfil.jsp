@@ -59,20 +59,25 @@
                                id="idPerfil" value="${perfil.idPerfil}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-info">NOME</label>
+                            <label for="nome" class="btn btn-outline-dark dark-label">
+                                NOME DO PERFIL</label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" value="${perfil.nome}" 
                                    required="Informe o Perfil"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataCadastro" class="btn btn-info">DATA DE CADASTRO</label>
-                            <input type="date" class="form-control" id="dataCadastro" name="dataCadastro" 
-                                   value= "${perfil.dataCadastro}"/>
+                            <label for="dataCadastro" class="btn btn-outline-dark dark-label">
+                                DATA DE CADASTRO</label>
+                            <input type="date" class="form-control"
+                                   id="dataCadastro" style="width:172px"
+                                   name="dataCadastro" value= "${perfil.dataCadastro}"/>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;<i class="fas fa-save"></i></button>
-                            <a href="listarPerfil.jsp" class="btn btn-secondary btn-xs" role="button" >
+                            <button class="btn btn-info btn-xs mr-4">
+                                SALVAR&nbsp;<i class="fas fa-save"></i></button>
+                            <a href="listarPerfil.jsp" class="btn btn-secondary btn-xs"
+                               role="button" >
                                 LISTAR PERFIS <i class="fas fa-arrow-circle-left"></i>
                             </a>
                         </div>

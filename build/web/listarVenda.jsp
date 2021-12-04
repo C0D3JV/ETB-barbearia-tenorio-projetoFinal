@@ -1,4 +1,5 @@
-<%@page contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"
+<%@page contentType="text/html; charset=ISO-8859-1" 
+        pageEncoding="UTF-8"
         import="java.util.ArrayList"
         import="model.Venda"
         import="model.VendaDAO"%>
@@ -59,22 +60,24 @@
                             <div>
                                 <h2 class="mt-3" style="color: #000;">Listagem de Vendas</h2> 
                             </div>
-                            
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-info btn-lg" href="gerenciarVenda?acao=alterar&idVenda=${v.idVenda}" 
-                                   role="button">LISTAR VENDA POR DATA&nbsp;<i class="fas fa-edit"></i></a>
+                                <a class="btn btn-info btn-lg" href="formVendaPorData.jsp" 
+                                   role="button">Listar Venda Por Data&nbsp;
+                                    <i class="fas fa-edit"></i></a>
                             </div>
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
-                                       table-bordered" id="listarVenda">
+                                       table-bordered table-active"
+                                       id="listarVenda">
                                     <thead class="bg-dark">
                                         <tr style="color: #dda968;">
                                             <th>Código</th>
                                             <th>Data da Venda</th>
                                             <th>Preço Total</th>
                                             <th>Cliente</th>
-                                            <th>Usuário</th>
+                                            <th>Vendedor(a)</th>
+                                            <th>Ação</th>
                                         </tr>
                                     </thead>
 
@@ -83,11 +86,20 @@
                                         <c:forEach var="v" items="${vdao.lista}">
                                             <tr>
                                                 <td>${v.idVenda}</td>
-                                                <td><fmt:formatDate pattern="dd/MM/yyyy" value="${v.dataVenda}"/></td>
-                                                <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" 
-                                                                  value="${v.precoTotal}"/></td>
+                                                <td><fmt:formatDate pattern="dd/MM/yyyy"
+                                                                value="${v.dataVenda}"/></td>
+                                                <td>R$&nbsp<fmt:formatNumber 
+                                                        pattern="#,##0.00" 
+                                                        value="${v.precoTotal}"/></td>
                                                 <td>${v.cliente.nome}</td>
                                                 <td>${v.usuario.nome}</td>
+                                                <td class='text-center'>
+                                                    <a href="#"
+                                                       class="btn btn btn-primary btn-xs"
+                                                       role="button">
+                                                        Detalhes da Venda&nbsp;<i class="fas fa-list-alt"></i>
+                                                    </a>
+                                                </td>  
                                             </tr>
                                         </c:forEach>
                                     </tbody>
@@ -96,29 +108,29 @@
                                 <script src="datatables/jquery.dataTables.js"></script>
                                 <script src="datatables/dataTables.bootstrap4.js"></script>
                                 <script>
-                                                                $(document).ready(function () {
-                                                                    $("#listarVenda").dataTable({
-                                                                        "bJQueryUI": true,
-                                                                        "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
-                                                                        "oLanguage": {
-                                                                            "sProcessing": "Processando..",
-                                                                            "sLengthMenu": "Mostrar _MENU_ registros",
-                                                                            "sZeroRecords": "Não foram encontrados resultados",
-                                                                            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-                                                                            "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
-                                                                            "sInfoFiltered": "",
-                                                                            "sInfoPostFix": "",
-                                                                            "sSearch": "Pesquisar",
-                                                                            "sUrl": "",
-                                                                            "oPaginate": {
-                                                                                "sFirst": "Primeiro",
-                                                                                "sPrevious": "Anterior",
-                                                                                "sNext": "Próximo",
-                                                                                "sLast": "Último"
-                                                                            }
-                                                                        }
-                                                                    });
-                                                                });
+                                    $(document).ready(function () {
+                                        $("#listarVenda").dataTable({
+                                            "bJQueryUI": true,
+                                            "lengthMenu": [[10, 20, 30, 40, -1], [10, 20, 30, 40, "All"]],
+                                            "oLanguage": {
+                                                "sProcessing": "Processando..",
+                                                "sLengthMenu": "Mostrar _MENU_ registros",
+                                                "sZeroRecords": "Não foram encontrados resultados",
+                                                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                                                "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                                                "sInfoFiltered": "",
+                                                "sInfoPostFix": "",
+                                                "sSearch": "Pesquisar",
+                                                "sUrl": "",
+                                                "oPaginate": {
+                                                    "sFirst": "Primeiro",
+                                                    "sPrevious": "Anterior",
+                                                    "sNext": "Próximo",
+                                                    "sLast": "Último"
+                                                }
+                                            }
+                                        });
+                                    });
                                 </script>
                             </div>
                         </div>

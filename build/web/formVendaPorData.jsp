@@ -1,4 +1,5 @@
-<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=ISO-8859-1"
+        pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -12,7 +13,6 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <!--<meta http-equiv="expires" content="0"> -->
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/font-awesome.min.css"/>
@@ -24,6 +24,16 @@
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagens/penteado.png" />
+        <style>
+            body {
+                background-image: url("imagens/fundo-barbearia.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                background-color: #F0F8FF;
+            }
+        </style>
     </head>
     <body>
         <%
@@ -45,21 +55,29 @@
             <div id="content" >
                 <div>
                     <form action="gerenciarVenda?acao=listarData" method="POST">
-                        <h2 class="mt-3" style="color: #000;">Venda por Data</h2>
+                        <h2 class="mt-3 mb-3" style="color: #000;">
+                            Pesquisar Vendas por Data</h2>
 
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataInicial" class="btn btn-primary">Data Inicial</label>
-                            <input type="date" class="form-control" 
+                        <div class="form-group col col-sm-3 mr-auto ml-auto">
+                            <label for="dataInicial" class="btn btn-outline-dark dark-label">
+                                Data Inicial</label>
+                            <input type="date" class="form-control" style="width:172px"
                                    name="dataInicial" id="dataInicial"
                                    required/>
                         </div>
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataFinal" class="btn btn-primary">Data Final</label>
-                            <input type="date" class="form-control"
+                        <div class="form-group col col-sm-3 mr-auto ml-auto">
+                            <label for="dataFinal" class="btn btn-outline-dark dark-label">
+                                Data Final</label>
+                            <input type="date" class="form-control" style="width:172px"
                                    id="dataFinal" name="dataFinal"
                                    required/>
                         </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <button class="btn btn-success btn-md">Pesquisar&nbsp;
+                                <i class="fas fa-search"></i>
+                            </button>
 
+                        </div>
                     </form>
                 </div>
             </div>

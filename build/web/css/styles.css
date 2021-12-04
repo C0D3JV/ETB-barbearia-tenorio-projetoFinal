@@ -54,11 +54,20 @@ video{
 
 
 #content{
-    background:#ffffff;
+    background: #FFFFE0;
     width: 100%;
     height: auto;
     float: left;
     padding-bottom: 20px;
+}
+
+.dark-label{
+    background-color: #343a40; 
+    color: #dda968;
+}
+
+form h2 {
+    text-align: center;
 }
 
 #footer{
@@ -70,6 +79,4 @@ video{
     clear: both;
     padding: 20px 0;
     text-align: center;color: #FF7F50;
-
-
 }

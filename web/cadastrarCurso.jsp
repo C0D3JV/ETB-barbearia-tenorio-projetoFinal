@@ -60,29 +60,37 @@
                                id="idCurso" value="${curso.idCurso}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-info">NOME</label>
-                            <input type="text" class="form-control" name="nome" id="nome" value="${curso.nome}" 
+                            <label for="nome" class="btn btn-outline-dark dark-label">
+                                NOME</label>
+                            <input type="text" class="form-control"
+                                   name="nome" id="nome" value="${curso.nome}"
                                    required="Informe o Nome do Curso"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="descricao" class="btn btn-info">DESCRIÇÃO</label>
-                            <input type="text" class="form-control" id="descricao" name="descricao" 
+                            <label for="descricao" class="btn btn-outline-dark dark-label">
+                                DESCRIÇÃO</label>
+                            <input type="text" class="form-control"
+                                   id="descricao" name="descricao"
                                    value= "${curso.descricao}"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="cargaHoraria" class="btn btn-info">CARGA HORÁRIA</label>
-                            <input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria" 
+                            <label for="cargaHoraria" class="btn btn-outline-dark dark-label">
+                                CARGA HORÁRIA</label>
+                            <input type="number" class="form-control"
+                                   id="cargaHoraria" name="cargaHoraria"
                                    value= "${curso.cargaHoraria}" required=""/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="preco" class="btn btn-info">PREÇO</label>
+                            <label for="preco" class="btn btn-outline-dark dark-label">
+                                PREÇO</label>
                             <input class="form-control" name="preco" type="text"
-                                   step=".01" value ="<fmt:formatNumber pattern="#,##0.00"
-                                                     value= "${curso.preco}"/>" required ">
+                                   value ="<fmt:formatNumber pattern="#,##0.00"
+                                   value= "${curso.preco}"/>" required ">
                         </div>
 
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="imagem" class="btn btn-info">IMAGEM</label>
+                        <div class="form-group col col-sm-5 offset-sm-4">
+                            <label for="imagem" class="btn btn-outline-dark dark-label">
+                                IMAGEM</label>
                             <input type="file" multiple="multiple" class="form-control" 
                                    name="file" id="file" 
                                    value="${curso.caminho}"/>

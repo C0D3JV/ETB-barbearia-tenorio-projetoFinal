@@ -53,51 +53,57 @@
 
             </div><!-- fim da div menu -->
             <div id="content">
-                <div>
                     <form action="gerenciarBarbeiro" method="POST">
                         <h2 class="mt-3" style="color: #000;">Cadastro de Barbeiro</h2>
-                        <input type="hidden" class="form-control" name="idBarbeiro"
+                        <input type="hidden" class="" name="idBarbeiro"
                                id="idBarbeiro" value="${barbeiro.idBarbeiro}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-info">NOME DO BARBEIRO</label>
+                            <label for="nome" class="btn btn-outline-dark dark-label">
+                                NOME DO BARBEIRO</label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" value="${barbeiro.nome}" 
                                    required="Informe o Barbeiro"/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataNasc" class="btn btn-info">DATA DE NASCIMENTO</label>
-                            <input type="date" class="form-control" 
+                            <label for="dataNasc" class="btn btn-outline-dark dark-label">
+                                DATA DE NASCIMENTO</label>
+                            <input type="date" class="form-control" style="width:172px"
                                    name="dataNasc" id="dataNasc" value="${barbeiro.dataNasc}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="cpf" class="btn btn-info">CPF</label>
+                            <label for="cpf" class="btn btn-outline-dark dark-label">
+                                CPF</label>
                             <input type="text" class="form-control" 
                                    name="cpf" id="cpf" value="${barbeiro.cpf}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="email" class="btn btn-info">E-MAIL</label>
-                            <input type="text" class="form-control" 
+                            <label for="email" class="btn btn-outline-dark dark-label">
+                                E-MAIL</label>
+                            <input type="text" class="form-control" style="width:275px"
                                    name="email" id="email" value="${barbeiro.email}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="endereco" class="btn btn-info">ENDEREÇO</label>
-                            <input type="text" class="form-control" 
+                            <label for="endereco" class="btn btn-outline-dark dark-label">
+                                ENDEREÇO</label>
+                            <input type="text" class="form-control" style="width:252px"
                                    name="endereco" id="endereco" value="${barbeiro.endereco}" 
                                    required="">
                         </div>                        
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="telefone" class="btn btn-info">TELEFONE</label>
+                            <label for="telefone" class="btn btn-outline-dark dark-label">
+                                TELEFONE</label>
                             <input type="text" class="form-control" 
                                    name="telefone" id="telefone" value="${barbeiro.telefone}" 
                                    required="">
                         </div>    
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="usuario" class="btn btn-info">USUARIO</label>
+                            <label for="usuario" class="btn btn-outline-dark dark-label">
+                                USUARIO</label>
                             <select class="form-select form-select-lg m-lg-3"
                                     name="idUsuario" id="usuario" required="">
                                 <option value="" selected>Selecione o Usuario</option>
@@ -119,7 +125,7 @@
                                 LISTAR BARBEIROS <i class="fas fa-arrow-circle-left"></i></a>
                         </div>
                     </form>
-                </div>
+              
             </div>
         </div>
     </body>

@@ -60,38 +60,43 @@
                                id="idAula" value="${aula.idAula}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="materia" class="btn btn-info">MATÉRIA</label>
+                            <label for="materia" class="btn btn-outline-dark dark-label">
+                                MATÉRIA</label>
                             <input type="text" class="form-control" 
                                    name="materia" id="materia" value="${aula.materia}" 
                                    required=""/>
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataInicio" class="btn btn-info">DATA DE INÍCIO</label>
+                            <label for="dataInicio" class="btn btn-outline-dark dark-label">
+                                DATA DE INÍCIO</label>
                             <input type="date" class="form-control" 
                                    name="dataInicio" id="dataInicio" value="${aula.dataInicio}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="dataFim" class="btn btn-info">DATA FINAL</label>
+                            <label for="dataFim" class="btn btn-outline-dark dark-label">
+                                DATA FINAL</label>
                             <input type="date" class="form-control" 
                                    name="dataFim" id="dataFim" value="${aula.dataFim}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="horario" class="btn btn-info">HORÁRIO</label>
+                            <label for="horario" class="btn btn-outline-dark dark-label">
+                                HORÁRIO</label>
                             <input type="time" class="form-control" 
                                    name="horario" id="horario" value="${aula.horario}" 
                                    required="">
                         </div>
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="qtdAula" class="btn btn-info">QUANTIDADE DE AULAS</label>
-                            <input type="number" class="form-control" 
+                        <div class="form-group col col-sm-5 offset-sm-4">
+                            <label for="qtdAula" class="btn btn-outline-dark dark-label">
+                                QUANTIDADE DE AULAS</label>
+                            <input type="number" class="form-control" style="width:120px"
                                    name="qtdAula" id="qtdAula" value="${aula.qtdAula}" 
                                    required="">
                         </div>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="curso" class="btn btn-info">CURSO</label>
+                            <label for="curso" class="btn btn-outline-dark dark-label">CURSO</label>
                             <select class="form-select form-select-lg m-lg-3"
                                     name="idCurso" id="curso" required="">
                                 <option value="" selected>Selecione o Curso</option>

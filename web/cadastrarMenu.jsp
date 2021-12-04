@@ -12,7 +12,7 @@
               maximum-scale=1, user-scalable=no" />
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        
+
         <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
@@ -59,56 +59,54 @@
                         <input type="hidden" class="form-control" name="idMenu"
                                id="idMenu" value="${menu.idMenu}"/>
 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="nome" class="btn btn-info">NOME DO MENU</label>
-                                <input type="text" class="form-control" 
-                                       name="nome" id="nome" value="${menu.nome}" 
-                                       required>
-                            </div>
+                        <div class="form-group col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="nome" class="btn btn-outline-dark dark-label">
+                                NOME</label>
+                            <input type="text" class="form-control" 
+                                   name="nome" id="nome" value="${menu.nome}" 
+                                   required>
                         </div>
 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="link" class="btn btn-info">LINK</label>
-                                <input type="text" class="form-control" 
-                                       name="link" id="link" value="${menu.link}" 
-                                       required>
-                            </div>
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="link" class="btn btn-outline-dark dark-label">
+                                LINK</label>
+                            <input type="text" class="form-control" 
+                                   name="link" id="link" value="${menu.link}" 
+                                   required>
                         </div>
 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="icone" class="btn btn-info">ÍCONE</label>
-                                <input type="text" class="form-control" 
-                                       name="icone" id="icone" value="${menu.icone}">
-                            </div>
-                        </div> 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="exibir" class="btn btn-info">EXIBIR</label>
-                                <select class="form-select form-select-lg m-lg-3 " name="exibir" id="exibir" required>
-                                    <option selected>Escolha uma opção</option>
-                                    <option value="1" 
-                                            <c:if test="${menu.exibir == 1}"> 
-                                                selected=""
-                                            </c:if>>Sim
-                                    </option>
-                                    <option value="2"
-                                            <c:if test="${menu.exibir == 2}">
-                                                selected=""
-                                            </c:if>>Não
-                                    </option>
-                                </select>
-                            </div>
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="icone" class="btn btn-outline-dark dark-label">
+                                ÍCONE</label>
+                            <input type="text" class="form-control" 
+                                   name="icone" id="icone" value="${menu.icone}">
+                        </div>
+
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="exibir" class="btn btn-outline-dark dark-label">
+                                EXIBIR</label>
+                            <select class="form-select form-select-lg m-lg-3"
+                                    name="exibir" id="exibir" required>
+                                <option selected>Escolha uma opção</option>
+                                <option value="1" 
+                                        <c:if test="${menu.exibir == 1}"> 
+                                            selected=""
+                                        </c:if>>Sim
+                                </option>
+                                <option value="2"
+                                        <c:if test="${menu.exibir == 2}">
+                                            selected=""
+                                        </c:if>>Não
+                                </option>
+                            </select>
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;
                                 <i class="fas fa-save"></i>
                             </button>
-                            <a href="listarMenu.jsp" 
-                               class="btn btn-secondary btn-xs" 
+                            <a href="listarMenu.jsp"
+                               class="btn btn-secondary btn-xs"
                                role="button" >LISTAR MENUS&nbsp;
                                 <i class="fas fa-arrow-circle-left"></i>
                             </a>

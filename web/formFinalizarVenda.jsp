@@ -85,7 +85,7 @@
                     <form action="gerenciarVenda?acao=alterarQtd" method="POST">
                         <div class="form-group row offset-sm-4 pt-4">
                             <label for="usuario"
-                                   class="col-sm-2 text-left btn btn-lg
+                                   class="col-sm-2 text-left btn btn-md
                                    btn-secondary">Vendedor(a)</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control"
@@ -96,7 +96,7 @@
 
                         <div class="form-group row offset-sm-4">
                             <label for="cliente"
-                                   class="col-sm-2 text-left btn btn-lg
+                                   class="col-sm-2 text-left btn btn-md
                                    btn-secondary">Cliente</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control"
@@ -108,8 +108,8 @@
                         <table class="table table-hover table-striped 
                                table-bordered table-active" 
                                id="finalizarVenda">
-                            <thead>
-                                <tr>
+                            <thead class="bg-dark">
+                                <tr style="color: #dda968;">
                                     <th>Item</th>
                                     <th>Produto</th>
                                     <th>Quantidade</th>
@@ -171,7 +171,7 @@
 
                         <div class="form-group row offset-sm-4">
                             <label for="precoTotal"
-                                   class="col-sm-2 text-left btn btn-lg
+                                   class="col-sm-2 text-left btn btn-md
                                    btn-secondary">Preço Total</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control"
@@ -181,19 +181,19 @@
                         </div>
                     </form>
 
-                    <div class="d-sm-flex justify-content-sm-around m-md-3 pb-4">
+                    <div class="d-sm-flex justify-content-md-end m-md-3">
                         <a href="listarCliente.jsp"
-                           class="btn btn-outline-danger btn-lg"
+                           class="btn btn-outline-danger mr-2"
                            role="button">
                             Cancelar&nbsp;<i class="fas fa-stop-circle"></i>
                         </a>
                         <a href="formVenda.jsp?acao=c"
-                           class="btn btn-outline-primary btn-lg"
+                           class="btn btn-outline-primary mr-2"
                            role="button">
                             Continuar Venda&nbsp;<i class="fas fa-cart-plus"></i>
                         </a>
                         <a href="gerenciarVenda"
-                           class="btn btn-outline-success btn-lg"
+                           class="btn btn-outline-success mr-2"
                            role="button">
                             Confirmar Venda&nbsp;<i class="fas fa-money-bill"></i>
                         </a>

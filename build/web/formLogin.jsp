@@ -37,6 +37,14 @@
                     display: none;
                 }
             }
+            .dark-label{
+                background-color: #343a40; 
+                color: #dda968;
+            }
+
+            h3:hover{
+                background-color: black!important
+            }
         </style>
     </head>
     <body>
@@ -47,7 +55,7 @@
 
                 </div>
                 <!-- Login -->
-                <div class="col-lg-6 px-5" style="margin-top: 200px" >
+                <div class="col-lg-6 px-5" style="margin-top: 180px" >
                     <%
                         String mensagem
                                 = (String) request.getSession().
@@ -61,18 +69,21 @@
                     %>
                     <form action="gerenciarLogin" method="POST" class="" style="">
                         <h3 class="text-center" 
-                            style="background-color: #343a40; color: #dda968; border-radius: 6px; padding: 6px;"
+                            style="background-color: #343a40; color: #dda968;
+                            border-radius: 6px; padding: 6px;"
                             >Efetuar Login</h3>
                         <div class="mt-4"></div>
                         <div class="form-group col col-sm-4">
 
-                            <label for="login" class="btn" style="background-color: #343a40; color: #dda968;">USUÁRIO</label>
+                            <label for="login" class="btn btn-outline-dark dark-label">
+                                USUÁRIO</label>
                             <input type="text" class="form-control" 
                                    name="login" id="login" placeholder="Nome do Usuário" 
                                    required=""/>
                         </div>
                         <div class="form-group col col-sm-4">
-                            <label for="senha" class="btn" style="background-color: #343a40; color: #dda968;">SENHA</label>
+                            <label for="senha" class="btn btn-outline-dark dark-label">
+                                SENHA</label>
                             <input type="password" class="form-control" 
                                    name="senha" id="senha" placeholder="Senha"
                                    required=""/>

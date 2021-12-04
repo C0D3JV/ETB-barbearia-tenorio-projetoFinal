@@ -18,10 +18,10 @@
         <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
         <link rel="stylesheet" href="css/all.css" type="text/css" media="all" />
         <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/> -->
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
-        <script src="js/sweetalert2.all.min.js"type="text/javascript"></script> -->
+        <script src="js/sweetalert2.all.min.js"type="text/javascript"></script> 
         <link rel="stylesheet" href="css/all.css" type="text/css" media="all"/>
         <link rel="stylesheet" href="css/fontawesome.css" type="text/css" media="all"/>
         <link rel="shortcut icon" href="imagens/penteado.png" />

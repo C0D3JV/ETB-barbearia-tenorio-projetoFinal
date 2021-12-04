@@ -58,70 +58,65 @@
                         <input type="hidden" class="form-control" name="idUsuario"
                                id="idUsuario" value="${usuario.idUsuario}"/>
 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="nome" class="btn btn-info">NOME DO USUÁRIO</label>
-                                <input type="text" class="form-control" 
-                                       name="nome" id="nome" value="${usuario.nome}" 
-                                       required>
-                            </div>
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="nome" class="btn btn-outline-dark dark-label">
+                                NOME</label>
+                            <input type="text" class="form-control" 
+                                   name="nome" id="nome" value="${usuario.nome}" 
+                                   required>
                         </div>
 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="login" class="btn btn-info">LOGIN</label>
-                                <input type="text" class="form-control" 
-                                       name="login" id="login" value="${usuario.login}" 
-                                       required>
-                            </div>
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="login" class="btn btn-outline-dark dark-label">
+                                LOGIN</label>
+                            <input type="text" class="form-control" 
+                                   name="login" id="login" value="${usuario.login}" 
+                                   required>
                         </div>
 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="senha" class="btn btn-info">SENHA</label>
-                                <input type="password" class="form-control" 
-                                       name="senha" id="senha" value="${usuario.senha}" 
-                                       required>
-                            </div>
-                        </div> 
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="status" class="btn btn-info">STATUS</label>
-                                <select class="form-select form-select-lg m-lg-3 " 
-                                        name="status" id="status" required>
-                                    <option selected>Escolha uma opção</option>
-                                    <option value="1" 
-                                            <c:if test="${usuario.status == 1}"> 
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="senha" class="btn btn-outline-dark dark-label">
+                                SENHA</label>
+                            <input type="password" class="form-control" style="width:195px;"
+                                   name="senha" id="senha" value="${usuario.senha}" 
+                                   required>
+                        </div>
+
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="status" class="btn btn-outline-dark dark-label">
+                                STATUS</label>
+                            <select class="form-select form-select-lg m-lg-3 " 
+                                    name="status" id="status" required>
+                                <option selected>Escolha uma opção</option>
+                                <option value="1" 
+                                        <c:if test="${usuario.status == 1}"> 
+                                            selected=""
+                                        </c:if>>Ativo
+                                </option>
+                                <option value="2"
+                                        <c:if test="${usuario.status == 2}">
+                                            selected=""
+                                        </c:if>>Inativo
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col col-sm-3 offset-sm-4 ml-auto mr-auto">
+                            <label for="perfil" class="btn btn-outline-dark dark-label">
+                                PERFIL</label>
+                            <select class="form-select form-select-lg m-lg-3"
+                                    name="idPerfil" id="perfil" required>
+                                <option value="" selected>Selecione o Perfil</option>
+                                <jsp:useBean class="model.PerfilDAO" id="perfil" />
+                                <c:forEach var="p" items="${perfil.lista}">
+                                    <option value="${p.idPerfil}"
+                                            <c:if test="${p.idPerfil == usuario.perfil.idPerfil}">
                                                 selected=""
-                                            </c:if>>Ativo
-                                    </option>
-                                    <option value="2"
-                                            <c:if test="${usuario.status == 2}">
-                                                selected=""
-                                            </c:if>>Inativo
-                                    </option>
-                                </select>
-                            </div>
+                                            </c:if>
+                                            >${p.nome}</option>
+                                </c:forEach>
+                            </select>
                         </div>
-                        <div class="row">
-                            <div class="form-group col col-sm-4 offset-sm-4">
-                                <label for="perfil" class="btn btn-info">PERFIL</label>
-                                <select class="form-select form-select-lg m-lg-3"
-                                        name="idPerfil" id="perfil" required>
-                                    <option value="" selected>Selecione o Perfil</option>
-                                    <jsp:useBean class="model.PerfilDAO" id="perfil" />
-                                    <c:forEach var="p" items="${perfil.lista}">
-                                        <option value="${p.idPerfil}"
-                                                <c:if test="${p.idPerfil == usuario.perfil.idPerfil}">
-                                                    selected=""
-                                                </c:if>
-
-                                                >${p.nome}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;
                                 <i class="fas fa-save"></i>

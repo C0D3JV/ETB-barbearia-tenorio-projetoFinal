@@ -61,39 +61,43 @@
                                id="idTurma" value="${turma.idTurma}"/>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="nome" class="btn btn-info">NOME DA TURMA</label>
+                            <label for="nome" class="btn btn-outline-dark dark-label">
+                                NOME DA TURMA</label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" value="${turma.nome}" 
                                    required="Informe a Turma"/>
                         </div>
-                        <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="qtdAluno" class="btn btn-info">QUANTIDADE DE ALUNOS</label>
-                            <input type="number" class="form-control" 
+                        <div class="form-group col col-sm-5 offset-sm-4">
+                            <label for="qtdAluno" class="btn btn-outline-dark dark-label">
+                                QUANTIDADE DE ALUNOS</label>
+                            <input type="number" class="form-control" style="width:144px"
                                    name="qtdAluno" id="qtdAluno" value="${turma.qtdAluno}"
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="ano" class="btn btn-info">ANO</label>
+                            <label for="ano" class="btn btn-outline-dark dark-label">
+                                ANO</label>
                             <input type="text" class="form-control" 
                                    name="ano" id="ano" value="${turma.ano}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="semestre" class="btn btn-info">SEMESTRE</label>
+                            <label for="semestre" class="btn btn-outline-dark dark-label">
+                                SEMESTRE</label>
                             <input type="text" class="form-control" 
                                    name="semestre" id="semestre" value="${turma.semestre}" 
                                    required="">
                         </div>
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="turno" class="btn btn-info">TURNO</label>
+                            <label for="turno" class="btn btn-outline-dark dark-label">
+                                TURNO</label>
                             <input type="text" class="form-control" 
                                    name="turno" id="turno" value="${turma.turno}" 
                                    required="">
                         </div>                                    
-                        <br/>    
-
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="barbeiro" class="btn btn-info">BARBEIRO</label>
+                            <label for="barbeiro" class="btn btn-outline-dark dark-label">
+                                BARBEIRO</label>
                             <select class="form-select form-select-lg m-lg-3"
                                     name="idBarbeiro" id="barbeiro" required="">
                                 <option value="" selected>Selecione o Barbeiro</option>
@@ -110,7 +114,8 @@
                         </div>
 
                         <div class="form-group col col-sm-4 offset-sm-4">
-                            <label for="curso" class="btn btn-info">CURSO</label>
+                            <label for="curso" class="btn btn-outline-dark dark-label">
+                                CURSO</label>
                             <select class="form-select form-select-lg m-lg-3"
                                     name="idCurso" id="curso" required="">
                                 <option value="" selected>Selecione o Curso</option>
@@ -125,10 +130,11 @@
                                 </c:forEach>
                             </select>
                         </div>
-
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;<i class="fas fa-save"></i></button>
-                            <a href="listarTurma.jsp" class="btn btn-secondary btn-xs" role="button" >
+                            <button class="btn btn-info btn-xs mr-4">SALVAR&nbsp;
+                                <i class="fas fa-save"></i></button>
+                            <a href="listarTurma.jsp" class="btn btn-secondary btn-xs"
+                               role="button" >
                                 LISTAR TURMAS <i class="fas fa-arrow-circle-left"></i></a>
                         </div>
                     </form>

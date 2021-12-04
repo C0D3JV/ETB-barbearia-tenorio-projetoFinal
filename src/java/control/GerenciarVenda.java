@@ -77,10 +77,13 @@ public class GerenciarVenda extends HttpServlet {
         }
         if (acao.equals("listarData")) {
             String dataInicial = request.getParameter("dataInicial");
+            System.out.println("Data Inicial: " + dataInicial);
             String dataFinal = request.getParameter("dataFinal");
+            System.out.println("Data Final: " + dataFinal);
 
             try {
-                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat df
+                        = new SimpleDateFormat("yyyy-MM-dd");
                 VendaDAO vdao = new VendaDAO();
                 ArrayList<Venda> vendas = new ArrayList<>();
 
@@ -92,7 +95,7 @@ public class GerenciarVenda extends HttpServlet {
                 request.setAttribute("vendas", vendas);
                 dispatcher.forward(request, response);
             } catch (ParseException ex) {
-                System.out.println("Erro: " + ex.getMessage());
+                System.out.println("Erro Conversão de Datas: " + ex.getMessage());
                 ex.printStackTrace();
             } catch (Exception e) {
                 System.out.println("Erro: " + e.getMessage());

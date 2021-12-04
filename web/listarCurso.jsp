@@ -32,6 +32,11 @@
                 background-size: 100% 100%;
                 background-color: #F0F8FF;
             }
+            .center img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
         </style>
     </head>
     <body>
@@ -66,12 +71,13 @@
 
                             <div class="table-responsive">
                                 <table class="table table-hover table-striped 
-                                       table-bordered" id="listarCurso">
+                                       table-bordered table-active"
+                                       id="listarCurso">
                                     <thead class="bg-dark">
                                         <tr style="color: #dda968;">
                                             <th>Código</th>
                                             <th>Nome</th>
-                                            <th>Descrição</th>
+                                            <th style="width: 400px">Descrição</th>
                                             <th>Carga Horária</th>
                                             <th>Preço</th>
                                             <th>Ação</th>
@@ -81,11 +87,13 @@
                                     <tbody>
                                         <jsp:useBean class="model.CursoDAO" id="csdao" />
                                         <c:forEach var="cs" items="${csdao.lista}">
-                                            <tr>
+                                            <tr style="text-align: center;">
                                                 <td>${cs.idCurso}</td>
-                                                <td><img src="imagens/${cs.nomeArquivo}" width="70px" 
-                                                     height="70px">
-                                                    <p>${cs.nome}</p></td>
+                                                <td class="center">
+                                                    <h5 style="color:black;">${cs.nome}</h5>
+                                                    <img src="imagens/${cs.nomeArquivo}" width="80px" 
+                                                     height="80px">
+                                                    </td>
                                                 <td>${cs.descricao}</td>
                                                 <td>${cs.cargaHoraria}&nbsp;horas</td>
                                                 <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" 
