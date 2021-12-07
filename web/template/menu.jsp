@@ -9,18 +9,26 @@
     request.setAttribute("ulogado", ulogado);
 %>
 
-<div class="d-grid gap-2 d-sm-flex justify-content-sm-between" <%--style="background-color: white;--%> ">
+<div class="d-sm-flex justify-content-between">
 
     <c:if test="${ulogado != null}">
-        <h4 style="color: #000;">Bem vindo(a):&nbsp;${ulogado.nome}</h4>
-        <a href="gerenciarLogin?" 
-           class="btn btn-outline-dark btn-xs mb-1" 
-           role="button">Sair&nbsp;<i class="fas fa-sign-out-alt"></i>
+        <a href="index.jsp" class="ml-1" style="color: #000; margin-bottom: 0px;">
+            <img src="imagens/logo-sem-fundo.png" height="50px;"/>
+            <img src="imagens/text-barbearia-tenorio.png"
+                 height="28px;" width="300px" alt="fonte-quentin-caps" border="0">
         </a>
+
+        <h5 style="color: #000; margin-top: 8px; margin-bottom: 0px;" 
+            class="mr-2">Bem vindo(a):&nbsp;${ulogado.nome} 
+            <a href="gerenciarLogin?" 
+               class="btn btn-outline-dark btn-xs mb-1 mr-1" 
+               role="button">Sair&nbsp;<i class="fas fa-sign-out-alt"></i>
+            </a></h5>
+
     </c:if>
 
 </div>
-<div class="nav navbar-nav navbar-nav-first">
+<div class="nav navbar-nav navbar-nav-first mb-2">
     <ul class="navUL">
         <c:if test="${ulogado != null && ulogado.perfil != null}">
             <c:forEach var="menu" items="${ulogado.perfil.menus}">

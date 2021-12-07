@@ -27,11 +27,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -55,8 +51,8 @@
             <div id="content" >
                 <div>
                     <form action="gerenciarVenda?acao=listarData" method="POST">
-                        <h2 class="mt-3 mb-3" style="color: #000;">
-                            Pesquisar Vendas por Data</h2>
+                        <h3 class="mt-3 mb-3" style="color: #000;">
+                            Pesquisar Vendas por Data</h3>
 
                         <div class="form-group col col-sm-3 mr-auto ml-auto">
                             <label for="dataInicial" class="btn btn-outline-dark dark-label">

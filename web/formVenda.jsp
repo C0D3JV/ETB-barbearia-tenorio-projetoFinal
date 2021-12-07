@@ -31,11 +31,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>

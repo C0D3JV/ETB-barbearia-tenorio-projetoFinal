@@ -22,34 +22,29 @@ body{
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    width:1240px;
+    width:1280px;
     height:620px;
-}
-
-video{
-    width: 100%;
-    height: auto;
 }
 
 #container{
     margin: 0 auto;
-    width: 1240px;
+    width: 1280px;
     height: 760px;
 }
 
 #header {
-    width: 1240px;
+    width: 1280px;
     height: 100px;
 }
 
 #menu{
-    width: 1240px;
+    width: 1280px;
     height: 80px;
     margin-bottom: 0px;
     float: left;
     /* border: 1px solid black; */
     line-height: 30px;
-    padding-top: 4px;
+    /*padding-top: 4px;*/
 }
 
 
@@ -58,6 +53,7 @@ video{
     width: 100%;
     height: auto;
     float: left;
+    padding-top: 7px;
     padding-bottom: 20px;
 }
 
@@ -72,7 +68,7 @@ form h2 {
 
 #footer{
     background-color: darkgrey;
-    width:1240px;
+    width:1280px;
     height: 40px;
     float: left;
     padding: 40px 20px;

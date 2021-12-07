@@ -26,11 +26,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -56,10 +52,10 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3" style="color: #000;">Listagem de Clientes</h2> 
+                                <h3 class="mt-3" style="color: #000;">Listagem de Clientes</h3> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-info btn-lg" href="cadastrarCliente.jsp" 
+                                <a class="btn btn-info btn-md" href="cadastrarCliente.jsp" 
                                    role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
                             </div>
 
@@ -70,13 +66,13 @@
                                     <thead class="bg-dark">
                                         <tr style="color: #dda968;">
                                             <th>Nome</th>
-                                            <th>Data de Nascimento</th>
+                                            <th>Data Nasc.</th>
                                             <th>CPF</link>
                                             <th>E-mail</th>
                                             <th>Endereço</th>
                                             <th>Telefone</th>
                                             <th>Turma</th>
-                                            <th style="width: 175px">Ação</th>
+                                            <th style="width: 170px">Ação</th>
                                         </tr>
 
                                     </thead>
@@ -112,7 +108,7 @@
                                                     </button>
                                                     <!-- ver o link -->
                                                     <a href="formVenda.jsp?acao=novo&idCliente=${ct.idCliente}"
-                                                       class="mt-2 btn btn-outline-success btn-lg" role="button">
+                                                       class="mt-1 btn btn-success btn-xs" role="button">
                                                         Venda&nbsp;<i class="fas fa-shopping-cart"></i>
                                                     </a>
                                                 </td>

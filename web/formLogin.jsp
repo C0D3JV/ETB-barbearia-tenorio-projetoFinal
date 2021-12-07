@@ -21,7 +21,7 @@
                 background-repeat: no-repeat;
                 background-attachment: fixed;
                 background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #FFFFE0;
             }
             .bg-image {
                 min-height: 100vh;

@@ -36,7 +36,7 @@ and open the template in the editor.
 
 .navUL li{
     float: left;
-    width: 124px;
+    width: 128px;
     position: relative;
     border-right: 1px;
     display: block;
@@ -52,11 +52,11 @@ and open the template in the editor.
     text-decoration: none;
     font-size: 22px;
     
-    -webkit-transition: background 0.3s ease;
-    -moz-transition: background 0.3s ease;
-    -o-transition: background 0.3s ease;
-    -ms-transition: background 0.3s ease;
-    transition: background 0.3s ease;
+    -webkit-transition: background 0.2s ease;
+    -moz-transition: background 0.2s ease;
+    -o-transition: background 0.2s ease;
+    -ms-transition: background 0.2s ease;
+    transition: background 0.2s ease;
 }
 
 .navUL li a:hover, .nav li a:active{

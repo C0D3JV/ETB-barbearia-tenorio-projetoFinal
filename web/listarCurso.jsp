@@ -26,11 +26,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
             .center img {
                 display: block;
@@ -62,10 +58,10 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3" style="color: #000;">Listagem de Cursos</h2> 
+                                <h3 class="mt-3" style="color: #000;">Listagem de Cursos</h3> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-info btn-lg" href="cadastrarCurso.jsp" 
+                                <a class="btn btn-info btn-md" href="cadastrarCurso.jsp" 
                                    role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
                             </div>
 
@@ -90,11 +86,11 @@
                                             <tr style="text-align: center;">
                                                 <td>${cs.idCurso}</td>
                                                 <td class="center">
-                                                    <h5 style="color:black;">${cs.nome}</h5>
+                                                    <h6 style="color:#343a40 ">${cs.nome}</h6>
                                                     <img src="imagens/${cs.nomeArquivo}" width="80px" 
                                                      height="80px">
                                                     </td>
-                                                <td>${cs.descricao}</td>
+                                                <td style="text-align: justify;">${cs.descricao}</td>
                                                 <td>${cs.cargaHoraria}&nbsp;horas</td>
                                                 <td>R$&nbsp<fmt:formatNumber pattern="#,##0.00" 
                                                                   value="${cs.preco}"/></td>

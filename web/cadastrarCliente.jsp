@@ -25,11 +25,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -53,7 +49,7 @@
             <div id="content">
                 <div>
                     <form action="gerenciarCliente" method="POST">
-                        <h2 class="mt-3" style="color: #000;">Cadastro de Cliente</h2>
+                        <h3 class="mt-3" style="color: #000;">Cadastro de Cliente</h3>
                         <input type="hidden" class="form-control" name="idCliente"
                                id="idCliente" value="${cliente.idCliente}"/>
 

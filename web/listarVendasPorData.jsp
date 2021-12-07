@@ -28,11 +28,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -60,10 +56,11 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3" style="color: #000;">Listagem de Vendas</h2> 
+                                <h3 class="mt-3" style="color: #000;">
+                                    Listagem de Vendas por Data</h3> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-info btn-lg" href="formVendaPorData.jsp" 
+                                <a class="btn btn-info btn-md" href="formVendaPorData.jsp" 
                                    role="button">Listar Vendas Por Data&nbsp;
                                     <i class="fas fa-list-alt"></i></a>
                             </div>
@@ -79,7 +76,6 @@
                                             <th>Data da Venda</th>
                                             <th>Cliente</th>
                                             <th>Vendedor(a)</th>
-                                            <th>Ação</th>
                                         </tr>
 
                                     </thead>
@@ -99,13 +95,6 @@
                                             </td>
                                             <td><%= v.getCliente().getNome()%></td>
                                             <td><%= v.getUsuario().getNome()%></td>
-                                            <td class='text-center'>
-                                                <a href=""
-                                                   class="btn btn btn-primary btn-xs"
-                                                   role="button">
-                                                    Detalhes da Venda&nbsp;<i class="fas fa-list-alt"></i>
-                                                </a>
-                                            </td>
                                         </tr>
                                         <%
                                             }

@@ -10,15 +10,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, 
               maximum-scale=1, user-scalable=no" />
-        <!-- <meta http-equiv="pragma" content="no-cache">
-        <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-        <meta http-equiv="expires" content="0">
-        <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" media="all"/>
-        <link rel="stylesheet" href="css/menu.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/styles.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="css/all.css" type="text/css" media="all" />
-        <link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css"/>
-        <link rel="stylesheet" href="googlefonts/stylesheet.css" type="text/css" media="all"/> -->
         <script src="js/jquery-3.6.0.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert2.all.min.js"type="text/javascript"></script> 
@@ -56,9 +47,11 @@
                         <span class="icon icon-bar"></span>
                     </button>
 
-                    <!-- lOGO TEXT HERE -->
-                    <a href="index.jsp" class="navbar-brand">Barbearia Tenorio</a>
-                </div>
+                    <!-- TEXTO DA LOGO AQUI -->
+                    <a href="index.jsp">
+                        <img src="imagens/logo.png" width="290px" height="60px" style="padding-top: 10px;"/>
+                    </a>
+                </div> 
 
                 <!-- MENU LINKS -->
                 <div class="collapse navbar-collapse">
@@ -73,16 +66,14 @@
                             <button onclick="myFunction()" class="dropbtn">
                                 Mais <i class="fa fa-caret-down"></i></button>
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="listarPerfil.jsp">Perfil</a>
-                                <a href="listarMenu.jsp">Menu</a>
-                                <a href="listarUsuario.jsp">Usuario</a>
-                                <a href="listarCliente.jsp">Cliente</a>
-                                <a href="listarBarbeiro.jsp">Barbeiro</a>
-                                <a href="listarCurso.jsp">Curso</a>
-                                <a href="listarTurma.jsp">Turma</a>
-                                <a href="listarVenda.jsp">Venda</a>
-                                <a href="listarAula.jsp">Aula</a>   
-                            </div>  
+                                <c:if test="${ulogado != null && ulogado.perfil != null}">
+                                    <c:forEach var="menu" items="${ulogado.perfil.menus}">
+                                        <c:if test="${menu.exibir==1}">
+                                            <a href="${menu.link}">${menu.nome}</a>
+                                        </c:if>
+                                    </c:forEach>
+                                </c:if>
+                            </div>
                         </div>
                         <ul class="nav navbar-nav navbar-right">
                             <li>
@@ -190,13 +181,13 @@
         <section id="about">
             <div class="container">
                 <div class="row">
-
                     <div class="col-md-6 col-sm-12">
                         <div class="about-info">
                             <h2>Faça um agendamento e conheça nossos serviços:</h2>
 
                             <figure>
-                                <span><a href="https://play.google.com/store/apps/details?id=com.startapp.appbarber"><i class="fab fa-google-play"></i></a></span>
+                                <span><a href="https://play.google.com/store/apps/details?id=com.startapp.appbarber" target="_blank">
+                                        <i class="fab fa-google-play"></i></a></span>
                                 <figcaption>
                                     <h3>O nosso app de agendamento pro sistema Android</h3>
                                     <p>Baixe o AppBarber na Google Play Store</p>
@@ -204,7 +195,8 @@
                             </figure>
 
                             <figure>
-                                <span><a href="https://apps.apple.com/br/app/appbarber/id1079972583"><i class="fab fa-app-store"></i></a></span>
+                                <span><a href="https://apps.apple.com/br/app/appbarber/id1079972583" target="_blank">
+                                        <i class="fab fa-app-store"></i></a></span>
                                 <figcaption>
                                     <h3>O nosso app de agendamento pro sistema IOS</h3>
                                     <p>Baixe o AppBarber  na App Store</p>
@@ -232,7 +224,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="team-thumb">
                             <div class="team-image">
                                 <img src="images/author-image1.jpg" class="img-responsive" alt="">
@@ -242,13 +234,15 @@
                                 <span>Fundador e CEO da Barbearia</span>
                             </div>
                             <ul class="social-icon">
-                                <li><a href="https://www.facebook.com/daniel.dersohngottes" target="_blank" class="fa fa-facebook-square" attr="facebook icon"></a></li>
-                                <li><a href="https://www.instagram.com/danieltenoriods/" target="_blank" class="fa fa-instagram"></a></li>
+                                <li><a href="https://www.facebook.com/daniel.dersohngottes" 
+                                       target="_blank" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                <li><a href="https://www.instagram.com/danieltenoriods/" 
+                                       target="_blank" class="fa fa-instagram"></a></li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="team-thumb">
                             <div class="team-image">
                                 <img src="images/author-image2.jpg" class="img-responsive" alt="">
@@ -258,27 +252,27 @@
                                 <span>Barbeiro é a chave!</span>
                             </div>
                             <ul class="social-icon">
-                                <li><a href="https://www.instagram.com/barbeiro_vitoriano/" target="_blank" class="fa fa-instagram"></a></li>
+                                <li><a href="https://www.instagram.com/barbeiro_vitoriano/" 
+                                       target="_blank" class="fa fa-instagram"></a></li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- <div class="col-md-3 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
                         <div class="team-thumb">
                             <div class="team-image">
                                 <img src="images/author-image3.jpg" class="img-responsive" alt="">
                             </div>
                             <div class="team-info">
-                                <h3>Jessie Ca</h3>
-                                <span>I like Online Courses</span>
+                                <h3>Marcos Lima</h3>
+                                <span>💈 Barbeiro 💈</span>
                             </div>
                             <ul class="social-icon">
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                                <li><a href="#" class="fa fa-envelope-o"></a></li>
-                                <li><a href="#" class="fa fa-linkedin"></a></li>
+                                <li><a href="https://www.instagram.com/marcos_limabarber/" class="fa fa-instagram"
+                                       target="_blank"></a></li>
                             </ul>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -304,14 +298,14 @@
                                                      alt="">
                                             </div>
                                             <div class="courses-date">
-                                                <span><i class="fa fa-calendar"></i> 22 / 07 / 2021</span>
-                                                <span><i class="fa fa-clock-o"></i> 72 Horas</span>
+                                                <span><i class="fa fa-calendar"></i> 15 / 07 / 2022</span>
+                                                <span><i class="fa fa-clock-o"></i> 2200 Horas</span>
                                             </div>
                                         </div>
 
                                         <div class="courses-detail">
                                             <h3><a href="#">Curso Avançado Barber Trying</a></h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            <p>Ministrado pelo Barbeiro e Proprietário Daniel, com duração de 4 meses.</p>
                                         </div>
 
                                         <div class="courses-info">
@@ -321,7 +315,7 @@
                                                 <span>Daniel Tenorio</span>
                                             </div>
                                             <div class="courses-price">
-                                                <a href="#"><span>R$ 250</span></a>
+                                                <a href="listarCurso.jsp"><span>R$ 1400</span></a>
                                             </div>
                                         </div>
                                     </div>

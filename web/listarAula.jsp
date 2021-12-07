@@ -26,11 +26,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -56,10 +52,10 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3" style="color: #000;">Listagem de Aulas</h2> 
+                                <h3 class="mt-3" style="color: #000;">Listagem de Aulas</h3> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-info btn-lg" href="cadastrarAula.jsp" 
+                                <a class="btn btn-info btn-md" href="cadastrarAula.jsp" 
                                    role="button">NOVO CADASTRO&nbsp;<i class="fas fa-user-plus"></i></a>
                             </div>
 

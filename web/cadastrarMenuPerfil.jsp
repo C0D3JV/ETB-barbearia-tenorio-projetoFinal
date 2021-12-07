@@ -28,11 +28,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -56,18 +52,19 @@
             <div id="content" >
                 <div class="mb-2">
                     <form action="gerenciarMenuPerfil" method="POST">
-                        <h2 class="mt-3" style="color: #000; text-align: center;">Cadastro de Menus e Perfis</h2>
+                        <h3 class="mt-3" style="color: #000; text-align: center;">
+                            Cadastro de Menus e Perfis</h3>
                         <input type="hidden" class="form-control" name="idPerfil"
                                id="idPerfil" value="${perfilv.idPerfil}"/>
 
-                        <div class="form-group col col-sm-3 mr-auto ml-auto">
+                        <div style="margin-left: 38%" class="form-group col col-sm-4">
                             <label for="nome" class="btn btn-outline-dark dark-label">
                                 PERFIL
                             </label>
                             <input type="text" class="form-control" 
                                    name="nome" id="nome" readonly value="${perfilv.nome}"/>
                         </div>
-                        <div class="form-group col col-sm-3 mr-auto ml-auto">
+                        <div style="margin-left: 38%" class="form-group col col-sm-4">
                             <label for="idMenu"class="btn btn-outline-dark dark-label">
                                 MENUS</label>
                             <select name="idMenu" required id="idMenu" 
@@ -79,20 +76,20 @@
 
                             </select>
                         </div>
-                        <div class="d-grid d-md-flex justify-content-md-end">
-                            <button class="btn btn-info btn-xs mr-2">VINCULAR
+                        <div class="d-grid d-md-flex justify-content-center">
+                            <button class="btn btn-info btn-md mr-2">VINCULAR
                                 <i class="fas fa-save"></i>
                             </button>
                             <a href="listarPerfil.jsp" 
-                               class="btn btn-secondary btn-xs mr-2" role="button" >
+                               class="btn btn-secondary btn-md mr-2" role="button" >
                                 LISTAR PERFIS&nbsp;
                                 <i class="fas fa-arrow-circle-left"></i>
                             </a>
                         </div>
                     </form>
-
+                        <hr>
                     <div class="h-100 justify-content-center align-items-center"">
-                        <h2 style="color: #000;">Menus Vinculados</h2>
+                        <h3 style="color: #000;">Menus Vinculados</h3>
                         <div class="table-responsive">
                             <table class="table table-hover table-striped table-bordered" id="listarMenus">
                                 <thead class="bg-dark">
@@ -124,7 +121,7 @@
                                             <td>
                                                 <script type="text/javascript">
                                                     function confirmarExclusao(idMenu, nome, idPerfil) {
-                                                        if (confirm('Deseja desvincular o menu' + nome + '?')) {
+                                                        if (confirm('Deseja desvincular o menu ' + nome + '?')) {
                                                             location.href = "gerenciarMenuPerfil?acao=desvincular&idMenu=" + idMenu + "&idPerfil=" + idPerfil;
                                                         }
                                                     }

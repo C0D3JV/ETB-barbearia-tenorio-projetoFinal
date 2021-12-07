@@ -27,11 +27,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -58,10 +54,10 @@
                     <div class="h-100 justify-content-center align-items-center">
                         <div clas="col-12">
                             <div>
-                                <h2 class="mt-3" style="color: #000;">Listagem de Vendas</h2> 
+                                <h3 class="mt-3" style="color: #000;">Listagem de Vendas</h3> 
                             </div>
                             <div class="col-sm-2 col-12" style="padding-bottom: 10px">
-                                <a class="btn btn-info btn-lg" href="formVendaPorData.jsp" 
+                                <a class="btn btn-info btn-md" href="formVendaPorData.jsp" 
                                    role="button">Listar Venda Por Data&nbsp;
                                     <i class="fas fa-edit"></i></a>
                             </div>
@@ -77,7 +73,6 @@
                                             <th>Preço Total</th>
                                             <th>Cliente</th>
                                             <th>Vendedor(a)</th>
-                                            <th>Ação</th>
                                         </tr>
                                     </thead>
 
@@ -92,14 +87,7 @@
                                                         pattern="#,##0.00" 
                                                         value="${v.precoTotal}"/></td>
                                                 <td>${v.cliente.nome}</td>
-                                                <td>${v.usuario.nome}</td>
-                                                <td class='text-center'>
-                                                    <a href="#"
-                                                       class="btn btn btn-primary btn-xs"
-                                                       role="button">
-                                                        Detalhes da Venda&nbsp;<i class="fas fa-list-alt"></i>
-                                                    </a>
-                                                </td>  
+                                                <td>${v.usuario.nome}</td> 
                                             </tr>
                                         </c:forEach>
                                     </tbody>

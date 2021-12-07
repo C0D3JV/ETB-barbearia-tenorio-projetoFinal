@@ -26,11 +26,7 @@
         <link rel="shortcut icon" href="imagens/penteado.png" />
         <style>
             body {
-                background-image: url("imagens/fundo-barbearia.png");
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: 100% 100%;
-                background-color: #F0F8FF;
+                background-color: #F5F5F5;
             }
         </style>
     </head>
@@ -54,7 +50,7 @@
             </div><!-- fim da div menu -->
             <div id="content">
                     <form action="gerenciarBarbeiro" method="POST">
-                        <h2 class="mt-3" style="color: #000;">Cadastro de Barbeiro</h2>
+                        <h3 class="mt-3" style="color: #000;">Cadastro de Barbeiro</h3>
                         <input type="hidden" class="" name="idBarbeiro"
                                id="idBarbeiro" value="${barbeiro.idBarbeiro}"/>
 
