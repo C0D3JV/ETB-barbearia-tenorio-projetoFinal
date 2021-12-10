@@ -15,9 +15,8 @@ public class TurmaDAO {
 
     public ArrayList<Turma> getLista() throws Exception {
         ArrayList<Turma> lista = new ArrayList<>();
-        String sql = " SELECT b.idBarbeiro, b.nome, b.dataNasc, b.cpf, b.email, b.endereco,"
-                + " b.telefone, b.idUsuario, cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco,"
-                + " t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre,"
+        String sql = " SELECT b.idBarbeiro, b.nome, b.idUsuario, cs.idCurso, "
+                + " cs.nome, t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre, "
                 + " t.turno, t.idBarbeiro, t.idCurso "
                 + "FROM turma t "
                 + "INNER JOIN barbeiro b "
@@ -41,18 +40,11 @@ public class TurmaDAO {
                 Barbeiro b = new Barbeiro();
                 b.setIdBarbeiro(rs.getInt("b.idBarbeiro"));
                 b.setNome(rs.getString("b.nome"));
-                b.setDataNasc(rs.getDate("b.dataNasc"));
-                b.setCpf(rs.getString("b.cpf"));
-                b.setEmail(rs.getString("b.email"));
-                b.setEndereco(rs.getString("b.endereco"));
-                b.setTelefone(rs.getString("b.telefone"));
                 t.setBarbeiro(b);
 
                 Curso cs = new Curso();
                 cs.setIdCurso(rs.getInt("cs.idCurso"));
                 cs.setNome(rs.getString("cs.nome"));
-                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                cs.setPreco(rs.getDouble("cs.preco"));
                 t.setCurso(cs);
 
                 lista.add(t);
@@ -124,9 +116,8 @@ public class TurmaDAO {
 
     public Turma getCarregarPorId(int idTurma) throws Exception {
         Turma t = new Turma();
-        String sql = " SELECT b.idBarbeiro, b.nome, b.dataNasc, b.cpf, b.email, b.endereco,"
-                + " b.telefone, b.idUsuario, cs.idCurso, cs.nome, cs.cargaHoraria, cs.preco,"
-                + " t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre,"
+        String sql = " SELECT b.idBarbeiro, b.nome, b.idUsuario, cs.idCurso, "
+                + "cs.nome, t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre,"
                 + " t.turno, t.idBarbeiro, t.idCurso "
                 + "FROM turma t "
                 + "INNER JOIN barbeiro b "
@@ -151,19 +142,12 @@ public class TurmaDAO {
                 Barbeiro b = new Barbeiro();
                 b.setIdBarbeiro(rs.getInt("b.idBarbeiro"));
                 b.setNome(rs.getString("b.nome"));
-                b.setDataNasc(rs.getDate("b.dataNasc"));
-                b.setCpf(rs.getString("b.cpf"));
-                b.setEmail(rs.getString("b.email"));
-                b.setEndereco(rs.getString("b.endereco"));
-                b.setTelefone(rs.getString("b.telefone"));
 
                 t.setBarbeiro(b);
 
                 Curso cs = new Curso();
                 cs.setIdCurso(rs.getInt("cs.idCurso"));
                 cs.setNome(rs.getString("cs.nome"));
-                cs.setCargaHoraria(rs.getInt("cs.cargaHoraria"));
-                cs.setPreco(rs.getDouble("cs.preco"));
 
                 t.setCurso(cs);
 

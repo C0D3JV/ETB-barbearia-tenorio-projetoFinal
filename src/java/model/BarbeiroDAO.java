@@ -16,8 +16,8 @@ public class BarbeiroDAO {
 
     public ArrayList<Barbeiro> getLista() throws Exception {
         ArrayList<Barbeiro> lista = new ArrayList<>();
-        String sql = "SELECT u.idUsuario, u.nome , u.login, u.senha, u.status, u.idPerfil,"
-                + "b.idBarbeiro, b.nome, b.dataNasc, b.cpf, b.email, b.endereco, b.telefone, b.idUsuario "
+        String sql = "SELECT u.idUsuario, u.nome , u.idPerfil, b.idBarbeiro, "
+                + "b.nome, b.dataNasc, b.cpf, b.email, b.endereco, b.telefone, b.idUsuario "
                 + "FROM usuario u "
                 + "INNER JOIN barbeiro b "
                 + "ON u.idUsuario = b.idUsuario ";
@@ -38,9 +38,6 @@ public class BarbeiroDAO {
                 Usuario u = new Usuario();
                 u.setIdUsuario(rs.getInt("u.idUsuario"));
                 u.setNome(rs.getString("u.nome"));
-                u.setLogin(rs.getString("u.login"));
-                u.setSenha(rs.getString("u.senha"));
-                u.setStatus(rs.getInt("u.status"));
 
                 b.setUsuario(u);
                 lista.add(b);
@@ -109,8 +106,8 @@ public class BarbeiroDAO {
 
     public Barbeiro getCarregarPorId(int idBarbeiro) throws Exception {
         Barbeiro b = new Barbeiro();
-        String sql = "SELECT u.idUsuario, u.nome , u.login, u.senha, u.status, u.idPerfil, "
-                + "b.idBarbeiro, b.nome, b.dataNasc, b.cpf, b.email, b.endereco, b.telefone, b.idUsuario "
+        String sql = "SELECT u.idUsuario, u.nome , u.idPerfil, b.idBarbeiro, "
+                + "b.nome, b.dataNasc, b.cpf, b.email, b.endereco, b.telefone, b.idUsuario "
                 + "FROM barbeiro b "
                 + "INNER JOIN usuario u "
                 + "ON u.idUsuario = b.idUsuario "
@@ -133,9 +130,6 @@ public class BarbeiroDAO {
                 Usuario u = new Usuario();
                 u.setIdUsuario(rs.getInt("u.idUsuario"));
                 u.setNome(rs.getString("u.nome"));
-                u.setLogin(rs.getString("u.login"));
-                u.setSenha(rs.getString("u.senha"));
-                u.setStatus(rs.getInt("u.status"));
 
                 b.setUsuario(u);
             }

@@ -16,9 +16,9 @@ public class ClienteDAO {
 
     public ArrayList<Cliente> getLista() throws Exception {
         ArrayList<Cliente> lista = new ArrayList<>();
-        String sql = "SELECT t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre, t.turno, t.idBarbeiro, "
-                + " t.idCurso, ct.idCliente, "
-                + " ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone, ct.idTurma "
+        String sql = "SELECT t.idTurma, t.nome, t.idBarbeiro, "
+                + " t.idCurso, ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, "
+                + " ct.email, ct.endereco, ct.telefone, ct.idTurma "
                 + "FROM cliente ct "
                 + "INNER JOIN turma t "
                 + "ON t.idTurma = ct.idTurma ";
@@ -39,10 +39,6 @@ public class ClienteDAO {
                 Turma t = new Turma();
                 t.setIdTurma(rs.getInt("t.idTurma"));
                 t.setNome(rs.getString("t.nome"));
-                t.setQtdAluno(rs.getInt("t.qtdAluno"));
-                t.setAno(rs.getString("t.ano"));
-                t.setSemestre(rs.getString("t.semestre"));
-                t.setTurno(rs.getString("t.turno"));
                 
                 ct.setTurma(t);
                 lista.add(ct);
@@ -114,8 +110,8 @@ public class ClienteDAO {
 
     public Cliente getCarregarPorId(int idCliente) throws Exception {
         Cliente ct = new Cliente();
-        String sql = "SELECT t.idTurma, t.nome, t.qtdAluno, t.ano, t.semestre, t.turno, t.idBarbeiro, "
-                + " t.idCurso, ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone,"
+        String sql = "SELECT t.idTurma, t.nome, t.idBarbeiro, t.idCurso, "
+                + " ct.idCliente, ct.nome, ct.dataNasc, ct.cpf, ct.email, ct.endereco, ct.telefone,"
                 + " ct.idTurma "
                 + "FROM cliente ct "
                 + "INNER JOIN turma t "
@@ -139,10 +135,6 @@ public class ClienteDAO {
                 Turma t = new Turma();
                 t.setIdTurma(rs.getInt("t.idTurma"));
                 t.setNome(rs.getString("t.nome"));
-                t.setQtdAluno(rs.getInt("t.qtdAluno"));
-                t.setAno(rs.getString("t.ano"));
-                t.setSemestre(rs.getString("t.semestre"));
-                t.setTurno(rs.getString("t.turno"));
 
                 ct.setTurma(t);
 

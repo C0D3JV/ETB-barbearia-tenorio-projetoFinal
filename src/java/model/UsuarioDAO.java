@@ -107,6 +107,7 @@ public class UsuarioDAO {
                 u.setLogin(rs.getString("u.login"));
                 u.setSenha(rs.getString("u.senha"));
                 u.setStatus(rs.getInt("u.status"));
+                
                 Perfil p = new Perfil();
                 p.setIdPerfil(rs.getInt("p.idPerfil"));
                 p.setNome(rs.getString("p.nome"));
@@ -159,7 +160,6 @@ public class UsuarioDAO {
                     + e.getMessage());
             return false;
         }
-
     }
 
     public Usuario getRecuperarUsuario(String login)
@@ -191,7 +191,6 @@ public class UsuarioDAO {
                     + e.getMessage());
             e.printStackTrace();
         }
-
         return u;
     }
 }
